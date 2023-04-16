@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark {
+  @apply bg-[#000000] text-[#FFFFFF];
+}
+.light {
+  @apply bg-[#ffffff] text-[#000000];
+}
+
+.bgTransition {
+  transition: background-color 0.15s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +22,14 @@
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
+}
+
+.toggle {
+  z-index: 9999;
+  width: 20px;
+  height: 20xp;
+  border-radius: 50%;
+  /* box-shadow: 2rem 2rem 0 0 #fff77e; */
 }
 
 .hash-span {
