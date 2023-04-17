@@ -37,16 +37,19 @@ export default function Navbar() {
             <Lottie options={defaultOptions} height={60} width={40} />
           </div>
 
-          <h1 className="ml-4">
-            Jing Li <p>Frontend Engineer</p>
-          </h1>
+          <motion.h1 className="ml-4 text-lg font-black text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
+            A Frontend Engineer <br /> portfolio
+          </motion.h1>
 
           <ul className="flex gap-8 ml-auto font-normal text-Metropolis font-base">
             {navLinks.map((link) => {
               return (
                 <motion.li
                   key={link.id}
-                  className={`${active === link.title ? 'text-white' : 'text-secondary'} hover:text-black`}
+                  className={classNames(
+                    `${active === link.title ? 'text-white' : 'text-secondary'}`,
+                    darkMode ? 'hover:text-white' : 'hover:text-black'
+                  )}
                   onClick={() => setActive(link.title)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}

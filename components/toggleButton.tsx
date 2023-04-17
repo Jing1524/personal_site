@@ -63,7 +63,7 @@ const boxVariants = {
       type: 'tween',
       duration: 0.6,
       // The first child will appear AFTER the parrent has appeared on the screen
-      delayChildren: 0.2,
+      delayChildren: 0.1,
       // The next sibling will appear 0.5s after the previous one
       staggerChildren: 0.1,
     },
