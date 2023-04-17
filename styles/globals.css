@@ -24,12 +24,37 @@
   color-scheme: dark;
 }
 
-.toggle {
-  z-index: 9999;
+.glass {
+  background: rgba(144, 19, 254, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glassLight {
+  background: rgba(37, 131, 240, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(16.5px);
+  -webkit-backdrop-filter: blur(16.5px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.moon {
   width: 20px;
-  height: 20xp;
+  height: 20px;
   border-radius: 50%;
-  /* box-shadow: 2rem 2rem 0 0 #fff77e; */
+  box-shadow: 0.5rem 0.2rem 0 0 #fff77e;
+}
+
+.sun {
+  box-shadow: 0 0 10px orange, 0 0 60px orange, 0 0 200px yellow, inset 0 0 80px yellow;
+}
+
+.starOne {
+  clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0 38%, 37% 38%);
 }
 
 .hash-span {
