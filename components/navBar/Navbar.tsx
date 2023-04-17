@@ -21,9 +21,6 @@ export default function Navbar() {
     loop: false,
     autoplay: true,
     animationData: kittyAnimate,
-    // rendererSettings: {
-    //   preserveAspectRatio: 'xMidYMid slice',
-    // },
   }
 
   return (
@@ -43,7 +40,7 @@ export default function Navbar() {
             A Frontend Engineer <br /> PORTFOLIO
           </motion.h1>
           {isTabletView ? (
-            <button className="flex ml-auto font-normal text-Metropolis font-base">
+            <button className="flex ml-auto mr-2 font-normal text-Metropolis font-base">
               {' '}
               <MenuButton
                 isOpen={navbarOpen}
@@ -58,7 +55,7 @@ export default function Navbar() {
               />
             </button>
           ) : (
-            <ul className="flex gap-8 ml-auto font-normal text-Metropolis font-base">
+            <ul className="flex gap-12 mx-auto font-normal text-Metropolis font-base">
               {navLinks.map((link) => {
                 return (
                   <motion.li
