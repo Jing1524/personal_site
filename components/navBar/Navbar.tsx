@@ -15,7 +15,7 @@ export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [active, setActive] = useState('')
   const { darkMode, toggleDarkMode } = useModeToggle()
-  const isTabletView = useMediaQuery('(max-width: 768px)')
+  const isMobileView = useMediaQuery('(max-width: 768px)')
 
   const defaultOptions = {
     loop: false,
@@ -39,7 +39,7 @@ export default function Navbar() {
           <motion.h1 className="ml-4 text-lg font-black text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
             A Frontend Engineer <br /> PORTFOLIO
           </motion.h1>
-          {isTabletView ? (
+          {isMobileView ? (
             <button className="flex ml-auto mr-2 font-normal text-Metropolis font-base">
               {' '}
               <MenuButton
