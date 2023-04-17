@@ -43,7 +43,7 @@ export const navLinks = [
 // const services = [
 //   {
 //     title: 'Web Developer',
-//     icon: web,
+//     icon: '/public/icons/web.svg',
 //   },
 //   {
 //     title: 'React Native Developer',
@@ -258,5 +258,5 @@ export const navLinks = [
 //     source_code_link: 'https://github.com/',
 //   },
 // ]
-// services,
-// export { technologies, experiences, testimonials, projects }
+// services, technologies, experiences, testimonials, projects
+// export { services }
