@@ -32,13 +32,12 @@ export default function Navbar() {
             darkMode ? 'dark bgTransition drop-shadow-[0_8px_10px_rgba(255,255,255)]' : 'light bgTransition'
           )}
         >
-          <div className="m-0">
+          <motion.h1 className="ml-4 text-lg font-black text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
+            A Frontend Engineer&apos;s <br /> PORTFOLIO
+          </motion.h1>
+          <div className="m-0 -ml-[70px]">
             <Lottie options={defaultOptions} height={60} width={40} />
           </div>
-
-          <motion.h1 className="ml-4 text-lg font-black text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
-            A Frontend Engineer <br /> PORTFOLIO
-          </motion.h1>
           {isMobileView ? (
             <button className="flex ml-auto mr-2 font-normal text-Metropolis font-base">
               {' '}

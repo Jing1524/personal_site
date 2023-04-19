@@ -3,6 +3,7 @@ import Computer from './Computer'
 import ComputersCanvas from './Computer'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import CharacterCanvas from './Computer'
 
 export default function Hero() {
   return (
@@ -13,14 +14,13 @@ export default function Hero() {
           <div className="w-1 h-40 md:h-80 violet-gradient" />
         </div>
         <div>
-          {/* TODO: add typewrite effect */}
-          <h1 className=" font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
+          {/* type effect with space issue */}
+          <h1 className="font-black lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
             <TypewriterEffect text="Hi, I'm Jing" />
-            {/* Hi, I&apos;m <span className="text-[#915eff]">Jing Li</span> */}
           </h1>
 
           <motion.p
-            className="text-[#dfd9ff] font-medium text-[16px] lg:leading-[40px] mt-2"
+            className="font-medium text-[16px] lg:leading-[40px] mt-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ durtion: 1, delay: 2 }}
@@ -30,7 +30,8 @@ export default function Hero() {
           </motion.p>
         </div>
       </div>
-      <ComputersCanvas />
+      <CharacterCanvas />
+
       <div className="absolute flex items-center justify-center w-full xs:bottom-10 bottom-32">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
