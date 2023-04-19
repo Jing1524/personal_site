@@ -43,7 +43,7 @@ const CharacterCanvas = () => {
       }
     }
   }, [])
-  console.log({ isMobile })
+
   return (
     <Canvas
       frameloop="demand"

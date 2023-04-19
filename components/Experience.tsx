@@ -2,10 +2,12 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import { motion } from 'framer-motion'
 import { experiences } from '../constants'
 import 'react-vertical-timeline-component/style.min.css'
+import { useModeToggle } from '@/context/ModeProvider'
 const ExperienceCard = ({ experience }: any) => {
+  const { darkMode } = useModeToggle()
   return (
     <VerticalTimelineElement
-      contentStyle={{ background: '#1d1836', color: '#fff' }}
+      contentStyle={{ background: darkMode ? '#1d1836' : '#1d1836', color: darkMode ? '#fff' : '#000' }}
       contentArrowStyle={{ borderRight: '7px solid #232631' }}
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
@@ -51,10 +53,8 @@ export default function Experience() {
   return (
     <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
       <motion.div>
-        <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">What i have done so far</p>
-        <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
-          Work Experience.
-        </h2>
+        <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">What i have done so far</p>
+        <h2 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Work Experience.</h2>
       </motion.div>
       <div className="flex flex-col mt-20">
         <VerticalTimeline>

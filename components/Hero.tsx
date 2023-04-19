@@ -1,9 +1,8 @@
 import { styles } from '@/styles/style'
-import Computer from './Computer'
-import ComputersCanvas from './Computer'
+
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import CharacterCanvas from './Computer'
+import CharacterCanvas from './Character'
 
 export default function Hero() {
   return (
