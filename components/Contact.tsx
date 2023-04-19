@@ -1,8 +1,10 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
+import kittyAnimate from '../assets/lottie/kitty.json'
 
 import EarthCanvas from './canvas/EarthCanvas'
+import Lottie from 'react-lottie'
 
 export default function Contact() {
   const formRef = useRef()
@@ -51,6 +53,12 @@ export default function Contact() {
       )
   }
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: kittyAnimate,
+  }
+
   return (
     <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
       <div className="flex flex-col-reverse gap-10 overflow-hidden xl:mt-12 xl:flex-row">
@@ -58,15 +66,19 @@ export default function Contact() {
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ type: 'tween', delay: 0.5, duration: 1 }}
-          className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+          className="flex-[0.75] p-8 rounded-2xl contactFormGlass"
         >
+          <div className="w-[100px] h-[10px] float-right rotate-180 mt-[60px]">
+            <Lottie options={defaultOptions} height={100} width={100} />
+          </div>
+
           <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">Get in touch</p>
           <h3 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Contact.</h3>
 
           <form ref={formRef} className="flex flex-col gap-8 mt-12" onSubmit={HandleSubmit}>
             <label className="flex flex-col">
               <span className="mb-4 font-medium">Your Name</span>
-              {/*  onChange={handleChange} */}
+
               <input
                 type="text"
                 name="name"
@@ -78,7 +90,7 @@ export default function Contact() {
             </label>
             <label className="flex flex-col">
               <span className="mb-4 font-medium">Your email</span>
-              {/*  onChange={handleChange} */}
+
               <input
                 type="email"
                 name="email"
@@ -90,9 +102,9 @@ export default function Contact() {
             </label>
             <label className="flex flex-col">
               <span className="mb-4 font-medium">Your Message</span>
-              {/*  onChange={handleChange} */}
+
               <textarea
-                rows="7"
+                rows={7}
                 name="message"
                 value={form.message}
                 placeholder="what's your thoughts?"

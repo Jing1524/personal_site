@@ -2,6 +2,7 @@ import { styles } from '@/styles/style'
 import Computer from './Computer'
 import ComputersCanvas from './Computer'
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 export default function Hero() {
   return (
@@ -13,14 +14,20 @@ export default function Hero() {
         </div>
         <div>
           {/* TODO: add typewrite effect */}
-          <h1 className="font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
-            Hi, I&apos;m <span className="text-[#915eff]">Jing Li</span>
+          <h1 className=" font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
+            <TypewriterEffect text="Hi, I'm Jing" />
+            {/* Hi, I&apos;m <span className="text-[#915eff]">Jing Li</span> */}
           </h1>
-          {/* lg:text-[30px] sm:text-[26px] xs:text-[20px]  */}
-          <p className="text-[#dfd9ff] font-medium text-[16px] lg:leading-[40px] mt-2">
+
+          <motion.p
+            className="text-[#dfd9ff] font-medium text-[16px] lg:leading-[40px] mt-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ durtion: 1, delay: 2 }}
+          >
             a software engineer with experience in end to end product development, <br />
             My core competencies include front-end development, UX/UI design, and agile product development.
-          </p>
+          </motion.p>
         </div>
       </div>
       <ComputersCanvas />
@@ -36,5 +43,35 @@ export default function Hero() {
         </a>
       </div>
     </section>
+  )
+}
+
+function TypewriterEffect({ text }: any) {
+  const [typedText, setTypedText] = useState('')
+  const [textIndex, setTextIndex] = useState(0)
+  const [blink, setBlink] = useState(true)
+  useEffect(() => {
+    if (textIndex < text.length) {
+      setTimeout(() => {
+        setTypedText(typedText + text[textIndex])
+        setTextIndex(textIndex + 1)
+      }, 500)
+    }
+  }, [textIndex, typedText, text])
+
+  useEffect(() => {
+    const timeout2 = setTimeout(() => {
+      setBlink((prev) => !prev)
+    }, 500)
+    return () => clearTimeout(timeout2)
+  }, [blink])
+
+  const charList = typedText.split('').map((char, index) => <p key={index}>{char}</p>)
+
+  return (
+    <div className="flex">
+      <div className="flex">{charList}</div>
+      <span>{blink ? '|' : ''}</span>
+    </div>
   )
 }

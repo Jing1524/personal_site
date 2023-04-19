@@ -3,7 +3,7 @@ import BallCanvas from './canvas/BallCanvas'
 
 export default function Tech() {
   return (
-    <div className="flex flex-row flex-wrap justify-center gap-10">
+    <div className="flex flex-row flex-wrap justify-center gap-10 w-[90vw] mx-auto my-8">
       {technologies.map((technology) => {
         return (
           <div className="w-28 h-28" key={technology.name}>
