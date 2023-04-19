@@ -19,7 +19,7 @@ export default function Home() {
       <Experience />
       <Tech />
       <Projects />
-      <Feedbacks />
+
       <div className="relative z-0">
         <Contact />
         <StarCanvas />
