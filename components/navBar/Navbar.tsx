@@ -29,7 +29,7 @@ export default function Navbar() {
         <nav
           className={classNames(
             'flex items-center px-4 w-[90vw] rounded-2xl shadow-xl bg-white mt-[18px]',
-            darkMode ? 'dark bgTransition' : 'light bgTransition'
+            darkMode ? 'dark bgTransition drop-shadow-[0_8px_10px_rgba(255,255,255)]' : 'light bgTransition'
           )}
         >
           <div className="m-0">

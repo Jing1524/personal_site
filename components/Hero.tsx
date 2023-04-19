@@ -12,6 +12,7 @@ export default function Hero() {
           <div className="w-1 h-40 md:h-80 violet-gradient" />
         </div>
         <div>
+          {/* TODO: add typewrite effect */}
           <h1 className="font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
             Hi, I&apos;m <span className="text-[#915eff]">Jing Li</span>
           </h1>
