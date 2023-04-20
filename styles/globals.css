@@ -19,10 +19,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   scroll-behavior: smooth;
 }
 
+.experienceBg {
+  background: url('/images/gradientBg-2.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .glass {
   background: rgba(144, 19, 254, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

@@ -1,6 +1,6 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import { motion } from 'framer-motion'
-
+import Image from 'next/image'
 import { experiences } from '../constants'
 import 'react-vertical-timeline-component/style.min.css'
 import { useModeToggle } from '@/context/ModeProvider'
@@ -11,11 +11,11 @@ const ExperienceCard = ({ experience }: any) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: darkMode ? '#1d1836' : '#E0B391',
+        background: darkMode ? '#1d1836' : '#ECF2FF',
         color: darkMode ? '#fff' : '#000',
         borderRadius: '16px',
       }}
-      contentArrowStyle={{ borderRight: darkMode ? '' : '7px solid #E0B391' }}
+      contentArrowStyle={{ borderRight: darkMode ? '' : '7px solid #ECF2FF' }}
       date={experience.date}
       iconStyle={{ background: '#8BC7DD' }}
     >
@@ -41,7 +41,7 @@ const ExperienceCard = ({ experience }: any) => {
 export default function Experience() {
   return (
     //  sm:px-16 sm:py-16 max-w-7xl
-    <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl ">
+    <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
       <motion.div>
         <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">What i have done so far</p>
         <h2 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Work Experience.</h2>

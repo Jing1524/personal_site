@@ -18,12 +18,14 @@ export default function Home() {
       <Head>
         <title>Jing&apos;s portfolio</title>
       </Head>
-      <div className="bg-center bg-no-repeat bg-cover bg-hero-pattern">
+      <div className="bg-center bg-no-repeat bg-cover">
         <Navbar />
         <Hero />
       </div>
       <About />
-      <Experience />
+      <div className="experienceBg">
+        <Experience />
+      </div>
       <Tech />
       <Projects />
 
