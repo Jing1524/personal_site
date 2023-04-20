@@ -4,6 +4,9 @@ module.exports = {
   mode: 'jit',
   theme: {
     extend: {
+      fontFamily: {
+        ubuntu: ['Ubuntu Mono', 'monospace'],
+      },
       colors: {
         primary: '#050816',
         secondary: '#aaa6c3',

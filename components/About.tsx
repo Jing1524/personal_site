@@ -2,34 +2,40 @@ import Tilt from 'react-parallax-tilt'
 import { motion } from 'framer-motion'
 import { fadeIn, textVariant } from '../utils/motion'
 import SectionWrapper from './SectionWrapper'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import useIsInViewport from '@/hooks/useIsInViewport'
+import classNames from 'classnames'
+import { useModeToggle } from '@/context/ModeProvider'
 const About = () => {
   const [isInView, setIsInView] = useState(false)
+  const { darkMode } = useModeToggle()
   return (
-    // TODO: add sliding in effect for both introduction and the card
-    <motion.section
-      className="relative z-0 flex flex-col px-6 py-10 mx-auto md:flex-row sm:px-16 sm:py-16 max-w-7xl"
-      // @ts-ignore
-      whileInView={() => {
-        return setIsInView(true)
-      }}
-    >
+    <motion.section className="relative z-0 flex flex-col px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView && { opacity: 1 }}
+        // @ts-ignore
+        whileInView={() => {
+          return setIsInView(true)
+        }}
+        initial={{ x: -50, opacity: 0 }}
+        animate={isInView && { x: 0, opacity: 1 }}
         transition={{ duration: 2, delay: 0.2 }}
+        className="flex self-center md:self-start items-center justify-center w-[225px] h-[100px] squareGlass rounded-xl -mb-[20px] md:-ml-[70px]"
       >
-        <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">Introduction</p>
-        <h2 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Overview.</h2>
+        <p className="text-2xl tracking-wider text-white uppercase font-ubuntu">Introduction</p>
       </motion.div>
-      {/* TODO: add glare color */}
+
       <motion.div
         initial={{ x: 50, opacity: 0 }}
         animate={isInView && { x: 0, opacity: 1 }}
         transition={{ duration: 2, delay: 0.2 }}
+        className="z-[1]"
       >
-        <Tilt className="p-4 ml-4 bgGlass" tiltMaxAngleX={8} tiltMaxAngleY={8} tiltAngleYInitial={8}>
-          <motion.p className="mt-4 text-[17px] max-w-3xl leading-[30px]">
+        <Tilt
+          className={classNames('p-6', darkMode ? 'bgGlass-dark' : 'bgGlass-light')}
+          tiltMaxAngleX={8}
+          tiltMaxAngleY={8}
+        >
+          <motion.p className="mt-4 text-[17px] leading-[30px] text-center">
             Working as a frontend engineer at Pineapple Workshop, I leveraged my background in design and music to
             approach engineering challenges with a unique viewpoint on creativity, self-discipline, and teamwork. With
             two years of experience building and delivering web applications, I have honed my skills in modern

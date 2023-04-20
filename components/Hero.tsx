@@ -66,12 +66,16 @@ function TypewriterEffect({ text }: any) {
     return () => clearTimeout(timeout2)
   }, [blink])
 
-  const charList = typedText.split('').map((char, index) => <p key={index}>{char}</p>)
+  const charList = typedText.split('  ').map((char, index) => (
+    <p key={index} className="font-ubuntu">
+      {char}
+    </p>
+  ))
 
   return (
     <div className="flex">
       <div className="flex">{charList}</div>
-      <span>{blink ? '|' : ''}</span>
+      <span className="text-gray-400">{blink ? '|' : ''}</span>
     </div>
   )
 }

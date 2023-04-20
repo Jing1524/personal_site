@@ -9,11 +9,15 @@ import StarCanvas from '@/components/StarCanvas'
 import Tech from '@/components/Tech'
 import { useModeToggle } from '@/context/ModeProvider'
 import classNames from 'classnames'
+import Head from 'next/head'
 
 export default function Home() {
   const { darkMode } = useModeToggle()
   return (
     <main className={classNames('relative z-0', darkMode ? 'dark bgTransition' : 'light bgTransition')}>
+      <Head>
+        <title>Jing&apos;s portfolio</title>
+      </Head>
       <div className="bg-center bg-no-repeat bg-cover bg-hero-pattern">
         <Navbar />
         <Hero />

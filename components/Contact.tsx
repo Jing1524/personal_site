@@ -61,19 +61,19 @@ export default function Contact() {
 
   return (
     <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
-      <div className="flex flex-col-reverse gap-10 overflow-hidden xl:mt-12 xl:flex-row">
+      <div className="flex flex-col-reverse gap-10 xl:mt-12 xl:flex-row">
         <motion.div
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ type: 'tween', delay: 0.5, duration: 1 }}
           className="flex-[0.75] p-8 rounded-2xl contactFormGlass"
         >
-          <div className="w-[100px] h-[10px] float-right rotate-180 mt-[60px]">
+          <div className="w-[100px] h-[10px] float-right rotate-180 mt-[56px]">
             <Lottie options={defaultOptions} height={100} width={100} />
           </div>
 
-          <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">Get in touch</p>
-          <h3 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Contact.</h3>
+          <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">Get in touch</p>
+          <h3 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Contact.</h3>
 
           <form ref={formRef} className="flex flex-col gap-8 mt-12" onSubmit={HandleSubmit}>
             <label className="flex flex-col">
