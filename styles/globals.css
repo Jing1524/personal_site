@@ -59,10 +59,10 @@
 }
 
 .contactFormGlass {
-  background: rgba(184, 178, 209, 0.25);
+  background: rgba(213, 182, 248, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -75,6 +75,14 @@
   backdrop-filter: blur(11px);
   -webkit-backdrop-filter: blur(11px);
   border-radius: 10px;
+}
+
+.btn {
+  background: #fff; /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: -webkit-linear-gradient(to right, #434343, #fff); */
+  /* background: linear-gradient(to right, #434343, #fff); */
+  box-shadow: 0 0 20px #fff, -10px 0 30px #f0f, 10px 0 30px #0ff;
 }
 
 .moon {
@@ -90,20 +98,6 @@
 
 .starOne {
   clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0 38%, 37% 38%);
-}
-
-.vertical-timeline.vertical-timeline-custom-line::before {
-  background: #424242;
-}
-.vertical-timeline-element > span {
-}
-/* Icon container's border */
-.vertical-timeline.vertical-timeline-custom-line .vertical-timeline-element--work .vertical-timeline-element-icon {
-  box-shadow: 0 0 0 4px #1976d2, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-}
-
-.vertical-timeline.vertical-timeline-custom-line .vertical-timeline-element--education .vertical-timeline-element-icon {
-  box-shadow: 0 0 0 4px #c2185b, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .black-gradient {

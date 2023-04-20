@@ -1,9 +1,10 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import { motion } from 'framer-motion'
-import Tilt from 'react-parallax-tilt'
+
 import { experiences } from '../constants'
 import 'react-vertical-timeline-component/style.min.css'
 import { useModeToggle } from '@/context/ModeProvider'
+
 const ExperienceCard = ({ experience }: any) => {
   const { darkMode } = useModeToggle()
 
@@ -39,7 +40,7 @@ const ExperienceCard = ({ experience }: any) => {
 
 export default function Experience() {
   return (
-    //  sm:px-16 sm:py-16 max-w-7xl bg-[url('public/images/testImg.svg')]
+    //  sm:px-16 sm:py-16 max-w-7xl
     <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl ">
       <motion.div>
         <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">What i have done so far</p>

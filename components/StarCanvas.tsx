@@ -2,8 +2,10 @@ import { useState, useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Points, PointMaterial, Preload } from '@react-three/drei'
 import * as random from 'maath/random'
+import { useModeToggle } from '@/context/ModeProvider'
 
 const Stars = (props: any) => {
+  const { darkMode } = useModeToggle()
   const ref = useRef()
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }))
 
@@ -19,7 +21,13 @@ const Stars = (props: any) => {
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
-        <PointMaterial transparent color="#f272c8" size={0.002} sizeAttenuation={true} depthWrite={false} />
+        <PointMaterial
+          transparent
+          color={darkMode ? '#f272c8' : '#E384FF'}
+          size={0.003}
+          sizeAttenuation={true}
+          depthWrite={false}
+        />
       </Points>
     </group>
   )

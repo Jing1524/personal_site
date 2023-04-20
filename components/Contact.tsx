@@ -5,8 +5,11 @@ import kittyAnimate from '../assets/lottie/kitty.json'
 
 import EarthCanvas from './canvas/EarthCanvas'
 import Lottie from 'react-lottie'
+import classNames from 'classnames'
+import { useModeToggle } from '@/context/ModeProvider'
 
 export default function Contact() {
+  const { darkMode } = useModeToggle()
   const formRef = useRef()
   const [form, setForm] = useState({
     name: '',
@@ -66,7 +69,7 @@ export default function Contact() {
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ type: 'tween', delay: 0.5, duration: 1 }}
-          className="flex-[0.75] p-8 rounded-2xl contactFormGlass"
+          className={classNames('flex-[0.75] p-8 rounded-2xl', darkMode ? 'contactFormGlass' : 'bgGlass-light')}
         >
           <div className="w-[100px] h-[10px] float-right rotate-180 mt-[56px]">
             <Lottie options={defaultOptions} height={100} width={100} />
@@ -85,7 +88,12 @@ export default function Contact() {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="what's your name?"
-                className="px-6 py-4 font-medium border-none rounded-lg bg-tertiary placeholder:text-secondary outlined-none"
+                className={classNames(
+                  ' px-6 py-4 font-medium border-none rounded-lg outlined-none',
+                  darkMode
+                    ? 'bg-[#2A2F4F] placeholder:text-white text-white'
+                    : 'bg-[#ECF2FF] placeholder:text-black text-black'
+                )}
               />
             </label>
             <label className="flex flex-col">
@@ -97,7 +105,12 @@ export default function Contact() {
                 value={form.email}
                 placeholder="what's your email?"
                 onChange={handleChange}
-                className="px-6 py-4 font-medium border-none rounded-lg bg-tertiary placeholder:text-secondary outlined-none"
+                className={classNames(
+                  ' px-6 py-4 font-medium border-none rounded-lg placeholder:text-black outlined-none',
+                  darkMode
+                    ? 'bg-[#2A2F4F] placeholder:text-white text-white'
+                    : 'bg-[#ECF2FF] placeholder:text-black text-black'
+                )}
               />
             </label>
             <label className="flex flex-col">
@@ -109,12 +122,20 @@ export default function Contact() {
                 value={form.message}
                 placeholder="what's your thoughts?"
                 onChange={handleChange}
-                className="px-6 py-4 font-medium border-none rounded-lg bg-tertiary placeholder:text-secondary outlined-none"
+                className={classNames(
+                  ' px-6 py-4 font-medium border-none rounded-lg placeholder:text-black outlined-none',
+                  darkMode
+                    ? 'bg-[#2A2F4F] placeholder:text-white text-white'
+                    : 'bg-[#ECF2FF] placeholder:text-black text-black'
+                )}
               />
             </label>
             <button
               type="submit"
-              className="px-8 py-3 font-bold shadow-md outline-none bg-tertiary w-fit shadow-primary rounded-xl"
+              className={classNames(
+                'text-black self-center px-8 py-3 font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
+                darkMode && 'bg-[#2A2F4F] text-white'
+              )}
             >
               {loading ? 'Sending...' : 'Send'}
             </button>
