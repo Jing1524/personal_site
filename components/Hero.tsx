@@ -9,8 +9,8 @@ export default function Hero() {
     <section className="relative w-full h-screen mx-auto">
       <div className="px-6 absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5">
         <div className="flex flex-col items-center justify-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#915eff]" />
-          <div className="w-1 h-40 md:h-80 violet-gradient" />
+          <div className="w-5 h-5 rounded-full bg-[#000]" />
+          <div className="w-1 h-40 md:h-80 blkGradient" />
         </div>
         <div>
           {/* type effect with space issue */}
@@ -20,9 +20,9 @@ export default function Hero() {
 
           <motion.p
             className="font-medium text-[16px] lg:leading-[40px] mt-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ durtion: 1, delay: 2 }}
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ durtion: 2, delay: 3, type: 'tween' }}
           >
             a software engineer with experience in end to end product development, <br />
             My core competencies include front-end development, UX/UI design, and agile product development.
@@ -55,14 +55,14 @@ function TypewriterEffect({ text }: any) {
       setTimeout(() => {
         setTypedText(typedText + text[textIndex])
         setTextIndex(textIndex + 1)
-      }, 500)
+      }, 350)
     }
   }, [textIndex, typedText, text])
 
   useEffect(() => {
     const timeout2 = setTimeout(() => {
       setBlink((prev) => !prev)
-    }, 500)
+    }, 400)
     return () => clearTimeout(timeout2)
   }, [blink])
 

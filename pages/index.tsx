@@ -38,7 +38,7 @@ export default function Home() {
         'relative z-0 overflow-hidden w-[100vw]',
         darkMode
           ? 'dark bgTransition'
-          : 'animate-bgGround bg-gradient-to-br from-[#8caab7] via-[#e2d4cd] to-[#f6f5f3] test bgTransition' //from-[#f6f5f3]
+          : 'animate-bgGround bg-gradient-to-br from-[#8caab7] via-[#e2d4cd] to-[#f6f5f3] test bgTransition' //background-image: linear-gradient(to right top, #19193f, #1b1734, #1b1629, #19151f, #151416);
       )}
     >
       <Head>

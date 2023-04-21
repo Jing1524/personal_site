@@ -29,7 +29,7 @@ export default function Navbar() {
         <nav
           className={classNames(
             'flex items-center px-4 w-[90vw] rounded-2xl shadow-xl bg-white mt-[18px]',
-            darkMode ? 'dark bgTransition drop-shadow-[0_8px_10px_rgba(255,255,255)]' : 'light bgTransition'
+            darkMode ? 'navGlassDark bgTransition ' : 'navGlassLight bgTransition'
           )}
         >
           <motion.h1 className="ml-4 text-lg font-black text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
@@ -54,13 +54,13 @@ export default function Navbar() {
               />
             </button>
           ) : (
-            <ul className="flex gap-12 mx-auto font-normal text-Metropolis font-base">
+            <ul className="flex gap-12 mx-auto text-xl font-inter text-Metropolis">
               {navLinks.map((link) => {
                 return (
                   <motion.li
                     key={link.id}
                     className={classNames(
-                      `${active === link.title ? 'text-white' : 'text-secondary'}`,
+                      `${active === link.title ? 'text-white' : 'text-gray-500'}`,
                       darkMode ? 'hover:text-white' : 'hover:text-black'
                     )}
                     onClick={() => setActive(link.title)}

@@ -9,7 +9,10 @@ const About = () => {
   const [isInView, setIsInView] = useState(false)
   const { darkMode } = useModeToggle()
   return (
-    <motion.section className="relative z-0 flex flex-col px-6 py-10 mx-auto my-28 sm:px-16 sm:py-16 max-w-7xl">
+    <motion.section
+      id="about"
+      className="relative z-0 flex flex-col px-6 py-10 mx-auto my-28 sm:px-16 sm:py-16 max-w-7xl"
+    >
       <motion.div
         // @ts-ignore
         whileInView={() => {

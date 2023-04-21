@@ -63,13 +63,16 @@ export default function Contact() {
   }
 
   return (
-    <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
+    <motion.section id="contact" className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
       <div className="flex flex-col-reverse gap-10 xl:mt-12 xl:flex-row">
         <motion.div
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ type: 'tween', delay: 0.5, duration: 1 }}
-          className={classNames('flex-[0.75] p-8 rounded-2xl', darkMode ? 'contactFormGlass' : 'bgGlass-light')}
+          className={classNames(
+            'flex-[0.75] p-8 rounded-2xl',
+            darkMode ? 'contactFormGlassDark' : 'contactFormGlassLight'
+          )}
         >
           <div className="w-[100px] h-[10px] float-right rotate-180 mt-[56px]">
             <Lottie options={defaultOptions} height={100} width={100} />
@@ -92,7 +95,7 @@ export default function Contact() {
                   ' px-6 py-4 font-medium border-none rounded-lg outlined-none',
                   darkMode
                     ? 'bg-[#2A2F4F] placeholder:text-white text-white'
-                    : 'bg-[#ECF2FF] placeholder:text-secondary text-black'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
                 )}
               />
             </label>
@@ -109,7 +112,7 @@ export default function Contact() {
                   ' px-6 py-4 font-medium border-none rounded-lg outlined-none',
                   darkMode
                     ? 'bg-[#2A2F4F] placeholder:text-white text-white'
-                    : 'bg-[#ECF2FF] placeholder:text-secondary text-black'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
                 )}
               />
             </label>
@@ -126,7 +129,7 @@ export default function Contact() {
                   ' px-6 py-4 font-medium border-none rounded-lg outlined-none',
                   darkMode
                     ? 'bg-[#2A2F4F] placeholder:text-white text-white'
-                    : 'bg-[#ECF2FF] placeholder:text-secondary text-black'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
                 )}
               />
             </label>

@@ -44,7 +44,10 @@ export default function Experience() {
   const { darkMode } = useModeToggle()
   return (
     //  sm:px-16 sm:py-16 max-w-7xl
-    <motion.section className="relative z-0 flex flex-col px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
+    <motion.section
+      id="experience"
+      className="relative z-0 flex flex-col px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl"
+    >
       <motion.div
         // @ts-ignore
         whileInView={() => {

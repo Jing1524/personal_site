@@ -47,6 +47,23 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.navGlassLight {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.navGlassDark {
+  background: rgba(2, 2, 2, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
 .glassLight {
   background: rgba(37, 131, 240, 0.35);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -72,8 +89,16 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+.contactFormGlassLight {
+  background: rgba(93, 134, 138, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
 
-.contactFormGlass {
+.contactFormGlassDark {
   background: rgba(213, 182, 248, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7px);
@@ -132,10 +157,10 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
-  background: -webkit-linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+.blkGradient {
+  background: #000;
+  background: linear-gradient(-90deg, #000 0%, rgba(60, 51, 80, 0) 100%);
+  background: -webkit-linear-gradient(-90deg, #000 0%, rgba(60, 51, 80, 0) 100%);
 }
 
 .green-pink-gradient {

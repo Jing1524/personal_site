@@ -23,7 +23,7 @@ const ProjectCard = ({ index, name, description, tags, source_code_link }: any) 
 
 const Projects = () => {
   return (
-    <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
+    <motion.section id="work" className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
       <motion.div>
         <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">what i have build</p>
         <h2 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Projects.</h2>
