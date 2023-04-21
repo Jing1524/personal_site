@@ -148,7 +148,7 @@ export default function Contact() {
           initial={{ x: 100 }}
           animate={{ x: 0 }}
           transition={{ type: 'tween', delay: 0.5, duration: 1 }}
-          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+          className="xl:flex-[0.75] xl:h-auto md:h-[550px] h-[350px]"
         >
           <KittyCanvas />
         </motion.div>

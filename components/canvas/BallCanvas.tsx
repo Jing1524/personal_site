@@ -14,7 +14,6 @@ const Ball = (props: any) => {
   })
 
   return (
-    // <Float rotationIntensity={1} speed={3}>
     <group ref={ballRef}>
       <hemisphereLight intensity={0.4} groundColor="white" />
       <directionalLight position={[10, -15, -10]} intensity={0.5} />
@@ -34,7 +33,6 @@ const Ball = (props: any) => {
         <Decal position={[0, 0, 1]} rotation={[2 * Math.PI, 0, 6.25]} scale={0.8} map={decal} flatShading />
       </mesh>
     </group>
-    // </Float>
   )
 }
 

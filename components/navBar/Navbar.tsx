@@ -1,6 +1,6 @@
 import react, { useEffect, useState } from 'react'
 import Lottie from 'react-lottie'
-import { styles } from '../../styles/style'
+
 import { navLinks } from '../../constants'
 import { useModeToggle } from '@/context/ModeProvider'
 import classNames from 'classnames'

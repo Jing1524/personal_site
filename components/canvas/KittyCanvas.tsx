@@ -40,7 +40,7 @@ const KittyCanvas = () => {
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          rotation={[-Math.PI / 2, -Math.PI / 1.4, 0]}
+          rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
