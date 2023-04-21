@@ -4,10 +4,9 @@ import Image from 'next/image'
 import { experiences } from '../constants'
 import 'react-vertical-timeline-component/style.min.css'
 import { useModeToggle } from '@/context/ModeProvider'
+import { useState } from 'react'
 
-const ExperienceCard = ({ experience }: any) => {
-  const { darkMode } = useModeToggle()
-
+const ExperienceCard = ({ experience, darkMode }: any) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -15,20 +14,22 @@ const ExperienceCard = ({ experience }: any) => {
         color: darkMode ? '#fff' : '#000',
         borderRadius: '16px',
       }}
-      contentArrowStyle={{ borderRight: darkMode ? '' : '7px solid #ECF2FF' }}
+      contentArrowStyle={{ borderRight: darkMode ? '7px solid #1d1836' : '7px solid #ECF2FF' }}
       date={experience.date}
-      iconStyle={{ background: '#8BC7DD' }}
+      dateClassName="elementDate"
+      iconStyle={{ background: '#fff' }}
+      icon={<p className="text-6xl">&#x2728;</p>}
     >
       <div>
-        <h3 className="text-[24px] font-bold">{experience.title}</h3>
-        <p className="text-base font-semibold" style={{ margin: 0 }}>
+        <h3 className="text-[24px] font-bold font-inter">{experience.title}</h3>
+        <p className="text-base font-semibold font-inter" style={{ margin: 0 }}>
           {experience.company_name}
         </p>
       </div>
       <ul className="mt-5 ml-5 space-y-2 list-disc">
         {experience.points.map((point: any, index: any) => {
           return (
-            <li key={`experience-point-${index}`} className="text-[14px] pl-1 tracking-wider">
+            <li key={`experience-point-${index}`} className="text-[14px] pl-1 tracking-wider font-inter">
               {point}
             </li>
           )
@@ -39,17 +40,28 @@ const ExperienceCard = ({ experience }: any) => {
 }
 
 export default function Experience() {
+  const [isInView, setIsInView] = useState(false)
+  const { darkMode } = useModeToggle()
   return (
     //  sm:px-16 sm:py-16 max-w-7xl
-    <motion.section className="relative z-0 px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
-      <motion.div>
-        <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">What i have done so far</p>
-        <h2 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Work Experience.</h2>
+    <motion.section className="relative z-0 flex flex-col px-6 py-10 mx-auto sm:px-16 sm:py-16 max-w-7xl">
+      <motion.div
+        // @ts-ignore
+        whileInView={() => {
+          return setIsInView(true)
+        }}
+        initial={{ opacity: 0 }}
+        animate={isInView && { opacity: 1 }}
+        transition={{ duration: 2, delay: 0.2 }}
+        className="self-end"
+      >
+        <p className="text-4xl font-black tracking-normal uppercase font-ubuntu">what I have done so far:</p>
       </motion.div>
-      <div className="flex flex-col mt-20">
-        <VerticalTimeline lineColor={'#8BC7DD'}>
+
+      <div className="flex flex-col mt-10">
+        <VerticalTimeline lineColor={darkMode ? '#fff' : '#000'}>
           {experiences.map((experience: any, index: number) => {
-            return <ExperienceCard key={index} experience={experience} />
+            return <ExperienceCard key={index} experience={experience} darkMode={darkMode} />
           })}
         </VerticalTimeline>
       </div>

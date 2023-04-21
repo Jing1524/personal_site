@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import kittyAnimate from '../assets/lottie/kitty.json'
 
-import EarthCanvas from './canvas/EarthCanvas'
+import KittyCanvas from './canvas/KittyCanvas'
 import Lottie from 'react-lottie'
 import classNames from 'classnames'
 import { useModeToggle } from '@/context/ModeProvider'
@@ -92,7 +92,7 @@ export default function Contact() {
                   ' px-6 py-4 font-medium border-none rounded-lg outlined-none',
                   darkMode
                     ? 'bg-[#2A2F4F] placeholder:text-white text-white'
-                    : 'bg-[#ECF2FF] placeholder:text-black text-black'
+                    : 'bg-[#ECF2FF] placeholder:text-secondary text-black'
                 )}
               />
             </label>
@@ -106,10 +106,10 @@ export default function Contact() {
                 placeholder="what's your email?"
                 onChange={handleChange}
                 className={classNames(
-                  ' px-6 py-4 font-medium border-none rounded-lg placeholder:text-black outlined-none',
+                  ' px-6 py-4 font-medium border-none rounded-lg outlined-none',
                   darkMode
                     ? 'bg-[#2A2F4F] placeholder:text-white text-white'
-                    : 'bg-[#ECF2FF] placeholder:text-black text-black'
+                    : 'bg-[#ECF2FF] placeholder:text-secondary text-black'
                 )}
               />
             </label>
@@ -123,10 +123,10 @@ export default function Contact() {
                 placeholder="what's your thoughts?"
                 onChange={handleChange}
                 className={classNames(
-                  ' px-6 py-4 font-medium border-none rounded-lg placeholder:text-black outlined-none',
+                  ' px-6 py-4 font-medium border-none rounded-lg outlined-none',
                   darkMode
                     ? 'bg-[#2A2F4F] placeholder:text-white text-white'
-                    : 'bg-[#ECF2FF] placeholder:text-black text-black'
+                    : 'bg-[#ECF2FF] placeholder:text-secondary text-black'
                 )}
               />
             </label>
@@ -147,7 +147,7 @@ export default function Contact() {
           transition={{ type: 'tween', delay: 0.5, duration: 1 }}
           className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
         >
-          <EarthCanvas />
+          <KittyCanvas />
         </motion.div>
       </div>
     </motion.section>

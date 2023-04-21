@@ -6,6 +6,10 @@ module.exports = {
     extend: {
       fontFamily: {
         ubuntu: ['Ubuntu Mono', 'monospace'],
+        overlock: ['Overlock', 'cursive'],
+        barlow: ['Barlow', 'sans-serif'],
+        poiret: ['Poiret One', 'cursive'],
+        inter: ['Inter', 'sans-serif'],
       },
       colors: {
         primary: '#050816',
@@ -15,6 +19,7 @@ module.exports = {
         'black-200': '#090325',
         'white-100': '#f3f3f3',
       },
+
       boxShadow: {
         card: '0px 35px 120px -15px #211e35',
         button: '0 0 20px #fff, -10px 0 30px #f0f, 10px 0 30px #0ff;',
@@ -22,10 +27,8 @@ module.exports = {
       screens: {
         xs: '450px',
       },
-      backgroundImage: {
-        'hero-pattern': "url('/src/assets/herobg.png')",
-      },
-      animation: { text: 'text 3s ease infinite' },
+
+      animation: { text: 'text 3s ease infinite', bgGround: 'text 8s ease infinite' },
       keyframes: {
         text: {
           '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
