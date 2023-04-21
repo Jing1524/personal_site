@@ -8,7 +8,6 @@ import CanvasLoader from './Loader'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
 const Character = ({ isMobile }: any) => {
-  // const computer = useGLTF('/desktop_pc/scene.gltf')
   const character = useGLTF('/character/room_relaxing_copy.gltf')
 
   return (

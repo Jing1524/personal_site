@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from 'react'
+import React, { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF, Float } from '@react-three/drei'
 
@@ -7,14 +7,15 @@ import CanvasLoader from '../Loader'
 const Kitty = () => {
   const kitty = useGLTF('./hungryCat/scene.gltf')
   const mesh = useRef(null)
+  const [position, setPosition] = useState([0, 0, 0])
+
   useFrame(({ clock }) => {
-    if (mesh.current) {
-      // @ts-ignore
-      mesh.current.position.y = Math.sin(clock.getElapsedTime()) / 3
-    }
+    setPosition([0, Math.sin(clock.getElapsedTime()) / 2, 0])
   })
+
   return (
-    <mesh ref={mesh}>
+    // @ts-ignore
+    <mesh position={position}>
       <hemisphereLight intensity={0.15} groundColor="white" />
       <pointLight intensity={1} />
       <spotLight position={[-20, 50, 10]} angle={0.12} penumbra={1} intensity={1} castShadow shadow-mapSize={1024} />
@@ -38,7 +39,12 @@ const KittyCanvas = () => {
       }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls autoRotate enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
+        <OrbitControls
+          rotation={[-Math.PI / 2, -Math.PI / 1.4, 0]}
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
         <Kitty />
 
         <Preload all />

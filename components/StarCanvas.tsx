@@ -23,8 +23,8 @@ const Stars = (props: any) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color={darkMode ? '#f272c8' : '#E384FF'}
-          size={0.003}
+          color={darkMode ? '#f272c8' : '#fff'}
+          size={darkMode ? 0.003 : 0.007}
           sizeAttenuation={true}
           depthWrite={false}
         />
