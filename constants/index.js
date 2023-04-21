@@ -115,7 +115,8 @@ const experiences = [
   {
     title: 'FrontEnd Engineer',
     company_name: 'Pineapple Workshop',
-
+    icon: './icons/pineapple.png',
+    iconBg: '#240c74',
     date: 'October 2021 - Present',
     points: [
       'Developing and maintaining web applications using React.js and other related technologies.',
@@ -127,7 +128,8 @@ const experiences = [
   {
     title: 'FullStack Engineer',
     company_name: 'FullStack Acadamy',
-
+    icon: './icons/fullstack.png',
+    iconBg: '#f3f3f3',
     date: 'April 2021 - September 2021',
     points: [
       'Developing and maintaining web applications using React.js and other related technologies.',
@@ -139,7 +141,8 @@ const experiences = [
   {
     title: 'Designer',
     company_name: 'Adjmi Group',
-
+    icon: './icons/adjmi.png',
+    iconBg: '#4389c4',
     date: 'Jan 2021 - Feb 2022',
     points: [
       'Developing and maintaining web applications using React.js and other related technologies.',

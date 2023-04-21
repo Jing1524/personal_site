@@ -33,7 +33,9 @@ export default function Navbar() {
           )}
         >
           <motion.h1 className="ml-4 text-lg font-black text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
-            A Frontend Engineer&apos;s <br /> PORTFOLIO
+            <a href="">
+              A Software Engineer&apos;s <br /> PORTFOLIO
+            </a>
           </motion.h1>
           <div className="m-0 -ml-[70px]">
             <Lottie options={defaultOptions} height={60} width={40} />

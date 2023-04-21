@@ -6,7 +6,7 @@ import CharacterCanvas from './Character'
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section id="/" className="relative w-full h-screen mx-auto">
       <div className="px-6 absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5">
         <div className="flex flex-col items-center justify-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#000]" />
@@ -24,8 +24,10 @@ export default function Hero() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ durtion: 2, delay: 3, type: 'tween' }}
           >
-            a software engineer with experience in end to end product development, <br />
-            My core competencies include front-end development, UX/UI design, and agile product development.
+            A software engineer with experience in end-to-end product development.
+            <br /> Front-end is my core competency,
+            <br />
+            using development technologies such as React.js, TypeScript, and Node.js.
           </motion.p>
         </div>
       </div>

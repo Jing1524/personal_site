@@ -17,8 +17,12 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
       contentArrowStyle={{ borderRight: darkMode ? '7px solid #1d1836' : '7px solid #ECF2FF' }}
       date={experience.date}
       dateClassName="elementDate"
-      iconStyle={{ background: '#fff' }}
-      icon={<p className="text-6xl">&#x2728;</p>}
+      iconStyle={{ background: experience.iconBg }}
+      icon={
+        <div className="flex items-center justify-center w-full h-full">
+          <img src={experience.icon} alt={experience.company_name} className="w-[60%] h-[60%] object-contain" />
+        </div>
+      }
     >
       <div>
         <h3 className="text-[24px] font-bold font-inter">{experience.title}</h3>
