@@ -19,15 +19,14 @@ export default function Hero() {
           </h1>
 
           <motion.p
-            className="font-medium text-[16px] lg:leading-[40px] mt-2"
+            className="font-medium text-sm md:text-lg leading-[25px] mt-2"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ durtion: 2, delay: 3, type: 'tween' }}
           >
             A software engineer with experience in end-to-end product development.
-            <br /> Front-end is my core competency,
-            <br />
-            using development technologies such as React.js, TypeScript, and Node.js.
+            <br /> Front-end is my core competency, using development technologies such as React.js, TypeScript, and
+            Node.js.
           </motion.p>
         </div>
       </div>

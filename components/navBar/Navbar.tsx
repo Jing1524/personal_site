@@ -32,7 +32,7 @@ export default function Navbar() {
             darkMode ? 'navGlassDark bgTransition ' : 'navGlassLight bgTransition'
           )}
         >
-          <motion.h1 className="ml-4 text-lg font-black text-transparent animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
+          <motion.h1 className="text-sm font-black text-transparent md:ml-4 md:text-lg animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text">
             <a href="">
               A Software Engineer&apos;s <br /> PORTFOLIO
             </a>
