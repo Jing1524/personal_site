@@ -106,7 +106,9 @@ export default function Matterjs() {
     })
 
     // Prevent the canvas from capturing mousewheel events and blocking scrolling
+    // @ts-ignore
     mouseConstraint.mouse.element.removeEventListener('mousewheel', mouseConstraint.mouse.mousewheel)
+    // @ts-ignore
     mouseConstraint.mouse.element.removeEventListener('DOMMouseScroll', mouseConstraint.mouse.mousewheel)
 
     if (isInViewport) {
