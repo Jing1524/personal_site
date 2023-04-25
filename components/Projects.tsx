@@ -3,18 +3,48 @@ import { motion } from 'framer-motion'
 
 import { fadeIn, textVariant } from '../utils/motion'
 import { projects } from '@/constants'
+import Image from 'next/image'
 
-const ProjectCard = ({ index, name, description, tags, source_code_link }: any) => {
+const ProjectCard = ({ index, name, description, tags, source_code_link, src, githubIcon }: any) => {
   return (
     <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
-      <Tilt className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
+      <Tilt
+        // @ts-ignore
+        options={{
+          max: 45,
+          scale: 1,
+          speed: 450,
+        }}
+        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+      >
         <div className="relative w-full h-[230px]">
+          {/* @ts-ignore */}
+          <video controls="controls" autoplay="true">
+            <source src={src} />
+          </video>
+          {/* <img src={src} alt="project_image" className="object-cover w-full h-full rounded-2xl" /> */}
+
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
-              onClick={() => {}}
-              className="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer black-gradient"
-            ></div>
+              onClick={() => window.open(source_code_link, '_blank')}
+              className="flex items-center justify-center w-10 h-10 bg-white rounded-full cursor-pointer"
+            >
+              <Image src={githubIcon} width={100} height={100} alt="source code" />
+            </div>
           </div>
+        </div>
+
+        <div className="mt-5">
+          <h3 className="text-white font-bold text-[24px]">{name}</h3>
+          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mt-4">
+          {tags.map((tag: any) => (
+            <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
+              #{tag.name}
+            </p>
+          ))}
         </div>
       </Tilt>
     </motion.div>
