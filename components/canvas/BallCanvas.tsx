@@ -14,6 +14,7 @@ const Ball = (props: any) => {
   })
 
   return (
+    // @ts-ignore
     <group ref={ballRef}>
       <hemisphereLight intensity={0.4} groundColor="white" />
       <directionalLight position={[10, -15, -10]} intensity={0.5} />
