@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion, Transition, SVGMotionProps } from 'framer-motion'
-
+// @ts-ignore
 interface Props extends SVGMotionProps {
   isOpen?: boolean
   width?: string | number
@@ -17,6 +17,7 @@ const MenuButton = ({
   height = 24,
   strokeWidth = 1,
   color = '#000',
+  // @ts-ignore
   transition = null,
   lineProps = null,
   ...props
