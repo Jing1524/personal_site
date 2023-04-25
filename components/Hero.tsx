@@ -25,8 +25,8 @@ export default function Hero() {
             transition={{ durtion: 2, delay: 3, type: 'tween' }}
           >
             A software engineer with experience in end-to-end product development.
-            <br /> Front-end is my core competency, using development technologies such as React.js, TypeScript, and
-            Node.js.
+            <br /> I specialize in front-end development utilizing cutting-edge technologies like React.js, TypeScript,
+            and Node.js.
           </motion.p>
         </div>
       </div>

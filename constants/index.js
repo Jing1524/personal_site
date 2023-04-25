@@ -119,9 +119,8 @@ const experiences = [
     iconBg: '#240c74',
     date: 'October 2021 - Present',
     points: [
-      'Developing and maintaining web applications using React.js and other related technologies.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
+      'Led the project to develop a responsive, user-friendly website, coordinating directly with the founder/CEO and collaborating with the design team to successfully meet the needs and goals of Pineapple Workshop.',
+      'Built a stand-alone utility engine web widget with componentized reusable code, allowing the client to integrate the widget into any existing website.',
       'Participating in code reviews and providing constructive feedback to other developers.',
     ],
   },
@@ -132,9 +131,8 @@ const experiences = [
     iconBg: '#f3f3f3',
     date: 'April 2021 - September 2021',
     points: [
-      'Developing and maintaining web applications using React.js and other related technologies.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
+      'Developed fullstack e-commerce applications using React.js and other related technologies.',
+      'Implementing responsive design and writing tests with teammates to ensure the quality of the code',
       'Participating in code reviews and providing constructive feedback to other developers.',
     ],
   },
@@ -145,38 +143,12 @@ const experiences = [
     iconBg: '#4389c4',
     date: 'Jan 2021 - Feb 2022',
     points: [
-      'Developing and maintaining web applications using React.js and other related technologies.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
-      'Participating in code reviews and providing constructive feedback to other developers.',
+      'Worked closely with the Director of Design, creating collection concepts and adapting final products for clients.',
+      'Conducted market research, including trends, themes, colors, raw materials, styling, and trims.',
+      'Worked with technical designers to ensure product samples met specifications.',
+      'Coordinated with vendors and clients to ensure successful delivery and client satisfaction.',
     ],
   },
-  // {
-  //   title: 'Web Developer',
-  //   company_name: 'Shopify',
-  //   // icon: shopify,
-  //   iconBg: '#383E56',
-  //   date: 'Jan 2022 - Jan 2023',
-  //   points: [
-  //     'Developing and maintaining web applications using React.js and other related technologies.',
-  //     'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-  //     'Implementing responsive design and ensuring cross-browser compatibility.',
-  //     'Participating in code reviews and providing constructive feedback to other developers.',
-  //   ],
-  // },
-  // {
-  //   title: 'Full stack Developer',
-  //   company_name: 'Meta',
-  //   // icon: meta,
-  //   iconBg: '#E6DEDD',
-  //   date: 'Jan 2023 - Present',
-  //   points: [
-  //     'Developing and maintaining web applications using React.js and other related technologies.',
-  //     'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-  //     'Implementing responsive design and ensuring cross-browser compatibility.',
-  //     'Participating in code reviews and providing constructive feedback to other developers.',
-  //   ],
-  // },
 ]
 
 const projects = [
