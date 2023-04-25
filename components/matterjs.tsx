@@ -79,6 +79,7 @@ export default function Matterjs() {
 
     // Add mouse interaction to the canvas
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
+      // @ts-ignore
       mouse: Matter.Mouse.create(canvasRef.current),
       constraint: {
         stiffness: 0.2,
