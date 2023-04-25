@@ -80,7 +80,7 @@ export default function Contact() {
 
           <p className="sm:text-[18px] text-[14px] uppercase tracking-wider">Get in touch</p>
           <h3 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Contact.</h3>
-
+          {/* @ts-ignore */}
           <form ref={formRef} className="flex flex-col gap-8 mt-12" onSubmit={HandleSubmit}>
             <label className="flex flex-col">
               <span className="mb-4 font-medium">Your Name</span>
