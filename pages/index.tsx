@@ -15,22 +15,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useEffect } from 'react'
 
 export default function Home() {
-  // useEffect(() => {
-  //   if (typeof window !== undefined) {
-  //     gsap.registerPlugin(ScrollTrigger)
-  //     gsap.to('.bg-gradient-to-br', {
-  //       scrollTrigger: {
-  //         trigger: 'body',
-  //         start: 'top top',
-  //         end: 'bottom bottom',
-  //         scrub: 2,
-  //       },
-  //       filter: 'hue-rotate(360deg)',
-  //       rotation: 720,
-  //     })
-  //   }
-  // }, [])
-
   const { darkMode } = useModeToggle()
   return (
     <main
