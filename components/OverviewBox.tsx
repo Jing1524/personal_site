@@ -1,6 +1,6 @@
 const OverViewBox = () => {
   return (
-    <div className="basis-7/12 large-box box" id="takeover">
+    <div className="flex-1 lg:basis-7/12 large-box box" id="takeover">
       <div className="pill">
         <div className="intro">
           <p>overview lalalalalallala</p>
@@ -8,7 +8,7 @@ const OverViewBox = () => {
             <div className="arrow right-expand-arrow"></div>
           </div>
         </div>
-        <div className="hidden text-box">
+        <div className=" text-box">
           <h1>overview</h1>
           <p>adkfjroihdfg a alsdkjf aeorighsdofbkajdhlgfka asdlkfhaksdhfkasjhdkgf</p>
           <p>adkfjroihdfg a alsdkjf aeorighsdofbkajdhlgfka asdlkfhaksdhfkasjhdkgf</p>

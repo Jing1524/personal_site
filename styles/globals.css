@@ -40,7 +40,8 @@
 
 .long-box {
   min-height: 150px;
-  min-width: 500px;
+  /* min-height: 150px;
+  min-width: 500px; */
   /* flex-grow: 4; */
   background-color: blue;
 }
@@ -69,16 +70,22 @@
 
 .slider-container {
   position: relative;
-  min-height: 500px;
-  /* width: 150px; */
+  min-height: 100px;
+  @media only screen and (min-width: 1024px) {
+    min-height: 500px;
+  }
 }
+
 .input-container {
   position: absolute;
-  bottom: 50px;
-  left: 92px;
-  transform: rotate(-90deg);
-  transform-origin: bottom left;
+
   z-index: 2;
+  @media only screen and (min-width: 1024px) {
+    bottom: 50px;
+    left: 92px;
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+  }
 }
 .slider-container input {
   -webkit-appearance: none;
@@ -90,13 +97,18 @@
 
 .slider-container input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 80px;
-  width: 80px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background-color: #d8d8d8;
-  border: rgb(38, 38, 38) solid 14px;
+  border: rgb(38, 38, 38) solid 8px;
   cursor: grab;
   z-index: 3;
+  @media only screen and (min-width: 1024px) {
+    height: 80px;
+    width: 80px;
+    border: rgb(38, 38, 38) solid 14px;
+  }
 }
 .experienceBg {
   background: url('/images/gradientBg-2.jpg') no-repeat center center;

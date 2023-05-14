@@ -1,7 +1,9 @@
 const GreetingBox = () => {
   return (
-    <div className="long-box box basis-8/12">
-      <div className="pill">{/* image? */}</div>
+    <div className="flex-1 long-box box">
+      <div className="pill">
+        <h1>Greetings</h1>
+      </div>
     </div>
   )
 }
