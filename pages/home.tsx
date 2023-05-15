@@ -26,7 +26,7 @@ export default function Home2() {
       </Head>
       <SideBarWorkExperience />
 
-      <div className="flex flex-wrap items-stretch h-screen">
+      <div className="flex flex-wrap items-stretch h-screen overflow-x-hidden">
         <div className="flex flex-col-reverse w-screen lg:flex-row">
           <ExperienceToggle />
           <div className="flex items-center lg:basis-10/12">
@@ -60,15 +60,15 @@ export default function Home2() {
             </div>
           )}
 
-          {/* Second row right box */}
-          <div className="flex flex-col basis-5/12">
-            <div className="flex flex-col lg:flex-row h-[80%]">
+          {/* Second row right box   */}
+          <div className="flex flex-col items-center gap-10 lg:basis-5/12">
+            <div className="flex flex-col lg:flex-row h-[80%] w-full">
               <ContactBox />
               <SliderBox />
             </div>
-            <div className="flex h-[20%] items-center justify-between">
+            <div className="flex h-[20%] w-full lg:items-center">
               <ModeToggleBox />
-              <RotateButtonBox />
+              {tabletScreen && <RotateButtonBox />}
             </div>
           </div>
         </div>

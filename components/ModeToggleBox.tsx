@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 const ModeToggleBox = () => {
   const { darkMode, toggleDarkMode } = useModeToggle()
   return (
-    <div className="min-h-[50px] min-w-[150px] for-toggle">
+    <div className="self-center m-auto for-toggle lg:m-0 lg:basis-1/2">
       <button
         className={classNames(
-          'w-full h-full border-[8px] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative',
+          'h-[50px] w-[150px] border-[8px] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
           darkMode ? 'justify-end glass' : 'justify-start glassLight'
         )}
         onClick={toggleDarkMode}

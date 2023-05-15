@@ -83,7 +83,7 @@ justify-center h-[120px] w-[120px] order-first lg:order-last lg:h-[150px] lg:w-[
 .pill {
   height: 100%;
   width: 100%;
-  border: solid 12px rgb(38, 38, 38);
+  border: solid 8px rgb(38, 38, 38);
   box-sizing: border-box;
   border-radius: 20px;
   display: flex;

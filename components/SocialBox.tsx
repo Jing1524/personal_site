@@ -13,7 +13,7 @@ const SocialBox = () => {
     <div className="lg:basis-1/4 box social-fan">
       <div className="flex justify-between lg:pill">
         <div className="relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#E86479]">
-          <a href="">
+          <a href="https://www.linkedin.com/in/jing-li-a71436ba/" target="_blank">
             <Image src="./icons/doodle-linkedin.svg" fill alt="LinkedIn Logo" />
           </a>
         </div>
@@ -25,8 +25,7 @@ const SocialBox = () => {
         </div>
 
         <div className="relative w-28 h-28 circle hidden-pill social github bg-[#7DB9B6]">
-          {' '}
-          <a href="">
+          <a href="https://github.com/Jing1524" target="_blank">
             <Image src="./icons/doodle-github.svg" fill alt="Github Logo" />
           </a>
         </div>

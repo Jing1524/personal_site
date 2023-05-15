@@ -1,9 +1,11 @@
+import { useModeToggle } from '@/context/ModeProvider'
 import { motion } from 'framer-motion'
 
 const ExperienceToggle = () => {
+  const { darkMode } = useModeToggle()
   return (
     <div className="small-box box lg:basis-2/12">
-      <button className="pill">
+      <button className={`pill ${darkMode ? 'bg-[#199C85]' : 'bg-[#BDE3D8]'}`}>
         <div className="flex items-center gap-8 arrow left-expand-arrow">
           <svg
             xmlns="http://www.w3.org/2000/svg"

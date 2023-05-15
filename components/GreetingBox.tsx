@@ -1,10 +1,16 @@
+import { useModeToggle } from '@/context/ModeProvider'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const GreetingBox = () => {
+  const { darkMode } = useModeToggle()
   return (
     <div className="flex-1 long-box box">
-      <div className="p-4 bg-[#408E91] flex flex-col h-full w-full border border-[12px] border-[#1E1E1E] box-border justify-center rounded-lg">
+      <div
+        className={`p-4 ${
+          darkMode ? 'bg-[#408E91]' : 'bg-[#87CAB9]'
+        } flex flex-col h-full w-full border border-[12px] border-[#1E1E1E] box-border justify-center rounded-lg`}
+      >
         <TypewriterEffect text="Hi, I'm Jing" />
         <motion.p
           className="font-medium text-sm md:text-lg leading-[25px]"

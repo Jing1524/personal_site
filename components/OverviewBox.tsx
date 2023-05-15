@@ -1,7 +1,10 @@
+import { useModeToggle } from '@/context/ModeProvider'
+
 const OverViewBox = () => {
+  const { darkMode } = useModeToggle()
   return (
     <div className="flex-1 lg:basis-7/12 large-box box" id="takeover">
-      <div className="pill bg-[#4F6F81]">
+      <div className={`pill ${darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'}`}>
         <div className="intro">
           <p>overview lalalalalallala</p>
           <div className="arrow-container">
