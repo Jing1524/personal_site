@@ -39,7 +39,7 @@ export default function Home2() {
           {/* Second row left box */}
           {tabletScreen ? (
             <div className="flex flex-col gap-4 basis-7/12">
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-row gap-4 px-[10px]">
                 <SocialBox tabletScreen={tabletScreen} />
                 <TechStackBox />
               </div>
