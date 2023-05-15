@@ -66,7 +66,7 @@ export default function Home2() {
               <ContactBox />
               <SliderBox />
             </div>
-            <div className="flex h-[20%]">
+            <div className="flex h-[20%] items-center justify-between">
               <ModeToggleBox />
               <RotateButtonBox />
             </div>
