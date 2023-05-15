@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { Suspense, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei'
+import useMediaQuery from '@/hooks/useMediaQuery'
 // import {Physics, RigidBody } from '@react-three/rapier'
 
 const PacmanCanvas = () => {
@@ -25,6 +26,7 @@ const PacmanCanvas = () => {
 }
 
 function Pacman() {
+  const tabletScreen = useMediaQuery('(min-width:1024px)')
   const mesh = useRef()
   useFrame(({ clock }) => {
     if (mesh.current) {
@@ -35,7 +37,12 @@ function Pacman() {
   return (
     // @ts-ignore
     <group ref={mesh}>
-      <mesh castShadow receiveShadow rotation={[-Math.PI / 2.3, -Math.PI / 1.4, 0]}>
+      {/* rotation={[-Math.PI / 2.3, -Math.PI / 1.4, 0]} */}
+      <mesh
+        castShadow
+        receiveShadow
+        rotation={tabletScreen ? [-Math.PI / 2.3, -Math.PI / 1.4, 0] : [-Math.PI / 2.9, -Math.PI / 4.5, -0.1]}
+      >
         <sphereGeometry args={[10, 18, 16, 0, Math.PI * 1.4]} />
         <meshStandardMaterial color="#ffc060" side={THREE.DoubleSide} />
       </mesh>

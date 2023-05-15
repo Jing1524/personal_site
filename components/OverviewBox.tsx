@@ -19,7 +19,6 @@ const OverViewBox = () => {
             <p>See More</p>
             <div className="arrow-container">
               <div className="ml-4 rotate-180 arrow right-expand-arrow">
-                {' '}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
