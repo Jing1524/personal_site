@@ -20,7 +20,7 @@ export default function Home2() {
   const { darkMode } = useModeToggle()
   const tabletScreen = useMediaQuery('(min-width:1024px)')
   return (
-    <main>
+    <main className={`${darkMode ? 'bg-[#606161]' : 'bg-[#fff]'}`}>
       <Head>
         <title>Jing&apos;s portfolio</title>
       </Head>
@@ -38,14 +38,13 @@ export default function Home2() {
         <div className="flex flex-col lg:flex-row w-screen h-[80%] gap-6">
           {/* Second row left box */}
           {tabletScreen ? (
-            <div className="flex flex-col basis-7/12">
-              <div className="flex flex-row">
-                <SocialBox />
+            <div className="flex flex-col gap-4 basis-7/12">
+              <div className="flex flex-row gap-4">
+                <SocialBox tabletScreen={tabletScreen} />
                 <TechStackBox />
               </div>
               <div className="flex flex-row h-[80%]">
                 <OverViewBox />
-
                 <ProjectBox />
               </div>
             </div>

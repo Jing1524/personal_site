@@ -36,8 +36,6 @@
 .box {
   padding: 10px;
 }
-/* h-24 w-24 border-8 border-[#FFE193] rounded-full flex items-center
-justify-center h-[120px] w-[120px] order-first lg:order-last lg:h-[150px] lg:w-[150px] 2xl:h-[180px] 2xl:w-[180px] */
 
 .circle-box {
   height: 120px;
@@ -63,22 +61,18 @@ justify-center h-[120px] w-[120px] order-first lg:order-last lg:h-[150px] lg:w-[
 
 .long-box {
   min-height: 150px;
-  /* min-height: 150px;
-  min-width: 500px; */
-  /* flex-grow: 4; */
-  background-color: blue;
 }
 .large-box {
   min-height: 50px;
   min-width: 410px;
   /* flex-grow: 2; */
-  background-color: green;
+  /* background-color: green; */
 }
 .small-box {
   min-height: 150px;
   min-width: 250px;
 
-  background-color: red;
+  /* background-color: red; */
 }
 .pill {
   height: 100%;
@@ -89,6 +83,9 @@ justify-center h-[120px] w-[120px] order-first lg:order-last lg:h-[150px] lg:w-[
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (min-width: 1024px) {
+    border-width: 12px;
+  }
 }
 
 .slider-container {
@@ -150,6 +147,88 @@ justify-center h-[120px] w-[120px] order-first lg:order-last lg:h-[150px] lg:w-[
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+.rotation {
+  animation: rotate 10s infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.social-fan {
+  position: relative;
+}
+
+.social-fan .social {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-origin: top right;
+  z-index: 10;
+}
+
+.social-fan:hover .linkedIn {
+  display: block;
+  animation: fanLinkedIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fanLinkedIn {
+  0% {
+    transform: rotate(0deg);
+    right: 0;
+    top: 0;
+  }
+  100% {
+    transform: rotate(-30deg);
+    right: 0;
+    top: 0;
+  }
+}
+
+.social-fan:hover .kitty {
+  display: block;
+  animation: fanKitty 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fanKitty {
+  0% {
+    transform: rotate(0deg);
+    right: 0;
+    top: 0;
+  }
+  100% {
+    transform: rotate(-60deg);
+    right: 0;
+    top: 0;
+  }
+}
+
+.social-fan:hover .github {
+  display: block;
+  animation: fanGithub 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fanGithub {
+  0% {
+    transform: rotate(0deg);
+    right: 0;
+    top: 0;
+  }
+  100% {
+    transform: rotate(0deg);
+    right: 0;
+    top: 0;
   }
 }
 

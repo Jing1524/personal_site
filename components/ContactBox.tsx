@@ -52,7 +52,8 @@ const ContactBox = () => {
       )
   }
   return (
-    <div className="basis-4/5 bg-[#87CAB9] box contact">
+    // bg-[#87CAB9]
+    <div className="basis-4/5 box contact">
       <div className={`pill ${darkMode ? 'bg-[#4D4C6E]' : 'bg-[#9EA1D0]'} p-6`}>
         <motion.div
           initial={{ x: -100 }}
