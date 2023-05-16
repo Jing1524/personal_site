@@ -26,7 +26,7 @@ export default function Home2() {
       </Head>
       <SideBarWorkExperience />
 
-      <div className="flex flex-wrap items-stretch h-screen overflow-x-hidden">
+      <div className="flex flex-col items-stretch h-screen gap-4 overflow-x-hidden">
         <div className="flex flex-col-reverse w-screen lg:flex-row">
           <ExperienceToggle />
           <div className="flex items-center lg:basis-10/12">
