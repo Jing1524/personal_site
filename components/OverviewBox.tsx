@@ -3,9 +3,9 @@ import { useModeToggle } from '@/context/ModeProvider'
 const OverViewBox = () => {
   const { darkMode } = useModeToggle()
   return (
-    <div className="flex-1 lg:basis-7/12 large-box box" id="takeover">
+    <div className="flex-1 lg:basis-5/12 large-box box" id="takeover">
       <div className={`pill ${darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'}`}>
-        <div className="p-6 text-center text-box">
+        <div className="flex flex-col items-center p-6 text-center text-box">
           <h1 className="text-2xl font-bold">overview.</h1>
           <p className="text-lg">
             As a frontend software engineer with a background in design and music, I approach engineering challenges

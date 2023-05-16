@@ -10,6 +10,7 @@ import RotateButtonBox from '@/components/RotateButtonBox'
 import SliderBox from '@/components/SliderBox'
 import SocialBox from '@/components/SocialBox'
 import TechStackBox from '@/components/TechStack/TechStackBox'
+import Matterjs from '@/components/matterjs'
 
 import { useModeToggle } from '@/context/ModeProvider'
 import useMediaQuery from '@/hooks/useMediaQuery'
@@ -34,12 +35,13 @@ export default function Home2() {
             <ProfileBox />
           </div>
         </div>
+        {/* <Matterjs /> */}
 
         <div className="flex flex-col lg:flex-row w-screen h-[80%] gap-6">
           {/* Second row left box */}
           {tabletScreen ? (
             <div className="flex flex-col gap-4 basis-7/12">
-              <div className="flex flex-row gap-4 px-[10px]">
+              <div className="flex flex-row gap-4 px-[10px] h-[20%]">
                 <SocialBox tabletScreen={tabletScreen} />
                 <TechStackBox />
               </div>

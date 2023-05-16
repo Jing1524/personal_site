@@ -55,12 +55,7 @@ const ContactBox = () => {
     // bg-[#87CAB9]
     <div className="basis-4/5 contact">
       <div className={`pill ${darkMode ? 'bg-[#4D4C6E]' : 'bg-[#9EA1D0]'} p-6`}>
-        <motion.div
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ type: 'tween', delay: 0.5, duration: 1 }}
-          className="flex flex-col w-full h-full gap-6"
-        >
+        <div className="flex flex-col w-full h-full gap-6">
           <h3 className="text-2xl font-black">Get in touch.</h3>
           {/* @ts-ignore */}
           <form ref={formRef} className="flex flex-col" onSubmit={HandleSubmit}>
@@ -125,7 +120,7 @@ const ContactBox = () => {
               {loading ? 'Sending...' : 'Send'}
             </button>
           </form>
-        </motion.div>
+        </div>
       </div>
     </div>
   )

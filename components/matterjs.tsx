@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Matter from 'matter-js'
+import { Bodies, Composite, Body } from 'matter-js'
+
 import useIsInViewport from '@/hooks/useIsInViewport'
+import { useModeToggle } from '@/context/ModeProvider'
 
 export default function Matterjs() {
+  const { darkMode } = useModeToggle()
   const boxRef = useRef<HTMLElement>(null)
   const canvasRef = useRef<HTMLElement>(null)
 
@@ -10,7 +14,6 @@ export default function Matterjs() {
   const [scene, setScene] = useState<any>()
 
   const isInViewport = useIsInViewport(boxRef)
-  console.log('isInViewport: ', isInViewport)
 
   const handleResize = () => {
     setContraints(boxRef?.current?.getBoundingClientRect())
@@ -21,18 +24,19 @@ export default function Matterjs() {
     let Render = Matter.Render
     let World = Matter.World
     let Bodies = Matter.Bodies
+    let Constraint = Matter.Bodies
+    // let Body = Matter.Body
     let engine = Engine.create() // set speed { gravity: { x: 0, y: 0.8 } }
-
+    // let Composite = Matter.Composite
     let render = Render.create({
       // @ts-ignore
       element: boxRef.current,
       engine: engine,
       // @ts-ignore
       canvas: canvasRef.current,
+
       options: {
-        height: 500,
-        width: 800,
-        background: 'rgba(255, 0, 0, 0.5)',
+        background: `${darkMode ? 'bg-[#FFE193]' : 'bg-[#FEF8DF]'}`,
         wireframes: false,
       },
     })
@@ -45,33 +49,63 @@ export default function Matterjs() {
     })
 
     // Add walls to both sides of the canvas
-    const leftWall = Bodies.rectangle(0, 0, 1, window.innerHeight * 2, {
+
+    const leftWall = Bodies.rectangle(-1, window.innerHeight / 2, 1, window.innerHeight, {
       isStatic: true,
-      render: {
-        fillStyle: 'rgba(255, 0, 0, 0.5)',
-      },
     })
-    const rightWall = Bodies.rectangle(window.innerWidth, 0, 1, window.innerHeight * 2, {
+    const rightWall = Bodies.rectangle(constraints?.width, constraints?.height / 2, 1, constraints?.height, {
       isStatic: true,
-      render: {
-        fillStyle: 'rgba(255, 0, 0, 0.5)',
-      },
     })
 
-    let pills: [] = []
-
-    for (let i = 0; i < 17; i++) {
+    const pills: Matter.Body[] = []
+    const colors = ['#537188', '#99627A', '#41644A', '#E96479', '#86A3B8']
+    for (let i = 0; i < 30; i++) {
       const x = Math.random() * window.innerWidth
       const y = Math.random() * -500
-      const width = 182
+      const width = 100
       const height = 52
 
-      const chamfer = { radius: 25 }
-      const pill = Bodies.rectangle(x, y, width, height, { chamfer, restitution: 0.9, friction: 0.005 })
+      const chamfer = { radius: 15 }
+      const color = colors[i % colors.length]
 
-      //ball.velocity.y = Math.random() * 10 + 1
-      //@ts-ignore
-      pills.push(pill)
+      const pillText = `Pill ${i + 1}`
+      const canvas = document.createElement('canvas')
+      const context = canvas.getContext('2d')
+      canvas.width = width
+      canvas.height = height
+
+      // Customize the text appearance
+      if (context) {
+        context.font = '16px Arial'
+        // context.fillStyle = 'white'
+        context.textAlign = 'center'
+        context.textBaseline = 'middle'
+
+        // Calculate the position to center the text on the pill
+        const textX = canvas.width / 2
+        const textY = canvas.height / 2
+
+        // Draw the text on the canvas
+        context.fillText(pillText, textX, textY)
+
+        // const imageData = context.getImageData(0, 0, canvas.width, canvas.height)
+        const dataURL = canvas.toDataURL()
+
+        const pill = Bodies.rectangle(x, y, width, height, {
+          chamfer,
+          restitution: 0.6,
+          friction: 0.005,
+          render: {
+            fillStyle: color,
+          },
+        })
+
+        //ball.velocity.y = Math.random() * 10 + 1
+        //@ts-ignore
+        pills.push(pill)
+      } else {
+        console.error('Failed to get canvas context')
+      }
     }
 
     World.add(engine.world, [floor, leftWall, rightWall])
@@ -162,7 +196,7 @@ export default function Matterjs() {
   return (
     <>
       {/* @ts-ignore */}
-      <div ref={boxRef} className="w-screen h-[800px] flex items-center justify-center">
+      <div ref={boxRef} className="flex items-center justify-center w-full h-full">
         {/* @ts-ignore */}
         <canvas ref={canvasRef} className="flex justify-center m-auto" />
       </div>
