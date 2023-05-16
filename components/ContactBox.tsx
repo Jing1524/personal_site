@@ -53,10 +53,10 @@ const ContactBox = () => {
   }
   return (
     // bg-[#87CAB9]
-    <div className="basis-4/5 contact">
+    <div className="basis-4/5 contact px-[10px]">
       <div className={`pill ${darkMode ? 'bg-[#4D4C6E]' : 'bg-[#9EA1D0]'} p-6`}>
         <div className="flex flex-col w-full h-full gap-6">
-          <h3 className="text-2xl font-black">Get in touch.</h3>
+          <h3 className="text-4xl font-black">Get in touch.</h3>
           {/* @ts-ignore */}
           <form ref={formRef} className="flex flex-col" onSubmit={HandleSubmit}>
             <label className="flex flex-col mb-4">

@@ -27,6 +27,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 .box-container {
   display: flex;
   flex-wrap: wrap;
@@ -63,16 +64,11 @@
   min-height: 150px;
 }
 .large-box {
-  /* min-height: 50px; */
   min-width: 410px;
-  /* flex-grow: 2; */
-  /* background-color: green; */
 }
 .small-box {
   min-height: 150px;
   min-width: 250px;
-
-  /* background-color: red; */
 }
 .pill {
   height: 100%;
@@ -259,7 +255,7 @@
 
 .elementDate {
   font-size: 20px !important;
-
+  padding: 0 !important;
   font-weight: 800 !important;
 }
 .glass {
