@@ -26,7 +26,7 @@ export default function Matterjs() {
     let Bodies = Matter.Bodies
     let Constraint = Matter.Bodies
     // let Body = Matter.Body
-    let engine = Engine.create() // set speed { gravity: { x: 0, y: 0.8 } }
+    let engine = Engine.create({ gravity: { x: 0, y: 0.4 } }) // set falling speed
     // let Composite = Matter.Composite
     let render = Render.create({
       // @ts-ignore

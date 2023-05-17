@@ -14,7 +14,7 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
         onMouseEnter={() => setExpand(true)}
         onMouseLeave={() => setExpand(false)}
       >
-        <div className={`flex flex-col items-center gap-8 p-6 text-box group `}>
+        <div className={`flex flex-col items-center gap-14 p-6 text-box group `}>
           <h1 className={`self-start text-4xl font-bold ${fontColor}`}>Overview.</h1>
           <div className="flex flex-col gap-4">
             <p className={`text-lg ${fontColor}`}>

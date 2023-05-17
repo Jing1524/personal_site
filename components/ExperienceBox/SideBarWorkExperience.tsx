@@ -41,14 +41,14 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
     >
       <div>
         <h3
-          className={`text-[2.5vw] sm:text-[2vw] lg:text-[1vw] font-bold font-inter ${
+          className={`text-[2.5vw] sm:text-[2vw] lg:text-[18px] font-bold font-inter ${
             darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
           }`}
         >
           {experience.title}
         </h3>
         <p
-          className={`text-[2.5vw] sm:text-[2vw] lg:text-[1vw] font-semibold font-inter ${
+          className={`text-[2.5vw] sm:text-[2vw] lg:text-[16px] font-semibold font-inter ${
             darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
           }`}
           style={{ margin: 0 }}
@@ -61,7 +61,7 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
           return (
             <li
               key={`experience-point-${index}`}
-              className={`text-[2.5vw] sm:text-[2vw] lg:text-[1vw] xl:text-[0.8vw] pl-1 tracking-wider font-inter ${
+              className={`text-[2.5vw] sm:text-[2vw] lg:text-[1vw] xl:text-[14px] pl-1 tracking-wider font-inter ${
                 darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
               }`}
             >

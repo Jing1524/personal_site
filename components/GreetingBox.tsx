@@ -56,8 +56,8 @@ function TypewriterEffect({ text }: any) {
 
   return (
     <div className="flex">
-      <div className="flex text-2xl">{charList}</div>
-      <span className="text-2xl text-gray-400">{blink ? '|' : ''}</span>
+      <div className="flex text-2xl lg:text-4xl text-bold">{charList}</div>
+      <span className="text-2xl text-gray-400 lg:text-4xl">{blink ? '|' : ''}</span>
     </div>
   )
 }

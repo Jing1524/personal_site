@@ -67,7 +67,7 @@ export default function Home2() {
   // sliderInput.addEventListener('input', moveSlider)
 
   return (
-    <main className={`${darkMode ? 'bg-[#606161]' : 'bg-[#fff]'}`}>
+    <main className={`${darkMode ? 'bg-[#606161]' : 'bg-[#fff]'} overflow-hidden`}>
       <Head>
         <title>Jing&apos;s portfolio</title>
       </Head>
@@ -84,7 +84,9 @@ export default function Home2() {
           </div>
         </div>
 
-        <div className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen h-[80%] gap-2`}>
+        <div
+          className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen h-[80%] gap-2 flex-1`}
+        >
           {/* Second row left box */}
           {tabletScreen ? (
             <div className="flex flex-col gap-4 basis-7/12">
@@ -109,19 +111,31 @@ export default function Home2() {
           )}
 
           {/* Second row right box   */}
-          <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center gap-10 lg:basis-5/12`}>
-            <div className="flex flex-col gap-4 lg:gap-1 lg:flex-row h-[80%] w-full">
+          <div
+            className={`flex ${
+              isReverse ? 'flex-col-reverse' : 'flex-col'
+            } items-center gap-10 lg:gap-4 w-screen lg:basis-5/12`}
+          >
+            <div className="flex flex-col gap-4 lg:gap-1 lg:flex-row h-[82%] w-full">
               <ContactBox pillsRef={pillsRef} />
               <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
             </div>
-            <div className="flex h-[20%] w-full lg:items-center">
-              <ModeToggleBox pillsRef={pillsRef} />
+            <div className="flex h-[18%] w-full justify-center lg:items-end px-[10px]">
               {tabletScreen && (
                 <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
               )}
+              <ModeToggleBox pillsRef={pillsRef} />
             </div>
           </div>
         </div>
+        <footer>
+          <h1 className="pt-3 pr-3 text-xl font-bold text-right bg-gradient-to-t from-white to-transparent">
+            Inspired by{' '}
+            <a href="https://www.saaa.am" target="_blank">
+              https://www.saaa.am
+            </a>
+          </h1>
+        </footer>
       </div>
     </main>
   )
