@@ -17,7 +17,7 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 import Head from 'next/head'
 import { useState, useRef, useEffect } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
-import { LinearSRGBColorSpace } from 'three'
+
 export default function Home2() {
   const { darkMode } = useModeToggle()
   const tabletScreen = useMediaQuery('(min-width:1024px)')
@@ -28,12 +28,14 @@ export default function Home2() {
 
   let palletteIndex = 0
 
-  ColorPalletes[palletteIndex]
-
   useEffect(() => {
     const pills = document.querySelectorAll('.pill')
     if (pillsRef.current) {
       pillsRef.current = Array.from(pills)
+      pillsRef.current.forEach((pill, i) => {
+        pill.classList.add(ColorPalletes[palletteIndex][i]?.fill)
+        console.log(ColorPalletes[palletteIndex][i]?.fill)
+      })
     }
     console.log(pillsRef.current)
   }, [])
