@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Matter from 'matter-js'
-import { Bodies, Composite, Body } from 'matter-js'
 
 import useIsInViewport from '@/hooks/useIsInViewport'
 import { useModeToggle } from '@/context/ModeProvider'
+import useMediaQuery from '@/hooks/useMediaQuery'
 
 export default function Matterjs() {
+  const tabletScreen = useMediaQuery('(min-width:1024px)')
+
   const { darkMode } = useModeToggle()
   const boxRef = useRef<HTMLElement>(null)
   const canvasRef = useRef<HTMLElement>(null)
@@ -18,16 +20,15 @@ export default function Matterjs() {
   const handleResize = () => {
     setContraints(boxRef?.current?.getBoundingClientRect())
   }
-
+  const pills: Matter.Body[] = []
   useEffect(() => {
     let Engine = Matter.Engine
     let Render = Matter.Render
     let World = Matter.World
     let Bodies = Matter.Bodies
-    let Constraint = Matter.Bodies
-    // let Body = Matter.Body
+
     let engine = Engine.create({ gravity: { x: 0, y: 0.4 } }) // set falling speed
-    // let Composite = Matter.Composite
+
     let render = Render.create({
       // @ts-ignore
       element: boxRef.current,
@@ -57,55 +58,78 @@ export default function Matterjs() {
       isStatic: true,
     })
 
-    const pills: Matter.Body[] = []
+    const renderTextOnPill = (text: string, bgColor: string, radius: number) => {
+      const canvas = document.createElement('canvas')
+      const context = canvas.getContext('2d')
+      canvas.width = 100
+      canvas.height = 52
+      if (context) {
+        context.fillStyle = bgColor
+        context.fillStyle = bgColor
+        context.beginPath()
+        context.moveTo(radius, 0)
+        context.lineTo(canvas.width - radius, 0)
+        context.quadraticCurveTo(canvas.width, 0, canvas.width, radius)
+        context.lineTo(canvas.width, canvas.height - radius)
+        context.quadraticCurveTo(canvas.width, canvas.height, canvas.width - radius, canvas.height)
+        context.lineTo(radius, canvas.height)
+        context.quadraticCurveTo(0, canvas.height, 0, canvas.height - radius)
+        context.lineTo(0, radius)
+        context.quadraticCurveTo(0, 0, radius, 0)
+        context.closePath()
+        context.fill()
+
+        context.font = '16px Arial'
+
+        context.textAlign = 'center'
+        context.textBaseline = 'middle'
+        context.fillStyle = 'white'
+        context.fillText(text, canvas.width / 2, canvas.height / 2)
+      }
+
+      return canvas.toDataURL()
+    }
     const colors = ['#537188', '#99627A', '#41644A', '#E96479', '#86A3B8']
-    for (let i = 0; i < 30; i++) {
-      const x = Math.random() * window.innerWidth
-      const y = Math.random() * -500
-      const width = 100
-      const height = 52
+    const tectStack = [
+      'React.js',
+      'Next.js',
+      'JavaScript',
+      'TypeScript',
+      'Matter.js',
+      'Node.js',
+      'MongoDB',
+      'Express.js',
+      'Tailwind',
+      'MUI',
+      'Python',
+      'Git',
+    ]
+    for (let i = 0; i < 12; i++) {
+      const x = Math.random() * constraints?.width
+      const y = Math.random() * -constraints?.height
+      const pillWidth = tabletScreen ? 100 : 80
+      const pillHeight = tabletScreen ? 52 : 30
 
       const chamfer = { radius: 15 }
       const color = colors[i % colors.length]
-
-      const pillText = `Pill ${i + 1}`
-      const canvas = document.createElement('canvas')
-      const context = canvas.getContext('2d')
-      canvas.width = width
-      canvas.height = height
-
-      // Customize the text appearance
-      if (context) {
-        context.font = '16px Arial'
-        // context.fillStyle = 'white'
-        context.textAlign = 'center'
-        context.textBaseline = 'middle'
-
-        // Calculate the position to center the text on the pill
-        const textX = canvas.width / 2
-        const textY = canvas.height / 2
-
-        // Draw the text on the canvas
-        context.fillText(pillText, textX, textY)
-
-        // const imageData = context.getImageData(0, 0, canvas.width, canvas.height)
-        const dataURL = canvas.toDataURL()
-
-        const pill = Bodies.rectangle(x, y, width, height, {
-          chamfer,
-          restitution: 0.6,
-          friction: 0.005,
-          render: {
-            fillStyle: color,
+      const text = tectStack[i]
+      const pill = Bodies.rectangle(x, y, pillWidth, pillHeight, {
+        chamfer,
+        restitution: 0.6,
+        friction: 0.005,
+        render: {
+          fillStyle: color,
+          sprite: {
+            texture: renderTextOnPill(text, color, 15),
+            xScale: 1,
+            yScale: 1,
           },
-        })
+        },
+      })
+      console.log('pill position:', x, y)
 
-        //ball.velocity.y = Math.random() * 10 + 1
-        //@ts-ignore
-        pills.push(pill)
-      } else {
-        console.error('Failed to get canvas context')
-      }
+      //@ts-ignore
+      pills.push(pill)
     }
 
     World.add(engine.world, [floor, leftWall, rightWall])
@@ -124,11 +148,11 @@ export default function Matterjs() {
     })
     World.add(engine.world, mouseConstraint)
 
-    // Listen for mouse clicks on the ball bodies
+    // Listen for mouse clicks on the pill bodies
     Matter.Events.on(engine, 'mousedown', (event) => {
       const mousePosition = event.mouse.position
       // @ts-ignore
-      const clickedBody = Matter.Query.point(balls, mousePosition)[0]
+      const clickedBody = Matter.Query.point(pills, mousePosition)[0]
       if (clickedBody) {
         // Apply a random force to the clicked body
         const force = {
@@ -156,7 +180,7 @@ export default function Matterjs() {
     setScene(render)
 
     window.addEventListener('resize', handleResize)
-  }, [isInViewport])
+  }, [constraints?.height, constraints?.width, darkMode, isInViewport, tabletScreen])
 
   useEffect(() => {
     return () => {
@@ -167,9 +191,11 @@ export default function Matterjs() {
   useEffect(() => {
     if (constraints) {
       let { width, height } = constraints
-      console.log(width, height)
+
       // Dynamically update canvas and bounds
       if (scene) {
+        let Bodies = Matter.Bodies
+        let World = Matter.World
         scene.bounds.max.x = width
         scene.bounds.max.y = height
         scene.options.width = width
@@ -177,7 +203,7 @@ export default function Matterjs() {
         scene.canvas.width = width
         scene.canvas.height = height
         const floor = scene.engine.world.bodies[0]
-        console.log(scene.engine.world)
+
         Matter.Body.setPosition(floor, {
           x: width / 2,
           y: height + 15 / 2,

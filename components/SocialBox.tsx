@@ -35,7 +35,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
             className="pill h-full w-full border border-[12px] box-border rounded-lg border-[#1e1e1e] hidden-pill social kitty bg-[#F4E8CF]"
           >
             <a href="">
-              <Lottie options={defaultOptions} height={208} width={80} />
+              <Lottie options={defaultOptions} height={215} width={80} />
             </a>
           </div>
         </div>
