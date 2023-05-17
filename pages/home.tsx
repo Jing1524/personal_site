@@ -17,12 +17,14 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 import Head from 'next/head'
 import { useState, useRef, useEffect } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
+import OverViewBoxMobile from '@/components/OverviewBoxMobile'
 
 export default function Home2() {
   const { darkMode } = useModeToggle()
   const tabletScreen = useMediaQuery('(min-width:1024px)')
   const [showSideBar, setShowSideBar] = useState<boolean>(false)
   const [isReverse, setIsReverse] = useState<boolean>(false)
+  const [expand, setExpand] = useState<boolean>(false)
   const [sliderValue, setSliederValue] = useState<any>('1')
   const pillsRef = useRef<Element[]>([])
 
@@ -72,7 +74,7 @@ export default function Home2() {
 
       <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
       <div
-        className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen gap-4 overflow-x-hidden`}
+        className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen gap-2 overflow-x-hidden`}
       >
         <div className="flex flex-col-reverse w-screen lg:flex-row">
           <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
@@ -91,8 +93,8 @@ export default function Home2() {
                 <TechStackBox pillsRef={pillsRef} />
               </div>
               <div className="flex flex-row h-[80%]">
-                <OverViewBox pillsRef={pillsRef} />
-                <ProjectBox pillsRef={pillsRef} />
+                <OverViewBox pillsRef={pillsRef} expand={expand} setExpand={setExpand} />
+                {!expand && <ProjectBox pillsRef={pillsRef} />}
               </div>
             </div>
           ) : (
@@ -102,7 +104,7 @@ export default function Home2() {
                 <TechStackBox pillsRef={pillsRef} />
                 <ProjectBox pillsRef={pillsRef} />
               </div>
-              <OverViewBox pillsRef={pillsRef} />
+              <OverViewBoxMobile pillsRef={pillsRef} />
             </div>
           )}
 

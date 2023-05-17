@@ -9,7 +9,7 @@ const ModeToggleBox = ({ pillsRef }: any) => {
       <button
         ref={pillsRef}
         className={classNames(
-          'pill h-[50px] w-[150px] border-[8px] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
+          'pill h-[60px] w-[230px] border-[8px] lg:border-[12px] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
           darkMode ? 'justify-end glass' : 'justify-start glassLight'
         )}
         onClick={toggleDarkMode}
@@ -18,36 +18,35 @@ const ModeToggleBox = ({ pillsRef }: any) => {
           {darkMode ? (
             <motion.div initial="out" animate="in" variants={boxVariants}>
               <motion.div
-                className="absolute top-[35%] left-[38%] h-[4.5px] w-[4.5px] rounded-full bg-white"
+                className="absolute top-[35%] left-[38%] h-[6.5px] w-[6.5px] rounded-full bg-white"
                 variants={childVariants}
               />
               <motion.div
-                className="absolute top-[25%] left-[15%] h-[10px] w-[10px] starOne bg-white"
+                className="absolute top-[25%] left-[15%] h-[14px] w-[14px] starOne bg-white"
                 variants={childVariants}
               />
               <motion.div
-                className="absolute top-[70%] left-[25%] h-[3.5px] w-[3.5px] rounded-full bg-white"
-                variants={childVariants}
-              />
-
-              <motion.div
-                className="absolute top-[25%] left-[55%] h-[2.5px] w-[2.5px] rounded-full bg-white"
+                className="absolute top-[70%] left-[25%] h-[5.5px] w-[5.5px] rounded-full bg-white"
                 variants={childVariants}
               />
 
               <motion.div
-                className="absolute top-[55%] left-[45%] h-[8px] w-[8px] starOne bg-white"
+                className="absolute top-[25%] left-[55%] h-[4px] w-[4px] rounded-full bg-white"
+                variants={childVariants}
+              />
+
+              <motion.div
+                className="absolute top-[55%] left-[45%] h-[10px] w-[10px] starOne bg-white"
                 variants={childVariants}
               />
               <motion.div className="moon mr-[20px]" />
             </motion.div>
           ) : (
-            <div className="w-12 h-12 bg-[#FFA500] rounded-full sun ml-[5px]" />
+            <div className="w-14 h-14 bg-[#FFA500] rounded-full sun ml-[5px]" />
           )}
         </motion.div>
       </button>
     </div>
-    // </div>
   )
 }
 

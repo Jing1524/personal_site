@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 const ProjectBox = ({ pillsRef }: any) => {
   const { darkMode } = useModeToggle()
   return (
-    <div className="flex flex-col flex-1 gap-6 lg:basis-10/12 2xl:basis-7/12 project-box p-[10px]">
+    //  flex-1 lg:basis-10/12 2xl:basis-7/12 project-box
+    <div className="flex flex-col px-[10px] gap-6 ">
       <div
         ref={pillsRef}
         className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
