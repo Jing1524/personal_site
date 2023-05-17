@@ -1,12 +1,15 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { motion } from 'framer-motion'
+import { useRef } from 'react'
 
-const ExperienceToggle = ({ setShowSideBar, showSideBar }: any) => {
+const ExperienceToggle = ({ setShowSideBar, showSideBar, pillsRef }: any) => {
   const { darkMode } = useModeToggle()
+
   return (
-    <div className="small-box box lg:basis-3/12">
+    <div className="small-box box lg:basis-3/12 ">
       <button
-        className={`h-full w-full border border-[8px] lg:border-[12px] border-[#1e1e1e] box-border rounded-full flex justify-center items-center ${
+        ref={pillsRef}
+        className={`pill h-full w-full border border-[8px] lg:border-[12px] border-[#1e1e1e] box-border rounded-full flex justify-center items-center ${
           darkMode ? 'bg-[#199C85]' : 'bg-[#BDE3D8]'
         }`}
         onClick={() => setShowSideBar(!showSideBar)}

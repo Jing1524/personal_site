@@ -2,13 +2,14 @@ import { useModeToggle } from '@/context/ModeProvider'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
 
-const ModeToggleBox = () => {
+const ModeToggleBox = ({ pillsRef }: any) => {
   const { darkMode, toggleDarkMode } = useModeToggle()
   return (
     <div className="self-center m-auto for-toggle lg:m-0 lg:basis-1/2">
       <button
+        ref={pillsRef}
         className={classNames(
-          'h-[50px] w-[150px] border-[8px] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
+          'pill h-[50px] w-[150px] border-[8px] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
           darkMode ? 'justify-end glass' : 'justify-start glassLight'
         )}
         onClick={toggleDarkMode}

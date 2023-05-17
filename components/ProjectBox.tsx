@@ -2,11 +2,16 @@ import Image from 'next/image'
 import { useModeToggle } from '@/context/ModeProvider'
 import { motion } from 'framer-motion'
 
-const ProjectBox = () => {
+const ProjectBox = ({ pillsRef }: any) => {
   const { darkMode } = useModeToggle()
   return (
     <div className="flex flex-col flex-1 gap-6 lg:basis-10/12 2xl:basis-7/12 project-box p-[10px]">
-      <div className={`pill ${darkMode ? 'bg-[#7DB9B6]' : 'bg-[#A0C3D2]'} basis-1/3`}>
+      <div
+        ref={pillsRef}
+        className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+          darkMode ? 'bg-[#7DB9B6]' : 'bg-[#A0C3D2]'
+        } basis-1/3`}
+      >
         <div className="relative flex flex-col items-center h-full group">
           <p className="absolute font-bold font-lg">Project 1</p>
           <a href="https://yama-one.vercel.app" target="_blank">
@@ -32,10 +37,20 @@ const ProjectBox = () => {
           </div>
         </div>
       </div>
-      <div className={`pill ${darkMode ? 'bg-[#F4E8CF]' : 'bg-[#F8F5EB]'} basis-1/3`}>
+      <div
+        ref={pillsRef}
+        className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+          darkMode ? 'bg-[#F4E8CF]' : 'bg-[#F8F5EB]'
+        } basis-1/3`}
+      >
         <h1>Coming Soon...</h1>
       </div>
-      <div className={`pill ${darkMode ? 'bg-[#E86479]' : 'bg-[#EAC7C7]'} basis-1/3`}>
+      <div
+        ref={pillsRef}
+        className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+          darkMode ? 'bg-[#E86479]' : 'bg-[#EAC7C7]'
+        } basis-1/3`}
+      >
         <h1>Coming Soon...</h1>
       </div>
     </div>

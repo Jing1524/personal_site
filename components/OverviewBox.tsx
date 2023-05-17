@@ -1,13 +1,18 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { useState } from 'react'
 
-const OverViewBox = () => {
+const OverViewBox = ({ pillsRef }: any) => {
   const { darkMode } = useModeToggle()
   const [expand, setExpand] = useState<boolean>(false)
   const fontColor = darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
   return (
     <div className="flex-1 lg:basis-2/12 2xl:basis-5/12 box" id="takeover">
-      <div className={`pill ${darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'}`}>
+      <div
+        ref={pillsRef}
+        className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+          darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'
+        }`}
+      >
         <div className={`flex flex-col items-center gap-4 p-6 text-box group `}>
           <h1 className={`self-start text-4xl font-bold ${fontColor}`}>Overview.</h1>
 
