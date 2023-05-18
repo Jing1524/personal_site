@@ -12,10 +12,11 @@ import SocialBox from '@/components/SocialBox'
 import TechStackBox from '@/components/TechStack/TechStackBox'
 
 import { useModeToggle } from '@/context/ModeProvider'
+import { ThemeContext, ThemeProvider } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
 import Head from 'next/head'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
 
@@ -26,21 +27,25 @@ export default function Home2() {
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
   const [sliderValue, setSliederValue] = useState<any>('1')
+  const { updateTheme } = useContext(ThemeContext)
+  console.log({ updateTheme })
   const pillsRef = useRef<Element[]>([])
+  const bodyBackgroundRef = useRef<any>()
 
-  let palletteIndex = 0
-
-  useEffect(() => {
-    const pills = document.querySelectorAll('.pill')
-    if (pillsRef.current) {
-      pillsRef.current = Array.from(pills)
-      pillsRef.current.forEach((pill, i) => {
-        pill.classList.add(ColorPalletes[palletteIndex][i]?.fill)
-        console.log(ColorPalletes[palletteIndex][i]?.fill)
-      })
-    }
-    console.log(pillsRef.current)
-  }, [])
+  // let palletteIndex = 0
+  // console.log({ sliderValue })
+  // useEffect(() => {
+  //   const pills = document.querySelectorAll('.pill')
+  //   if (pillsRef.current && bodyBackgroundRef.current) {
+  //     if (sliderValue > 1 && sliderValue <= 3)
+  //       (bodyBackgroundRef.current as HTMLElement).style.backgroundColor = ColorPalletes[0][1].fill
+  //     pillsRef.current = Array.from(pills)
+  //     pillsRef.current.forEach((pill, i) => {
+  //       return ((pill as HTMLElement).style.backgroundColor = ColorPalletes[palletteIndex][i]?.fill)
+  //     })
+  //   }
+  //   console.log(pillsRef.current)
+  // }, [sliderValue])
 
   // allPills.forEach((pill, i) => (pill.style.backgroundColor = ColorPalletes[palletteIndex][i].fill))
 
@@ -67,76 +72,86 @@ export default function Home2() {
   // sliderInput.addEventListener('input', moveSlider)
 
   return (
-    <main className={`${darkMode ? 'bg-[#606161]' : 'bg-[#fff]'} overflow-hidden`}>
-      <Head>
-        <title>Jing&apos;s portfolio</title>
-      </Head>
+    <ThemeProvider>
+      <main ref={bodyBackgroundRef} className={`${darkMode ? 'bg-[#606161]' : 'bg-[#fff]'} overflow-hidden bn`}>
+        <Head>
+          <title>Jing&apos;s portfolio</title>
+        </Head>
 
-      <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
-      <div
-        className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen gap-2 overflow-x-hidden`}
-      >
-        <div className="flex flex-col-reverse w-screen lg:flex-row">
-          <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
-          <div className="flex items-center lg:basis-9/12">
-            <GreetingBox pillsRef={pillsRef} />
-            <ProfileBox pillsRef={pillsRef} />
-          </div>
-        </div>
-
+        <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div
-          className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen h-[80%] gap-2 flex-1`}
+          className={`flex ${
+            isReverse ? 'flex-col-reverse' : 'flex-col'
+          } items-stretch h-screen gap-2 overflow-x-hidden`}
         >
-          {/* Second row left box */}
-          {tabletScreen ? (
-            <div className="flex flex-col gap-4 basis-7/12">
-              <div className="flex flex-row gap-4 px-[10px] h-[20%]">
-                <SocialBox tabletScreen={tabletScreen} pillsRef={pillsRef} />
-                <TechStackBox pillsRef={pillsRef} />
-              </div>
-              <div className="flex flex-row h-[80%]">
-                <OverViewBox pillsRef={pillsRef} expand={expand} setExpand={setExpand} />
-                {!expand && <ProjectBox pillsRef={pillsRef} />}
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-col">
-              <SocialBox tabletScreen={tabletScreen} pillsRef={pillsRef} />
-              <div className="flex">
-                <TechStackBox pillsRef={pillsRef} />
-                <ProjectBox pillsRef={pillsRef} />
-              </div>
-              <OverViewBoxMobile pillsRef={pillsRef} />
-            </div>
-          )}
-
-          {/* Second row right box   */}
-          <div
-            className={`flex ${
-              isReverse ? 'flex-col-reverse' : 'flex-col'
-            } items-center gap-10 lg:gap-4 w-screen lg:basis-5/12`}
-          >
-            <div className="flex flex-col gap-4 lg:gap-1 lg:flex-row h-[82%] w-full">
-              <ContactBox pillsRef={pillsRef} />
-              <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
-            </div>
-            <div className="flex h-[18%] w-full justify-center lg:items-end px-[10px]">
-              {tabletScreen && (
-                <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
-              )}
-              <ModeToggleBox pillsRef={pillsRef} />
+          <div className="flex flex-col-reverse w-screen lg:flex-row">
+            <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
+            <div className="flex items-center lg:basis-9/12">
+              <GreetingBox pillsRef={pillsRef} />
+              <ProfileBox pillsRef={pillsRef} />
             </div>
           </div>
+
+          <div
+            className={`flex flex-col ${
+              isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
+            } w-screen h-[80%] gap-2 flex-1`}
+          >
+            {/* Second row left box */}
+            {tabletScreen ? (
+              <div className="flex flex-col gap-4 basis-7/12">
+                <div className="flex flex-row gap-4 px-[10px] h-[20%]">
+                  <SocialBox tabletScreen={tabletScreen} pillsRef={pillsRef} />
+                  <TechStackBox pillsRef={pillsRef} />
+                </div>
+                <div className="flex flex-row h-[80%]">
+                  <OverViewBox pillsRef={pillsRef} expand={expand} setExpand={setExpand} />
+                  {!expand && <ProjectBox pillsRef={pillsRef} />}
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col">
+                <SocialBox tabletScreen={tabletScreen} pillsRef={pillsRef} />
+                <div className="flex">
+                  <TechStackBox pillsRef={pillsRef} />
+                  <ProjectBox pillsRef={pillsRef} />
+                </div>
+                <OverViewBoxMobile pillsRef={pillsRef} />
+              </div>
+            )}
+
+            {/* Second row right box   */}
+            <div
+              className={`flex ${
+                isReverse ? 'flex-col-reverse' : 'flex-col'
+              } items-center gap-10 lg:gap-4 w-screen lg:basis-5/12`}
+            >
+              <div className="flex flex-col gap-4 lg:gap-1 lg:flex-row h-[82%] w-full">
+                <ContactBox pillsRef={pillsRef} />
+                <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
+              </div>
+              <div className="flex h-[18%] w-full justify-center lg:items-end px-[10px]">
+                {tabletScreen && (
+                  <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
+                )}
+                <ModeToggleBox pillsRef={pillsRef} />
+              </div>
+            </div>
+          </div>
+          <footer>
+            <h1
+              className={`pt-3 pr-3 text-xl font-bold text-right ${
+                isReverse ? 'bg-gradient-to-b' : 'bg-gradient-to-t'
+              } from-white to-transparent`}
+            >
+              Inspired by{' '}
+              <a href="https://www.saaa.am" target="_blank">
+                https://www.saaa.am
+              </a>
+            </h1>
+          </footer>
         </div>
-        <footer>
-          <h1 className="pt-3 pr-3 text-xl font-bold text-right bg-gradient-to-t from-white to-transparent">
-            Inspired by{' '}
-            <a href="https://www.saaa.am" target="_blank">
-              https://www.saaa.am
-            </a>
-          </h1>
-        </footer>
-      </div>
-    </main>
+      </main>
+    </ThemeProvider>
   )
 }

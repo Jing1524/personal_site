@@ -126,7 +126,6 @@ export default function Matterjs() {
           },
         },
       })
-      console.log('pill position:', x, y)
 
       //@ts-ignore
       pills.push(pill)
