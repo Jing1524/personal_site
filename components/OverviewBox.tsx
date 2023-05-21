@@ -8,7 +8,7 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
 
   const fontColor = darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
   return (
-    <div className="px-[10px]" id="takeover">
+    <div className="p-[10px] box" id="takeover">
       <div
         ref={pillsRef}
         className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${

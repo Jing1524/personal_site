@@ -56,7 +56,7 @@ const ContactBox = ({ pillsRef }: any) => {
   }
   return (
     // bg-[#87CAB9]
-    <div className="basis-4/5 contact px-[10px] lg:px-[5px]">
+    <div className="basis-4/5 contact p-[10px] box">
       <div
         ref={pillsRef}
         className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${

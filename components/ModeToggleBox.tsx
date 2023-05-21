@@ -9,7 +9,7 @@ const ModeToggleBox = ({ pillsRef }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="self-center for-toggle lg:m-0 lg:w-[50%]">
+    <div className="self-center items-center justify-center for-toggle lg:m-0 lg:w-[50%] box h-full">
       <button
         ref={pillsRef}
         className={classNames(

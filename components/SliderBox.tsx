@@ -12,7 +12,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
   return (
     <>
       {tabletScreen ? (
-        <div className="order-last basis-1/5 px-[5px] min-h-[500px]">
+        <div className="box order-last basis-1/5 p-[10px] min-h-[500px]">
           <div
             ref={pillsRef}
             className={`pill h-full w-[120px] 2xl:w-[150px] border border-[#1e1e1e] box-border flex justify-center items-center rounded-[20px] ${
@@ -41,7 +41,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
           </div>
         </div>
       ) : (
-        <div className="order-first px-[10px] h-[180px] w-full">
+        <div className="box order-first px-[10px] h-[180px] w-full">
           <div
             ref={pillsRef}
             className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${

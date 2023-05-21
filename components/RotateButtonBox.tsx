@@ -9,7 +9,7 @@ const RotateButtonBox = ({ isReverse, setIsReverse, pillsRef }: any) => {
 
   return (
     //  box
-    <div className="w-[50%]">
+    <div className="w-[50%] box h-full">
       <button
         ref={pillsRef}
         className={`pill m-auto h-[125px] w-full border-[8px] lg:border-[12px] border-[#1e1e1e] rounded-3xl p-[6.25px] box-content flex items-center justify-center ${

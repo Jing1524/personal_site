@@ -29,46 +29,40 @@ export default function Home2() {
   const [sliderValue, setSliederValue] = useState<any>('1')
   const { theme, updateTheme } = useContext(ThemeContext)
   const pillsRef = useRef<Element[]>([])
+  const boxesRef = useRef<Element[]>([])
   const bodyBackgroundRef = useRef<any>()
 
-  // let palletteIndex = 0
-  // console.log({ sliderValue })
-  // useEffect(() => {
-  //   const pills = document.querySelectorAll('.pill')
-  //   if (pillsRef.current && bodyBackgroundRef.current) {
-  //     if (sliderValue > 1 && sliderValue <= 3)
-  //       (bodyBackgroundRef.current as HTMLElement).style.backgroundColor = ColorPalletes[0][1].fill
-  //     pillsRef.current = Array.from(pills)
-  //     pillsRef.current.forEach((pill, i) => {
-  //       return ((pill as HTMLElement).style.backgroundColor = ColorPalletes[palletteIndex][i]?.fill)
-  //     })
-  //   }
-  //   console.log(pillsRef.current)
-  // }, [sliderValue])
-
-  // allPills.forEach((pill, i) => (pill.style.backgroundColor = ColorPalletes[palletteIndex][i].fill))
-
-  // const moveSlider = () => {
-  //   const sliderInput = document.querySelector('#slider-input')
-  //   const sliderValue = sliderInput.value
-  //   if (sliderValue === 0) {
-  //     //addTheme
-  //   }
-  //   if (sliderValue > 1 && sliderValue <= 3) {
-  //     //add different theme
-  //   }
-  //   if (sliderValue >= 4 && sliderValue <= 6) {
-  //     //add another Theme
-  //   }
-  //   if (sliderValue >= 7 && sliderValue < 9) {
-  //     // add theme
-  //   }
-  //   if (sliderValue === 10) {
-  //     //add final theme
-  //   }
-  // }
-
-  // sliderInput.addEventListener('input', moveSlider)
+  useEffect(() => {
+    const pills = document.querySelectorAll('.pill')
+    const boxes = document.querySelectorAll('.box')
+    if (pillsRef.current) {
+      if (sliderValue > 1 && sliderValue <= 3) {
+        pillsRef.current = Array.from(pills)
+        pillsRef.current.forEach((pill, i) => {
+          return ((pill as HTMLElement).style.backgroundColor = theme.pillBackgroundColor.light[i])
+        })
+      }
+      if (sliderValue >= 4 && sliderValue <= 6) {
+        pillsRef.current = Array.from(pills)
+        pillsRef.current.forEach((pill, i) => {
+          return (
+            ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColorTransition1[i]),
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition1[i])
+          )
+        })
+        boxesRef.current = Array.from(boxes)
+        boxesRef.current.forEach((box, i) => {
+          return ((box as HTMLElement).style.backgroundColor = ColorPalletes.boxBgTransition1[i])
+        })
+      }
+      if (sliderValue >= 7 && sliderValue < 9) {
+        //  transition theme 3
+      }
+      if (sliderValue === 10) {
+        //  transition theme 4
+      }
+    }
+  }, [theme.pillBackgroundColor.light, sliderValue])
 
   return (
     <ThemeProvider>
@@ -84,11 +78,7 @@ export default function Home2() {
         </Head>
 
         <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
-        <div
-          className={`flex ${
-            isReverse ? 'flex-col-reverse' : 'flex-col'
-          } items-stretch h-screen gap-2 overflow-x-hidden`}
-        >
+        <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
           <div className="flex flex-col-reverse w-screen lg:flex-row">
             <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
             <div className="flex items-center lg:basis-9/12">
@@ -97,15 +87,11 @@ export default function Home2() {
             </div>
           </div>
 
-          <div
-            className={`flex flex-col ${
-              isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
-            } w-screen h-[80%] gap-2 flex-1`}
-          >
+          <div className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen h-[80%] flex-1`}>
             {/* Second row left box */}
             {tabletScreen ? (
-              <div className="flex flex-col gap-4 basis-7/12">
-                <div className="flex flex-row gap-4 px-[10px] h-[20%]">
+              <div className="flex flex-col basis-7/12">
+                <div className="flex flex-row h-[20%]">
                   <SocialBox tabletScreen={tabletScreen} pillsRef={pillsRef} />
                   <TechStackBox pillsRef={pillsRef} />
                 </div>
@@ -126,16 +112,12 @@ export default function Home2() {
             )}
 
             {/* Second row right box   */}
-            <div
-              className={`flex ${
-                isReverse ? 'flex-col-reverse' : 'flex-col'
-              } items-center gap-10 lg:gap-4 w-screen lg:basis-5/12`}
-            >
-              <div className="flex flex-col gap-4 lg:gap-1 lg:flex-row h-[82%] w-full">
+            <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
+              <div className="flex flex-col lg:flex-row h-[79.1%] w-full">
                 <ContactBox pillsRef={pillsRef} />
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
               </div>
-              <div className="flex h-[18%] w-full justify-center lg:items-end px-[10px]">
+              <div className="flex h-[21.9%] w-full justify-center lg:items-center">
                 {tabletScreen && (
                   <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
                 )}

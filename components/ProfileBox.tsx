@@ -4,7 +4,7 @@ import { useContext } from 'react'
 const ProfileBox = ({ pillsRef }: any) => {
   const { theme } = useContext(ThemeContext)
   return (
-    <div className="order-first circle-box lg:order-last box">
+    <div className="order-first circle-box lg:order-last box p-[10px]">
       <div
         ref={pillsRef}
         style={{ borderWidth: theme.strokeWidth }}

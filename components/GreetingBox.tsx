@@ -8,7 +8,7 @@ const GreetingBox = ({ pillsRef }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="flex-1 h-full long-box box">
+    <div className="flex-1 h-full long-box box p-[10px]">
       <div
         ref={pillsRef}
         style={{ borderWidth: theme.strokeWidth }}

@@ -16,7 +16,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
   return (
     <>
       {tabletScreen ? (
-        <div className="h-full social-fan lg:basis-1/4">
+        <div className="h-full social-fan lg:basis-1/4 box">
           <div
             ref={pillsRef}
             className="pill h-full w-full border box-border rounded-lg border-[#1e1e1e] hidden-pill social github bg-[#7DB9B6]"
