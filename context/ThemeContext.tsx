@@ -1,14 +1,14 @@
 import React, { createContext, useState, ReactNode } from 'react'
 
 interface Theme {
-  bodyBackgroundColor: string
-  strokeWidth: number
+  bodyBackgroundColor: { light: string; dark: string } //background color
+  strokeWidth: string
   svgFill: string
   opacity: number
-  lineColor: string
-  borderRadius: number
-  boxBackgroundColor: string[]
-  pillBackgroundColor: string[]
+  borderColor: { light: string; dark: string[] } // each box's border color
+  borderRadius: string
+  boxBackgroundColor: string[] //each box's background color
+  pillBackgroundColor: { light: string[]; dark: string }
 }
 
 interface ThemeContextProps {
@@ -17,14 +17,52 @@ interface ThemeContextProps {
 }
 
 const initialTheme: Theme = {
-  bodyBackgroundColor: '',
-  strokeWidth: 0,
+  bodyBackgroundColor: { light: '#eaeaea', dark: '#1e1e1e' },
+  strokeWidth: '10px',
   svgFill: '',
   opacity: 0,
-  lineColor: '',
-  borderRadius: 0,
+  borderColor: {
+    light: '#1e1e1e',
+    dark: [
+      '#4a95a4',
+      '#57a580',
+      '#f9e19d',
+      '#5a6191',
+      '#54a58a',
+      '#e6abbe',
+      '#e17a68',
+      '#4eac5b',
+      '#6b569e',
+      '#4fb18d',
+      '#e6abbe',
+      '#d73832',
+      '#faec51',
+      '#c1bfc0',
+      '#c4a484',
+    ],
+  },
+  borderRadius: '60px',
   boxBackgroundColor: [],
-  pillBackgroundColor: [],
+  pillBackgroundColor: {
+    light: [
+      '#4a95a4',
+      '#224044',
+      '#ffffff',
+      '#e6abbe',
+      '#54a58a',
+      '#5a6191',
+      '#de7258',
+      '#add4bd',
+      '#5a6191',
+      '#54a58a',
+      '#e6abbe',
+      '#d14d34',
+      '#faec51',
+      '#ffffff',
+      '#c5bfb8',
+    ],
+    dark: '#eae0d7',
+  },
 }
 
 const ThemeContext = createContext<ThemeContextProps>({

@@ -1,9 +1,13 @@
 import Image from 'next/image'
 import { useModeToggle } from '@/context/ModeProvider'
 import { motion } from 'framer-motion'
+import { useContext } from 'react'
+import { ThemeContext } from '@/context/ThemeContext'
 
 const ProjectBox = ({ pillsRef }: any) => {
   const { darkMode } = useModeToggle()
+  const { theme } = useContext(ThemeContext)
+
   return (
     //  flex-1 lg:basis-10/12 2xl:basis-7/12 project-box
     <div className="flex flex-col px-[10px] gap-6 ">
@@ -12,6 +16,7 @@ const ProjectBox = ({ pillsRef }: any) => {
         className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
           darkMode ? 'bg-[#7DB9B6]' : 'bg-[#A0C3D2]'
         } basis-1/3`}
+        style={{ borderWidth: theme.strokeWidth }}
       >
         <div className="relative flex flex-col items-center h-full group">
           <p className="absolute font-bold font-lg">Project 1</p>
@@ -43,6 +48,7 @@ const ProjectBox = ({ pillsRef }: any) => {
         className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
           darkMode ? 'bg-[#F4E8CF]' : 'bg-[#F8F5EB]'
         } basis-1/3`}
+        style={{ borderWidth: theme.strokeWidth }}
       >
         <h1>Coming Soon...</h1>
       </div>
@@ -51,6 +57,7 @@ const ProjectBox = ({ pillsRef }: any) => {
         className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
           darkMode ? 'bg-[#E86479]' : 'bg-[#EAC7C7]'
         } basis-1/3`}
+        style={{ borderWidth: theme.strokeWidth }}
       >
         <h1>Coming Soon...</h1>
       </div>

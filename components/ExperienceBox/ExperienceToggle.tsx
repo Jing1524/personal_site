@@ -1,17 +1,20 @@
 import { useModeToggle } from '@/context/ModeProvider'
+import { ThemeContext } from '@/context/ThemeContext'
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import { useContext, useRef } from 'react'
 
 const ExperienceToggle = ({ setShowSideBar, showSideBar, pillsRef }: any) => {
   const { darkMode } = useModeToggle()
+  const { theme } = useContext(ThemeContext)
 
   return (
     <div className="small-box box lg:basis-3/12 ">
       <button
         ref={pillsRef}
-        className={`pill h-full w-full border border-[8px] lg:border-[12px] border-[#1e1e1e] box-border rounded-full flex justify-center items-center ${
+        className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-full flex justify-center items-center ${
           darkMode ? 'bg-[#199C85]' : 'bg-[#BDE3D8]'
         }`}
+        style={{ borderWidth: theme.strokeWidth }}
         onClick={() => setShowSideBar(!showSideBar)}
       >
         <div className="flex items-center gap-4 arrow left-expand-arrow">

@@ -1,17 +1,22 @@
 import { useModeToggle } from '@/context/ModeProvider'
+import { ThemeContext } from '@/context/ThemeContext'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
+import { useContext } from 'react'
 
 const ModeToggleBox = ({ pillsRef }: any) => {
   const { darkMode, toggleDarkMode } = useModeToggle()
+  const { theme } = useContext(ThemeContext)
+
   return (
     <div className="self-center for-toggle lg:m-0 lg:w-[50%]">
       <button
         ref={pillsRef}
         className={classNames(
-          'pill h-[60px] w-[230px] lg:w-[50%] border-[8px] lg:border-[12px] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
+          'pill h-[60px] w-[230px] lg:w-[50%] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
           darkMode ? 'justify-end bg-[#2A2F4F]' : 'justify-start glassLight'
         )}
+        style={{ borderWidth: theme.strokeWidth }}
         onClick={toggleDarkMode}
       >
         <motion.div layout transition={spring}>

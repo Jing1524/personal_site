@@ -27,8 +27,7 @@ export default function Home2() {
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
   const [sliderValue, setSliederValue] = useState<any>('1')
-  const { updateTheme } = useContext(ThemeContext)
-  console.log({ updateTheme })
+  const { theme, updateTheme } = useContext(ThemeContext)
   const pillsRef = useRef<Element[]>([])
   const bodyBackgroundRef = useRef<any>()
 
@@ -73,7 +72,13 @@ export default function Home2() {
 
   return (
     <ThemeProvider>
-      <main ref={bodyBackgroundRef} className={`${darkMode ? 'bg-[#606161]' : 'bg-[#fff]'} overflow-hidden bn`}>
+      <main
+        ref={bodyBackgroundRef}
+        className="overflow-hidden"
+        style={{
+          backgroundColor: darkMode ? `${theme.bodyBackgroundColor.dark}` : `${theme.bodyBackgroundColor.light}`,
+        }}
+      >
         <Head>
           <title>Jing&apos;s portfolio</title>
         </Head>

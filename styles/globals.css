@@ -52,15 +52,11 @@
 }
 
 .circle {
-  border-width: 8px;
   border-radius: 100%;
   border-color: #1e1e1e;
   display: flex;
   align-items: center;
   justify-content: center;
-  @media only screen and (min-width: 1024px) {
-    border-width: 12px;
-  }
 }
 
 .long-box {

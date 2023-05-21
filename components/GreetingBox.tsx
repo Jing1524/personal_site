@@ -1,16 +1,20 @@
 import { useModeToggle } from '@/context/ModeProvider'
+import { ThemeContext } from '@/context/ThemeContext'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 const GreetingBox = ({ pillsRef }: any) => {
   const { darkMode } = useModeToggle()
+  const { theme } = useContext(ThemeContext)
+
   return (
     <div className="flex-1 h-full long-box box">
       <div
         ref={pillsRef}
+        style={{ borderWidth: theme.strokeWidth }}
         className={`pill p-4 ${
           darkMode ? 'bg-[#408E91]' : 'bg-[#87CAB9]'
-        } flex flex-col h-full w-full border border-8 lg:border-[12px] border-[#1E1E1E] box-border justify-center rounded-[50px]`}
+        } flex flex-col h-full w-full border border-[#1E1E1E] box-border justify-center rounded-[50px]`}
       >
         <TypewriterEffect text="Hi, I'm Jing" />
         <motion.p

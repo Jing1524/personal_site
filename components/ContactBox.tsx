@@ -1,10 +1,13 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { ThemeContext } from '@/context/ThemeContext'
 
 const ContactBox = ({ pillsRef }: any) => {
+  const { theme } = useContext(ThemeContext)
+
   const { darkMode } = useModeToggle()
   const formRef = useRef()
   const [form, setForm] = useState({
@@ -56,9 +59,10 @@ const ContactBox = ({ pillsRef }: any) => {
     <div className="basis-4/5 contact px-[10px] lg:px-[5px]">
       <div
         ref={pillsRef}
-        className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+        className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
           darkMode ? 'bg-[#4D4C6E]' : 'bg-[#9EA1D0]'
         } p-6`}
+        style={{ borderWidth: theme.strokeWidth }}
       >
         <div className="flex flex-col w-full h-full gap-16">
           <h3 className={`text-4xl font-black ${darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'}`}>Get in touch.</h3>

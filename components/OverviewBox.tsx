@@ -1,16 +1,20 @@
 import { useModeToggle } from '@/context/ModeProvider'
+import { ThemeContext } from '@/context/ThemeContext'
+import { useContext } from 'react'
 
 const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
   const { darkMode } = useModeToggle()
+  const { theme } = useContext(ThemeContext)
 
   const fontColor = darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
   return (
     <div className="px-[10px]" id="takeover">
       <div
         ref={pillsRef}
-        className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+        className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
           darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'
         }`}
+        style={{ borderWidth: theme.strokeWidth }}
         onMouseEnter={() => setExpand(true)}
         onMouseLeave={() => setExpand(false)}
       >
