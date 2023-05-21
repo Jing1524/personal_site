@@ -113,11 +113,11 @@ export default function Home2() {
 
             {/* Second row right box   */}
             <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
-              <div className="flex flex-col lg:flex-row h-[79.1%] w-full">
+              <div className="flex flex-col lg:flex-row h-[79.2%] w-full">
                 <ContactBox pillsRef={pillsRef} />
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
               </div>
-              <div className="flex h-[21.9%] w-full justify-center lg:items-center">
+              <div className="flex h-[20.8%] w-full justify-center lg:items-center">
                 {tabletScreen && (
                   <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
                 )}

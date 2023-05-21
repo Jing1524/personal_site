@@ -9,11 +9,11 @@ const ModeToggleBox = ({ pillsRef }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="self-center items-center justify-center for-toggle lg:m-0 lg:w-[50%] box h-full">
+    <div className="flex self-center items-center justify-center for-toggle lg:m-0 lg:w-[50%] box h-full">
       <button
         ref={pillsRef}
         className={classNames(
-          'pill h-[60px] w-[230px] lg:w-[50%] border-[#1e1e1e] rounded-full p-[6.25px] box-content flex overflow-hidden relative lg:m-auto ',
+          'pill h-[100px] w-[230px] lg:w-[60%] border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto ',
           darkMode ? 'justify-end bg-[#2A2F4F]' : 'justify-start glassLight'
         )}
         style={{ borderWidth: theme.strokeWidth }}
@@ -44,10 +44,10 @@ const ModeToggleBox = ({ pillsRef }: any) => {
                 className="absolute top-[55%] left-[45%] h-[10px] w-[10px] starOne bg-white"
                 variants={childVariants}
               />
-              <motion.div className="moon mr-[20px]" />
+              <motion.div className="moon mr-[20px] mt-1" />
             </motion.div>
           ) : (
-            <div className="w-14 h-14 bg-[#FFA500] rounded-full sun ml-[5px]" />
+            <div className="w-14 h-14 bg-[#FFA500] rounded-full sun ml-[5px] mt-1" />
           )}
         </motion.div>
       </button>
