@@ -12,9 +12,7 @@ const GreetingBox = ({ pillsRef }: any) => {
       <div
         ref={pillsRef}
         style={{ borderWidth: theme.strokeWidth }}
-        className={`pill p-4 ${
-          darkMode ? 'bg-[#408E91]' : 'bg-[#87CAB9]'
-        } flex flex-col h-full w-full border border-[#1E1E1E] box-border justify-center rounded-[50px]`}
+        className={`pill p-4 flex flex-col h-full w-full border box-border justify-center `}
       >
         <TypewriterEffect text="Hi, I'm Jing" />
         <motion.p

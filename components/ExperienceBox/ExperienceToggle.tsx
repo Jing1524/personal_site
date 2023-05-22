@@ -11,7 +11,7 @@ const ExperienceToggle = ({ setShowSideBar, showSideBar, pillsRef }: any) => {
     <div className="small-box lg:basis-3/12 p-[10px] box">
       <button
         ref={pillsRef}
-        className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-full flex justify-center items-center ${
+        className={`pill h-full w-full border border-[#1e1e1e] box-border flex justify-center items-center ${
           darkMode ? 'bg-[#199C85]' : 'bg-[#BDE3D8]'
         }`}
         style={{ borderWidth: theme.strokeWidth }}

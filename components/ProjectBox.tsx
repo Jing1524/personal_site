@@ -13,9 +13,7 @@ const ProjectBox = ({ pillsRef }: any) => {
       <div className="w-full h-full box p-[10px]">
         <div
           ref={pillsRef}
-          className={`pill w-full h-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
-            darkMode ? 'bg-[#7DB9B6]' : 'bg-[#A0C3D2]'
-          } basis-1/3`}
+          className={`pill w-full h-full border  box-border overflow-hidden flex justify-center items-center basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
         >
           <div className="relative flex flex-col items-center h-full group">
@@ -23,7 +21,7 @@ const ProjectBox = ({ pillsRef }: any) => {
             <a href="https://yama-one.vercel.app" target="_blank">
               <img src="/images/music-player.png" alt="music player project" className="object-cover opacity-50" />
             </a>
-            {/*  hidden group-hover:block */}
+
             <div className="absolute bg-[#fff]/70 w-full bottom-0 h-[20%] p-2 lg:p-4">
               <div className="flex items-center justify-center w-full gap-2">
                 <p className="text-[1.5vw] lg:text-[0.8vw] font-bold">Teck Stack:</p>

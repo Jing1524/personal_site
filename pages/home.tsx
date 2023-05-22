@@ -19,6 +19,7 @@ import Head from 'next/head'
 import { useState, useRef, useEffect, useContext } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
+import { m } from 'framer-motion'
 
 export default function Home2() {
   const { darkMode } = useModeToggle()
@@ -26,7 +27,7 @@ export default function Home2() {
   const [showSideBar, setShowSideBar] = useState<boolean>(false)
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
-  const [sliderValue, setSliederValue] = useState<any>('1')
+  const [sliderValue, setSliederValue] = useState<any>(1)
   const { theme, updateTheme } = useContext(ThemeContext)
   const pillsRef = useRef<Element[]>([])
   const boxesRef = useRef<Element[]>([])
@@ -36,12 +37,28 @@ export default function Home2() {
     const pills = document.querySelectorAll('.pill')
     const boxes = document.querySelectorAll('.box')
     if (pillsRef.current) {
+      if (sliderValue === 1) {
+        pillsRef.current = Array.from(pills)
+        pillsRef.current.forEach((pill, i) => {
+          return (
+            ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColor[i]),
+            ((pill as HTMLElement).style.borderColor = '#1e1e1e'),
+            ((pill as HTMLElement).style.borderRadius = '100px')
+          )
+        })
+        boxesRef.current = Array.from(boxes)
+        boxesRef.current.forEach((box, i) => {
+          return ((box as HTMLElement).style.backgroundColor = '')
+        })
+        bodyBackgroundRef.current.style.backgroundColor = theme.bodyBackgroundColor.light
+      }
       if (sliderValue > 1 && sliderValue <= 3) {
         pillsRef.current = Array.from(pills)
         pillsRef.current.forEach((pill, i) => {
           return (
             ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColorTransition1[i]),
-            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition1[i])
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition1[i]),
+            ((pill as HTMLElement).style.borderRadius = '80px')
           )
         })
         boxesRef.current = Array.from(boxes)
@@ -55,7 +72,8 @@ export default function Home2() {
         pillsRef.current.forEach((pill, i) => {
           return (
             ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColorTransition2[i]),
-            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition2[i])
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition2[i]),
+            ((pill as HTMLElement).style.borderRadius = '60px')
           )
         })
         boxesRef.current = Array.from(boxes)
@@ -69,7 +87,8 @@ export default function Home2() {
         pillsRef.current.forEach((pill, i) => {
           return (
             ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColorTransition3[i]),
-            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition3[i])
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition3[i]),
+            ((pill as HTMLElement).style.borderRadius = '40px')
           )
         })
         boxesRef.current = Array.from(boxes)
@@ -83,7 +102,8 @@ export default function Home2() {
         pillsRef.current.forEach((pill, i) => {
           return (
             ((pill as HTMLElement).style.backgroundColor = '#eae0d7'),
-            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition4[i])
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition4[i]),
+            ((pill as HTMLElement).style.borderRadius = '20px')
           )
         })
         boxesRef.current = Array.from(boxes)
@@ -95,10 +115,12 @@ export default function Home2() {
     }
   }, [
     theme.pillBackgroundColor.light,
+    theme.bodyBackgroundColor.light,
     sliderValue,
     theme.pillBackgroundColor.dark,
     theme.bodyBackgroundColor.dark,
     expand,
+    darkMode,
   ])
 
   return (

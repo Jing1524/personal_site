@@ -1,4 +1,21 @@
 export const ColorPalletes = {
+  pillBgColor: [
+    '#4a95a4',
+    '#224044',
+    '#ffffff',
+    '#e6abbe',
+    '#54a58a',
+    '#5a6191',
+    '#de7258',
+    '#add4bd',
+    '#5a6191',
+    '#54a58a',
+    '#e6abbe',
+    '#d14d34',
+    '#faec51',
+    '#ffffff',
+    '#c5bfb8',
+  ],
   pillBgColorTransition1: [
     '#408c96',
     '#3e7175',

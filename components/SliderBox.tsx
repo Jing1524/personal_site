@@ -34,7 +34,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
                 value={sliderValue}
                 className="slider"
                 id="myRange"
-                onChange={(e) => setSliederValue(e.target.value)}
+                onChange={(e) => setSliederValue(parseInt(e.target.value))}
               />
             </motion.div>
           </div>
@@ -56,7 +56,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
                 value={sliderValue}
                 className="slider"
                 id="myRange"
-                onChange={(e) => setSliederValue(e.target.value)}
+                onChange={(e) => setSliederValue(parseInt(e.target.value))}
               />
             </div>
           </div>
