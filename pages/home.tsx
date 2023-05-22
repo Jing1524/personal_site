@@ -39,12 +39,6 @@ export default function Home2() {
       if (sliderValue > 1 && sliderValue <= 3) {
         pillsRef.current = Array.from(pills)
         pillsRef.current.forEach((pill, i) => {
-          return ((pill as HTMLElement).style.backgroundColor = theme.pillBackgroundColor.light[i])
-        })
-      }
-      if (sliderValue >= 4 && sliderValue <= 6) {
-        pillsRef.current = Array.from(pills)
-        pillsRef.current.forEach((pill, i) => {
           return (
             ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColorTransition1[i]),
             ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition1[i])
@@ -55,11 +49,45 @@ export default function Home2() {
           return ((box as HTMLElement).style.backgroundColor = ColorPalletes.boxBgTransition1[i])
         })
       }
-      if (sliderValue >= 7 && sliderValue < 9) {
-        //  transition theme 3
+      if (sliderValue >= 4 && sliderValue <= 6) {
+        pillsRef.current = Array.from(pills)
+        pillsRef.current.forEach((pill, i) => {
+          return (
+            ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColorTransition2[i]),
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition2[i])
+          )
+        })
+        boxesRef.current = Array.from(boxes)
+        boxesRef.current.forEach((box, i) => {
+          return ((box as HTMLElement).style.backgroundColor = ColorPalletes.boxBgTransition2[i])
+        })
       }
-      if (sliderValue === 10) {
-        //  transition theme 4
+      if (sliderValue >= 7 && sliderValue < 9) {
+        pillsRef.current = Array.from(pills)
+        pillsRef.current.forEach((pill, i) => {
+          return (
+            ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColorTransition3[i]),
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition3[i])
+          )
+        })
+        boxesRef.current = Array.from(boxes)
+        boxesRef.current.forEach((box, i) => {
+          return ((box as HTMLElement).style.backgroundColor = ColorPalletes.boxBgTransition3[i])
+        })
+      }
+      if (sliderValue > 9) {
+        pillsRef.current = Array.from(pills)
+        pillsRef.current.forEach((pill, i) => {
+          return (
+            ((pill as HTMLElement).style.backgroundColor = '#eae0d7'),
+            ((pill as HTMLElement).style.borderColor = ColorPalletes.pillBorderColorTransition4[i])
+          )
+        })
+        boxesRef.current = Array.from(boxes)
+        boxesRef.current.forEach((box, i) => {
+          return ((box as HTMLElement).style.backgroundColor = '')
+        })
+        bodyBackgroundRef.current.style.backgroundColor = theme.bodyBackgroundColor.dark
       }
     }
   }, [theme.pillBackgroundColor.light, sliderValue])

@@ -14,9 +14,9 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <>
+    <div className="h-full lg:basis-1/4 p-[10px] box">
       {tabletScreen ? (
-        <div className="h-full social-fan lg:basis-1/4 box">
+        <div className="h-full social-fan lg:basis-1/4">
           <div
             ref={pillsRef}
             className="pill h-full w-full border box-border rounded-lg border-[#1e1e1e] hidden-pill social github bg-[#7DB9B6]"
@@ -36,13 +36,14 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
               <Image src="./icons/doodle-linkedin.svg" fill alt="LinkedIn Logo" />
             </a>
           </div>
+
           <div
             ref={pillsRef}
             className="pill h-full w-full border box-border rounded-lg border-[#1e1e1e] hidden-pill social kitty bg-[#F4E8CF]"
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="">
-              <Lottie options={defaultOptions} height={215} width={80} />
+              <Lottie options={defaultOptions} height={190} width={80} />
             </a>
           </div>
         </div>
@@ -78,7 +79,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
 
