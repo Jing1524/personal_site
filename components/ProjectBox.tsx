@@ -9,7 +9,6 @@ const ProjectBox = ({ pillsRef }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    //  flex-1 lg:basis-10/12 2xl:basis-7/12 project-box
     <div className="flex flex-col">
       <div className="w-full h-full box p-[10px]">
         <div

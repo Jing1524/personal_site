@@ -48,6 +48,7 @@ export default function Home2() {
         boxesRef.current.forEach((box, i) => {
           return ((box as HTMLElement).style.backgroundColor = ColorPalletes.boxBgTransition1[i])
         })
+        bodyBackgroundRef.current.style.backgroundColor = ''
       }
       if (sliderValue >= 4 && sliderValue <= 6) {
         pillsRef.current = Array.from(pills)
@@ -61,6 +62,7 @@ export default function Home2() {
         boxesRef.current.forEach((box, i) => {
           return ((box as HTMLElement).style.backgroundColor = ColorPalletes.boxBgTransition2[i])
         })
+        bodyBackgroundRef.current.style.backgroundColor = ''
       }
       if (sliderValue >= 7 && sliderValue < 9) {
         pillsRef.current = Array.from(pills)
@@ -74,6 +76,7 @@ export default function Home2() {
         boxesRef.current.forEach((box, i) => {
           return ((box as HTMLElement).style.backgroundColor = ColorPalletes.boxBgTransition3[i])
         })
+        bodyBackgroundRef.current.style.backgroundColor = ''
       }
       if (sliderValue > 9) {
         pillsRef.current = Array.from(pills)
@@ -90,16 +93,22 @@ export default function Home2() {
         bodyBackgroundRef.current.style.backgroundColor = theme.bodyBackgroundColor.dark
       }
     }
-  }, [theme.pillBackgroundColor.light, sliderValue])
+  }, [
+    theme.pillBackgroundColor.light,
+    sliderValue,
+    theme.pillBackgroundColor.dark,
+    theme.bodyBackgroundColor.dark,
+    expand,
+  ])
 
   return (
     <ThemeProvider>
       <main
         ref={bodyBackgroundRef}
         className="overflow-hidden"
-        style={{
-          backgroundColor: darkMode ? `${theme.bodyBackgroundColor.dark}` : `${theme.bodyBackgroundColor.light}`,
-        }}
+        // style={{
+        //   backgroundColor: darkMode ? `${theme.bodyBackgroundColor.dark}` : `${theme.bodyBackgroundColor.light}`,
+        // }}
       >
         <Head>
           <title>Jing&apos;s portfolio</title>
@@ -141,11 +150,11 @@ export default function Home2() {
 
             {/* Second row right box   */}
             <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
-              <div className="flex flex-col lg:flex-row h-[79.2%] w-full">
+              <div className="flex flex-col lg:flex-row h-[80%] w-full">
                 <ContactBox pillsRef={pillsRef} />
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
               </div>
-              <div className="flex h-[20.8%] w-full justify-center lg:items-center">
+              <div className="flex h-[20%] w-full justify-center lg:items-center">
                 {tabletScreen && (
                   <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
                 )}

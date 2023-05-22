@@ -8,7 +8,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
   const { darkMode } = useModeToggle()
   const tabletScreen = useMediaQuery('(min-width:1024px)')
   const { theme } = useContext(ThemeContext)
-
+  console.log({ sliderValue })
   return (
     <>
       {tabletScreen ? (
@@ -31,8 +31,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
                 min="1"
                 max="10"
                 step="1"
-                defaultValue="10"
-                // value={sliderValue}
+                value={sliderValue}
                 className="slider"
                 id="myRange"
                 onChange={(e) => setSliederValue(e.target.value)}
@@ -54,7 +53,6 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
                 min="1"
                 max="10"
                 step="1"
-                defaultValue="1"
                 value={sliderValue}
                 className="slider"
                 id="myRange"
