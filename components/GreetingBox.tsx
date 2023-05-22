@@ -3,7 +3,7 @@ import { ThemeContext } from '@/context/ThemeContext'
 import { motion } from 'framer-motion'
 import { useContext, useEffect, useState } from 'react'
 
-const GreetingBox = ({ pillsRef }: any) => {
+const GreetingBox = ({ pillsRef, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
 
@@ -12,13 +12,13 @@ const GreetingBox = ({ pillsRef }: any) => {
       <div
         ref={pillsRef}
         style={{ borderWidth: theme.strokeWidth }}
-        className={`pill p-4 flex flex-col h-full w-full border box-border justify-center `}
+        className={`pill px-16 py-4 flex flex-col h-full w-full border box-border justify-center `}
       >
-        <TypewriterEffect text="Hi, I'm Jing" />
+        <TypewriterEffect text="Hi, I'm Jing" sliderValue={sliderValue} />
         <motion.p
-          className="font-medium text-sm md:text-lg leading-[25px]"
-          initial={{ x: 0, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          className={`font-medium text-sm md:text-lg leading-[25px] ${sliderValue === 1 && 'text-[#fff]'}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ durtion: 2, delay: 5, type: 'tween' }}
         >
           My code doesn&apos;t always work, but when it does, I call it magic.
@@ -30,7 +30,7 @@ const GreetingBox = ({ pillsRef }: any) => {
 
 export default GreetingBox
 
-function TypewriterEffect({ text }: any) {
+function TypewriterEffect({ text, sliderValue }: any) {
   const [typedText, setTypedText] = useState('')
   const [textIndex, setTextIndex] = useState(0)
   const [blink, setBlink] = useState(true)
@@ -51,7 +51,7 @@ function TypewriterEffect({ text }: any) {
   }, [blink])
 
   const charList = typedText.split('  ').map((char, index) => (
-    <p key={index} className="font-ubuntu">
+    <p key={index} className={`font-ubuntu ${sliderValue === 1 && 'text-[#fff]'}`}>
       {char}
     </p>
   ))

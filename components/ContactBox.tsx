@@ -61,7 +61,7 @@ const ContactBox = ({ pillsRef }: any) => {
         ref={pillsRef}
         className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
           darkMode ? 'bg-[#4D4C6E]' : 'bg-[#9EA1D0]'
-        } p-6`}
+        } p-10`}
         style={{ borderWidth: theme.strokeWidth }}
       >
         <div className="flex flex-col w-full h-full gap-16">

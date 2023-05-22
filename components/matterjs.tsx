@@ -83,13 +83,13 @@ export default function Matterjs() {
 
         context.textAlign = 'center'
         context.textBaseline = 'middle'
-        context.fillStyle = 'white'
+        context.fillStyle = 'black'
         context.fillText(text, canvas.width / 2, canvas.height / 2)
       }
 
       return canvas.toDataURL()
     }
-    const colors = ['#537188', '#99627A', '#41644A', '#E96479', '#86A3B8']
+    const colors = ['#EAE4E9', '#FFF1E6', '#FDE2E4', '#FAD2E1', '#E2ECE9', '#BEE1E6', '#F0EFEB', '#DFE7FD', '#CDDAFD']
     const tectStack = [
       'React.js',
       'Next.js',

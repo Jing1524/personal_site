@@ -19,7 +19,6 @@ import Head from 'next/head'
 import { useState, useRef, useEffect, useContext } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
-import { m } from 'framer-motion'
 
 export default function Home2() {
   const { darkMode } = useModeToggle()
@@ -141,7 +140,7 @@ export default function Home2() {
           <div className="flex flex-col-reverse w-screen lg:flex-row">
             <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
             <div className="flex items-center lg:basis-9/12">
-              <GreetingBox pillsRef={pillsRef} />
+              <GreetingBox pillsRef={pillsRef} sliderValue={sliderValue} />
               <ProfileBox pillsRef={pillsRef} />
             </div>
           </div>
