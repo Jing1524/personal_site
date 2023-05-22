@@ -16,7 +16,7 @@ import { ThemeContext, ThemeProvider } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
 import Head from 'next/head'
-import { useState, useRef, useEffect, useContext } from 'react'
+import { useState, useRef, useEffect, useContext, useLayoutEffect } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
 
@@ -32,15 +32,15 @@ export default function Home2() {
   const boxesRef = useRef<Element[]>([])
   const bodyBackgroundRef = useRef<any>()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const pills = document.querySelectorAll('.pill')
     const boxes = document.querySelectorAll('.box')
-    if (pillsRef.current) {
+    if (pillsRef.current && boxesRef.current && bodyBackgroundRef.current && theme) {
       if (sliderValue === 1) {
         pillsRef.current = Array.from(pills)
         pillsRef.current.forEach((pill, i) => {
           return (
-            ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColor[i]),
+            ((pill as HTMLElement).style.backgroundColor = theme.pillBackgroundColor.light[i]),
             ((pill as HTMLElement).style.borderColor = '#1e1e1e'),
             ((pill as HTMLElement).style.borderRadius = '100px')
           )
@@ -49,7 +49,9 @@ export default function Home2() {
         boxesRef.current.forEach((box, i) => {
           return ((box as HTMLElement).style.backgroundColor = '')
         })
-        bodyBackgroundRef.current.style.backgroundColor = theme.bodyBackgroundColor.light
+        bodyBackgroundRef.current.style.backgroundColor = darkMode
+          ? theme.bodyBackgroundColor.dark
+          : theme.bodyBackgroundColor.light
       }
       if (sliderValue > 1 && sliderValue <= 3) {
         pillsRef.current = Array.from(pills)
@@ -120,16 +122,93 @@ export default function Home2() {
     theme.bodyBackgroundColor.dark,
     expand,
     darkMode,
+    theme,
   ])
+
+  // useLayoutEffect(() => {
+  //   if (typeof window !== undefined) {
+  //     const pills = document.querySelectorAll('.pill')
+  //     const boxes = document.querySelectorAll('.box')
+
+  //     if (pillsRef.current) {
+  //       pillsRef.current = Array.from(pills)
+  //       boxesRef.current = Array.from(boxes)
+
+  //       const updateColors = () => {
+  //         if (sliderValue === 1) {
+  //           pillsRef.current.forEach((pill, i) => {
+  //             return (
+  //               ((pill as HTMLElement).style.backgroundColor = ColorPalletes.pillBgColor[i]),
+  //               ((pill as HTMLElement).style.borderColor = '#1e1e1e'),
+  //               ((pill as HTMLElement).style.borderRadius = '100px')
+  //             )
+  //           })
+
+  //           boxesRef.current.forEach((box, i) => {
+  //             return ((box as HTMLElement).style.backgroundColor = '')
+  //           })
+
+  //           bodyBackgroundRef.current.style.backgroundColor = theme.bodyBackgroundColor.light
+  //         } else {
+  //           let transitionIndex: any
+
+  //           if (sliderValue >= 2 && sliderValue <= 4) {
+  //             transitionIndex = 1
+  //           } else if (sliderValue >= 5 && sliderValue <= 7) {
+  //             transitionIndex = 2
+  //           } else if (sliderValue >= 8 && sliderValue <= 9) {
+  //             transitionIndex = 3
+  //           }
+
+  //           if (transitionIndex) {
+  //             const pillBgColors = ColorPalletes[
+  //               `pillBgColorTransition${transitionIndex}` as keyof typeof ColorPalletes
+  //             ] as string[]
+  //             const pillBorderColors = ColorPalletes[
+  //               `pillBorderColorTransition${transitionIndex}` as keyof typeof ColorPalletes
+  //             ] as string[]
+  //             const boxBgColors = ColorPalletes[
+  //               `boxBgTransition${transitionIndex}` as keyof typeof ColorPalletes
+  //             ] as string[]
+
+  //             pillsRef.current.forEach((pill, i) => {
+  //               return (
+  //                 ((pill as HTMLElement).style.backgroundColor = pillBgColors[i]),
+  //                 ((pill as HTMLElement).style.borderColor = pillBorderColors[i]),
+  //                 ((pill as HTMLElement).style.borderRadius = `${100 - 20 * (transitionIndex - 1)}px`)
+  //               )
+  //             })
+
+  //             boxesRef.current.forEach((box, i) => {
+  //               ;(box as HTMLElement).style.backgroundColor = boxBgColors[i]
+  //             })
+
+  //             bodyBackgroundRef.current.style.backgroundColor = ''
+  //           }
+  //         }
+  //       }
+
+  //       updateColors()
+  //     }
+  //   }
+  // }, [
+  //   theme.pillBackgroundColor.light,
+  //   theme.bodyBackgroundColor.light,
+  //   theme.pillBackgroundColor.dark,
+  //   theme.bodyBackgroundColor.dark,
+  //   sliderValue,
+  //   expand,
+  //   darkMode,
+  // ])
 
   return (
     <ThemeProvider>
       <main
         ref={bodyBackgroundRef}
         className="overflow-hidden"
-        // style={{
-        //   backgroundColor: darkMode ? `${theme.bodyBackgroundColor.dark}` : `${theme.bodyBackgroundColor.light}`,
-        // }}
+        style={{
+          backgroundColor: darkMode ? `${theme.bodyBackgroundColor.dark}` : `${theme.bodyBackgroundColor.light}`,
+        }}
       >
         <Head>
           <title>Jing&apos;s portfolio</title>

@@ -59,7 +59,7 @@ const ContactBox = ({ pillsRef }: any) => {
     <div className="basis-4/5 contact p-[10px] box">
       <div
         ref={pillsRef}
-        className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+        className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center ${
           darkMode ? 'bg-[#4D4C6E]' : 'bg-[#9EA1D0]'
         } p-10`}
         style={{ borderWidth: theme.strokeWidth }}

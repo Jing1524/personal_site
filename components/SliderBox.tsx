@@ -15,7 +15,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
         <div className="box order-last basis-1/5 p-[10px] min-h-[500px]">
           <div
             ref={pillsRef}
-            className={`pill h-full w-[120px] 2xl:w-[150px] border border-[#1e1e1e] box-border flex justify-center items-center rounded-[20px] ${
+            className={`pill h-full w-[120px] 2xl:w-[150px] border border-[#1e1e1e] rounded-[100px] box-border flex justify-center items-center rounded-[20px] ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'
             }`}
             style={{ borderWidth: theme.strokeWidth }}

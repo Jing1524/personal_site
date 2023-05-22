@@ -19,7 +19,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
         <div className="h-full social-fan lg:basis-1/4">
           <div
             ref={pillsRef}
-            className="pill h-full w-full border box-border rounded-lg border-[#1e1e1e] hidden-pill social github bg-[#7DB9B6]"
+            className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social github bg-[#7DB9B6]"
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="https://github.com/Jing1524" target="_blank">
@@ -29,7 +29,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
 
           <div
             ref={pillsRef}
-            className="pill h-full w-full border box-border rounded-lg border-[#1e1e1e] hidden-pill hidden social linkedIn bg-[#E86479]"
+            className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill hidden social linkedIn bg-[#E86479]"
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="https://www.linkedin.com/in/jing-li-a71436ba/" target="_blank">
@@ -39,7 +39,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
 
           <div
             ref={pillsRef}
-            className="pill h-full w-full border box-border rounded-lg border-[#1e1e1e] hidden-pill social kitty bg-[#F4E8CF]"
+            className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#F4E8CF]"
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="">

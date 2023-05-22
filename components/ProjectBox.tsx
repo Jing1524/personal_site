@@ -13,7 +13,7 @@ const ProjectBox = ({ pillsRef }: any) => {
       <div className="w-full h-full box p-[10px]">
         <div
           ref={pillsRef}
-          className={`pill w-full h-full border  box-border overflow-hidden flex justify-center items-center basis-1/3`}
+          className={`pill w-full h-full border rounded-[100px] box-border overflow-hidden flex justify-center items-center basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
         >
           <div className="relative flex flex-col items-center h-full group">
@@ -45,7 +45,7 @@ const ProjectBox = ({ pillsRef }: any) => {
       <div className="w-full h-full box p-[10px]">
         <div
           ref={pillsRef}
-          className={`pill w-full h-full border  border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+          className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
             darkMode ? 'bg-[#F4E8CF]' : 'bg-[#F8F5EB]'
           } basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
@@ -56,7 +56,7 @@ const ProjectBox = ({ pillsRef }: any) => {
       <div className="w-full h-full box p-[10px]">
         <div
           ref={pillsRef}
-          className={`pill w-full h-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+          className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
             darkMode ? 'bg-[#E86479]' : 'bg-[#EAC7C7]'
           } basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}

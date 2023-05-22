@@ -14,7 +14,7 @@ const TechStackBox = ({ pillsRef }: any) => {
     <div className="box p-[10px] w-[100px] lg:w-0 min-h-[600px] lg:min-h-[150px] lg:basis-3/4 lg:transform-none">
       <div
         ref={pillsRef}
-        className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] overflow-hidden flex justify-center items-center  ${
+        className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border overflow-hidden flex justify-center items-center  ${
           darkMode ? 'bg-[#FFE193]' : 'bg-[#FEF8DF]'
         }`}
         style={{ borderWidth: theme.strokeWidth }}

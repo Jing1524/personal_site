@@ -6,7 +6,7 @@ interface Theme {
   svgFill: string
   opacity: number
   borderColor: { light: string; dark: string[] } // each box's border color
-  borderRadius: string
+  borderRadius: { light: string; dark: string }
   boxBackgroundColor: string[] //each box's background color
   pillBackgroundColor: { light: string[]; dark: string }
 }
@@ -41,7 +41,7 @@ const initialTheme: Theme = {
       '#c4a484',
     ],
   },
-  borderRadius: '60px',
+  borderRadius: { light: '100px', dark: '20px' },
   boxBackgroundColor: [],
   pillBackgroundColor: {
     light: [

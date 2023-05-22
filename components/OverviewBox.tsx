@@ -11,7 +11,7 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
     <div className="p-[10px] box" id="takeover">
       <div
         ref={pillsRef}
-        className={`pill h-full w-full border border-[#1e1e1e] box-border flex justify-center items-center ${
+        className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border flex justify-center items-center ${
           darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'
         }`}
         style={{ borderWidth: theme.strokeWidth }}

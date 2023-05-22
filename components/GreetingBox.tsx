@@ -12,7 +12,7 @@ const GreetingBox = ({ pillsRef, sliderValue }: any) => {
       <div
         ref={pillsRef}
         style={{ borderWidth: theme.strokeWidth }}
-        className={`pill px-16 py-4 flex flex-col h-full w-full border box-border justify-center `}
+        className={`pill px-16 py-4 flex flex-col h-full w-full border box-border justify-center rounded-[100px]`}
       >
         <TypewriterEffect text="Hi, I'm Jing" sliderValue={sliderValue} />
         <motion.p
