@@ -8,7 +8,7 @@ const SliderBox = ({ setSliederValue, sliderValue, pillsRef }: any) => {
   const { darkMode } = useModeToggle()
   const tabletScreen = useMediaQuery('(min-width:1024px)')
   const { theme } = useContext(ThemeContext)
-  console.log({ sliderValue })
+
   return (
     <>
       {tabletScreen ? (
