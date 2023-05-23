@@ -7,6 +7,7 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 
 export default function Matterjs() {
   const tabletScreen = useMediaQuery('(min-width:1024px)')
+  const tabletHeightScreen = useMediaQuery('(max-height:937px)')
 
   const { darkMode } = useModeToggle()
   const boxRef = useRef<HTMLElement>(null)

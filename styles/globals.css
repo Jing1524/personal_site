@@ -92,7 +92,20 @@
     transform: rotate(-90deg);
   }
 }
-
+@media only screen and (max-height: 910px) {
+  .slider {
+    width: 400px;
+    -webkit-transform: rotate(-90deg); /* For Safari */
+    transform: rotate(-90deg);
+  }
+}
+@media only screen and (max-height: 768px) {
+  .slider {
+    width: 300px;
+    -webkit-transform: rotate(-90deg); /* For Safari */
+    transform: rotate(-90deg);
+  }
+}
 /* for chrome/safari */
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;

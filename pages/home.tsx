@@ -120,7 +120,7 @@ export default function Home2() {
 
         <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
-          <div className="flex flex-col-reverse w-screen lg:flex-row">
+          <div className="flex flex-col-reverse w-screen lg:flex-row h-[20%]">
             <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
             <div className="flex items-center lg:basis-9/12">
               <GreetingBox pillsRef={pillsRef} sliderValue={sliderValue} />
@@ -166,18 +166,6 @@ export default function Home2() {
               </div>
             </div>
           </div>
-          {/* <footer>
-            <h1
-              className={`pt-3 pr-3 text-xl font-bold text-right ${
-                isReverse ? 'bg-gradient-to-b' : 'bg-gradient-to-t'
-              } from-white to-transparent`}
-            >
-              Inspired by{' '}
-              <a href="https://www.saaa.am" target="_blank">
-                https://www.saaa.am
-              </a>
-            </h1>
-          </footer> */}
         </div>
       </main>
     </ThemeProvider>
