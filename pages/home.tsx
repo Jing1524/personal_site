@@ -166,7 +166,7 @@ export default function Home2() {
               </div>
             </div>
           </div>
-          <footer>
+          {/* <footer>
             <h1
               className={`pt-3 pr-3 text-xl font-bold text-right ${
                 isReverse ? 'bg-gradient-to-b' : 'bg-gradient-to-t'
@@ -177,7 +177,7 @@ export default function Home2() {
                 https://www.saaa.am
               </a>
             </h1>
-          </footer>
+          </footer> */}
         </div>
       </main>
     </ThemeProvider>

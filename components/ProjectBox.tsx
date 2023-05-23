@@ -46,22 +46,22 @@ const ProjectBox = ({ pillsRef }: any) => {
         <div
           ref={pillsRef}
           className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
-            darkMode ? 'bg-[#F4E8CF]' : 'bg-[#F8F5EB]'
+            darkMode ? 'bg-[#eae0d7]' : 'bg-[#54a58a]'
           } basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
         >
-          <h1>Coming Soon...</h1>
+          <h1 className="font-bold">Coming Soon...</h1>
         </div>
       </div>
       <div className="w-full h-full box p-[10px]">
         <div
           ref={pillsRef}
           className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
-            darkMode ? 'bg-[#E86479]' : 'bg-[#EAC7C7]'
+            darkMode ? 'bg-[#eae0d7]' : 'bg-[#e6abbe]'
           } basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
         >
-          <h1>Coming Soon...</h1>
+          <h1 className="font-bold">Coming Soon...</h1>
         </div>
       </div>
     </div>

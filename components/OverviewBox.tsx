@@ -11,7 +11,7 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
       <div
         ref={pillsRef}
         className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border flex justify-center items-center ${
-          darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'
+          darkMode ? 'bg-[#eae0d7]' : 'bg-[#add4bd]'
         }`}
         style={{ borderWidth: theme.strokeWidth }}
         onMouseEnter={() => setExpand(true)}
@@ -20,20 +20,20 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
         <div className={`flex flex-col items-center gap-14 p-6 text-box group `}>
           <h1 className={`self-start text-4xl font-bold text-[#1e1e1e]`}>Overview.</h1>
           <div className="flex flex-col gap-4">
-            <p className={`text-lg text-[#1e1e1e]`}>
+            <p className={`text-lg text-[#1e1e1e] font-bold`}>
               As a frontend software engineer with a background in design and music, I approach engineering challenges
               with a unique viewpoint on creativity, self-discipline, and teamwork. With two years of experience
               building and delivering web applications, I have honed my skills in modern development technologies such
               as React.js, TypeScript, and Node.js.
             </p>
-            <p className={`${expand ? 'block' : 'hidden'} text-lg  text-[#1e1e1e]`}>
+            <p className={`${expand ? 'block' : 'hidden'} text-lg  text-[#1e1e1e] font-bold`}>
               Working at Pineapple Workshop, I developed my expertise in writing, testing, and documenting scalable,
               reusable code. I thrive in collaborative environments and am equally comfortable taking ownership of
               projects and driving them to completion. I led the project to develop a responsive, user-friendly website,
               coordinating directly with the founder/CEO and collaborating with the design team to successfully meet the
               needs and goals of Pineapple Workshop.
             </p>
-            <p className={`${expand ? 'block' : 'hidden'} text-lg text-[#1e1e1e]`}>
+            <p className={`${expand ? 'block' : 'hidden'} text-lg text-[#1e1e1e] font-bold`}>
               In addition to my software engineering skills, I have experience working in the fashion industry as a
               designer. My background in multiple disciplines and diverse interests allow me to approach problem-solving
               from a unique perspective. I&apos;m excited to continue building my software engineering career and to
@@ -42,7 +42,7 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
           </div>
           {!expand && (
             <button className="flex flex-col items-center mt-auto lg:flex-row intro">
-              <p className="text-[#1e1e1e]">Hover To See More</p>
+              <p className="text-[#1e1e1e] font-bold">Hover To See More</p>
 
               <div className="mt-4 -rotate-90 lg:mt-0 lg:ml-4 lg:rotate-180 arrow right-expand-arrow ">
                 <svg
