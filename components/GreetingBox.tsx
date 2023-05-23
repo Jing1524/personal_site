@@ -16,7 +16,9 @@ const GreetingBox = ({ pillsRef, sliderValue }: any) => {
       >
         <TypewriterEffect text="Hi, I'm Jing" sliderValue={sliderValue} darkMode={darkMode} />
         <motion.p
-          className={`font-medium text-sm md:text-lg leading-[25px] ${sliderValue === 1 && !darkMode && 'text-[#fff]'}`}
+          className={`font-medium text-sm md:text-lg leading-[25px] ${
+            sliderValue === 1 && !darkMode && 'text-[#03fccd]'
+          }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ durtion: 2, delay: 5, type: 'tween' }}
@@ -51,7 +53,7 @@ function TypewriterEffect({ text, sliderValue, darkMode }: any) {
   }, [blink])
 
   const charList = typedText.split('  ').map((char, index) => (
-    <p key={index} className={`font-ubuntu ${sliderValue === 1 && !darkMode && 'text-[#fff]'}`}>
+    <p key={index} className={`font-ubuntu ${sliderValue === 1 && !darkMode && 'text-[#03fccd]'}`}>
       {char}
     </p>
   ))

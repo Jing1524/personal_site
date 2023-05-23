@@ -85,7 +85,7 @@ export default function SideBarWorkExperience({ showSideBar, setShowSideBar }: a
       } overflow-x-hidden transition flex flex-col items-center p-4`}
     >
       <button
-        className={`py-4 px-8 border border-8  rounded-full max-w-[200px] self-end font-bold ${
+        className={`py-4 px-8 border border-4  rounded-full max-w-[200px] self-end font-bold ${
           darkMode ? 'bg-[#4D4C6E] text-[#fff] border-[#eae0d7]' : 'bg-[#9EA1D0] text-[#1e1e1e] border-[#1e1e1e]'
         }`}
         onClick={() => setShowSideBar(!showSideBar)}

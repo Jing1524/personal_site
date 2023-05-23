@@ -16,7 +16,7 @@ import { ThemeContext, ThemeProvider } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
 import Head from 'next/head'
-import { useState, useRef, useEffect, useContext, useLayoutEffect, MutableRefObject } from 'react'
+import { useState, useRef, useContext, useLayoutEffect } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
 import { setColors } from '../utils/addTheme'
@@ -36,10 +36,39 @@ export default function Home2() {
   useLayoutEffect(() => {
     const pills = document.querySelectorAll('.pill')
     const boxes = document.querySelectorAll('.box')
+    const pillBorderColor = '#1e1e1e'
+    if (darkMode || sliderValue > 9) {
+      setColors(
+        pills,
+        boxes,
+        bodyBackgroundRef.current,
+        theme.pillBackgroundColor.dark,
+        ColorPalletes.pillBorderColorTransition4, //border color
+        '100px',
+        null,
+        theme.bodyBackgroundColor.dark
+      )
+    } else if (!darkMode && sliderValue === 1) {
+      setColors(
+        pills,
+        boxes,
+        bodyBackgroundRef.current,
+        theme.pillBackgroundColor.light,
+        pillBorderColor, //border color
+        '100px',
+        null,
+        theme.bodyBackgroundColor.light
+      )
+    }
+  }, [sliderValue, darkMode, theme.pillBackgroundColor.dark, theme.bodyBackgroundColor.dark])
+
+  useLayoutEffect(() => {
+    const pills = document.querySelectorAll('.pill')
+    const boxes = document.querySelectorAll('.box')
     const pillBgColor = '#eae0d7'
+    const pillBorderColor = '#1e1e1e'
     if (pillsRef.current && boxesRef.current && bodyBackgroundRef.current && theme) {
       if (sliderValue === 1) {
-        const pillBorderColor = '#1e1e1e'
         setColors(
           pills,
           boxes,
@@ -96,7 +125,7 @@ export default function Home2() {
           ColorPalletes.pillBorderColorTransition4, //border color
           '20px',
           null,
-          '#1e1e1e'
+          theme.bodyBackgroundColor.dark
         )
       }
     }
@@ -162,7 +191,7 @@ export default function Home2() {
                 {tabletScreen && (
                   <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
                 )}
-                <ModeToggleBox pillsRef={pillsRef} />
+                <ModeToggleBox pillsRef={pillsRef} sliderValue={sliderValue} />
               </div>
             </div>
           </div>

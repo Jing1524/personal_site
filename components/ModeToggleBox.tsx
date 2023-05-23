@@ -4,13 +4,14 @@ import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
 
-const ModeToggleBox = ({ pillsRef }: any) => {
+const ModeToggleBox = ({ pillsRef, sliderValue }: any) => {
   const { darkMode, toggleDarkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
 
   return (
     <div className="flex self-center items-center justify-center for-toggle lg:m-0 lg:w-[50%] box h-full">
       <button
+        disabled={sliderValue > 1}
         ref={pillsRef}
         className={classNames(
           'pill h-[100px] w-[230px] lg:w-[60%] border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto ',
