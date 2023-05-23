@@ -200,7 +200,7 @@
 @keyframes fanKitty {
   0% {
     transform: rotate(0deg);
-    right: 0;
+    right: 0px;
     top: 0;
   }
   100% {

@@ -43,7 +43,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="">
-              <div className="h-[12.8vh] w-[226px]">
+              <div className="h-[12.8vh] w-[12vw]">
                 <Lottie options={defaultOptions} />
               </div>
             </a>

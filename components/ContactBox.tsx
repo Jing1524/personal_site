@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser'
 import { ThemeContext } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
-const ContactBox = ({ pillsRef }: any) => {
+const ContactBox = ({ pillsRef, sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
   const tabletHeight = useMediaQuery('(max-height:1115px)')
   const SmTabletHeight = useMediaQuery('(max-height:990px)')

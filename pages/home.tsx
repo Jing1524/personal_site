@@ -120,9 +120,9 @@ export default function Home2() {
 
         <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
-          <div className="flex flex-col-reverse w-screen lg:flex-row h-[20%]">
+          <div className="flex flex-col-reverse w-screen lg:flex-row lg:h-[20%]">
             <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
-            <div className="flex items-center lg:basis-9/12">
+            <div className="flex items-center justify-content lg:basis-9/12">
               <GreetingBox pillsRef={pillsRef} sliderValue={sliderValue} />
               <ProfileBox pillsRef={pillsRef} />
             </div>
@@ -155,7 +155,7 @@ export default function Home2() {
             {/* Second row right box   */}
             <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
               <div className="flex flex-col lg:flex-row h-[80%] w-full">
-                <ContactBox pillsRef={pillsRef} />
+                <ContactBox pillsRef={pillsRef} sliderValue={sliderValue} />
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
               </div>
               <div className="flex h-[20%] w-full justify-center lg:items-center">
