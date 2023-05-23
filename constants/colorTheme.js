@@ -177,7 +177,7 @@ export const ColorPalletes = {
     '#2c4e66',
     '#593e48',
     '#842623',
-    '#605c4d',
+    '#a89e63',
     '#8c8b8b',
     '#5f5c5b',
   ],

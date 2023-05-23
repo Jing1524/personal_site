@@ -14,9 +14,9 @@ const GreetingBox = ({ pillsRef, sliderValue }: any) => {
         style={{ borderWidth: theme.strokeWidth }}
         className={`pill px-16 py-4 flex flex-col h-full w-full border box-border justify-center rounded-[100px]`}
       >
-        <TypewriterEffect text="Hi, I'm Jing" sliderValue={sliderValue} />
+        <TypewriterEffect text="Hi, I'm Jing" sliderValue={sliderValue} darkMode={darkMode} />
         <motion.p
-          className={`font-medium text-sm md:text-lg leading-[25px] ${sliderValue === 1 && 'text-[#fff]'}`}
+          className={`font-medium text-sm md:text-lg leading-[25px] ${sliderValue === 1 && !darkMode && 'text-[#fff]'}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ durtion: 2, delay: 5, type: 'tween' }}
@@ -30,7 +30,7 @@ const GreetingBox = ({ pillsRef, sliderValue }: any) => {
 
 export default GreetingBox
 
-function TypewriterEffect({ text, sliderValue }: any) {
+function TypewriterEffect({ text, sliderValue, darkMode }: any) {
   const [typedText, setTypedText] = useState('')
   const [textIndex, setTextIndex] = useState(0)
   const [blink, setBlink] = useState(true)
@@ -51,7 +51,7 @@ function TypewriterEffect({ text, sliderValue }: any) {
   }, [blink])
 
   const charList = typedText.split('  ').map((char, index) => (
-    <p key={index} className={`font-ubuntu ${sliderValue === 1 && 'text-[#fff]'}`}>
+    <p key={index} className={`font-ubuntu ${sliderValue === 1 && !darkMode && 'text-[#fff]'}`}>
       {char}
     </p>
   ))

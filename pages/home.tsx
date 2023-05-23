@@ -32,7 +32,7 @@ export default function Home2() {
   const pillsRef = useRef<Element[]>([])
   const boxesRef = useRef<Element[]>([])
   const bodyBackgroundRef = useRef<any>()
-  console.log({ darkMode })
+
   useLayoutEffect(() => {
     const pills = document.querySelectorAll('.pill')
     const boxes = document.querySelectorAll('.box')
@@ -113,13 +113,7 @@ export default function Home2() {
 
   return (
     <ThemeProvider>
-      <main
-        ref={bodyBackgroundRef}
-        className="overflow-hidden"
-        style={{
-          backgroundColor: darkMode ? `${theme.bodyBackgroundColor.dark}` : `${theme.bodyBackgroundColor.light}`,
-        }}
-      >
+      <main ref={bodyBackgroundRef} className="overflow-hidden">
         <Head>
           <title>Jing&apos;s portfolio</title>
         </Head>
