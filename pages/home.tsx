@@ -32,35 +32,7 @@ export default function Home2() {
   const pillsRef = useRef<Element[]>([])
   const boxesRef = useRef<Element[]>([])
   const bodyBackgroundRef = useRef<any>()
-
-  useLayoutEffect(() => {
-    const pills = document.querySelectorAll('.pill')
-    const boxes = document.querySelectorAll('.box')
-    const pillBorderColor = '#1e1e1e'
-    if (darkMode || sliderValue > 9) {
-      setColors(
-        pills,
-        boxes,
-        bodyBackgroundRef.current,
-        theme.pillBackgroundColor.dark,
-        ColorPalletes.pillBorderColorTransition4, //border color
-        '100px',
-        null,
-        theme.bodyBackgroundColor.dark
-      )
-    } else if (!darkMode && sliderValue === 1) {
-      setColors(
-        pills,
-        boxes,
-        bodyBackgroundRef.current,
-        theme.pillBackgroundColor.light,
-        pillBorderColor, //border color
-        '100px',
-        null,
-        theme.bodyBackgroundColor.light
-      )
-    }
-  }, [sliderValue, darkMode, theme.pillBackgroundColor.dark, theme.bodyBackgroundColor.dark])
+  const togglePillRef = useRef<any>()
 
   useLayoutEffect(() => {
     const pills = document.querySelectorAll('.pill')
@@ -73,11 +45,13 @@ export default function Home2() {
           pills,
           boxes,
           bodyBackgroundRef.current,
+          togglePillRef.current,
           darkMode ? theme.pillBackgroundColor.dark : theme.pillBackgroundColor.light,
           darkMode ? ColorPalletes.pillBorderColorTransition4 : pillBorderColor, //border color
           '100px',
           null,
-          darkMode ? theme.bodyBackgroundColor.dark : theme.bodyBackgroundColor.light
+          darkMode ? theme.bodyBackgroundColor.dark : theme.bodyBackgroundColor.light,
+          darkMode ? '#eae0d7' : '#1e1e1e'
         )
       }
       if (sliderValue > 1 && sliderValue <= 3) {
@@ -85,11 +59,13 @@ export default function Home2() {
           pills,
           boxes,
           bodyBackgroundRef.current,
+          togglePillRef.current,
           darkMode ? pillBgColor : ColorPalletes.pillBgColorTransition1,
           darkMode ? ColorPalletes.pillBorderColorTransition4 : ColorPalletes.pillBorderColorTransition1, //border color
           '80px',
           darkMode ? null : ColorPalletes.boxBgTransition1,
-          darkMode ? theme.bodyBackgroundColor.dark : ''
+          darkMode ? theme.bodyBackgroundColor.dark : '',
+          '#1e1e1e'
         )
       }
       if (sliderValue >= 4 && sliderValue <= 6) {
@@ -97,11 +73,13 @@ export default function Home2() {
           pills,
           boxes,
           bodyBackgroundRef.current,
+          togglePillRef.current,
           darkMode ? pillBgColor : ColorPalletes.pillBgColorTransition2,
           darkMode ? ColorPalletes.pillBorderColorTransition4 : ColorPalletes.pillBorderColorTransition2, //border color
           '60px',
           darkMode ? null : ColorPalletes.boxBgTransition2,
-          darkMode ? theme.bodyBackgroundColor.dark : ''
+          darkMode ? theme.bodyBackgroundColor.dark : '',
+          '#1e1e1e'
         )
       }
       if (sliderValue >= 7 && sliderValue < 9) {
@@ -109,11 +87,13 @@ export default function Home2() {
           pills,
           boxes,
           bodyBackgroundRef.current,
+          togglePillRef.current,
           darkMode ? pillBgColor : ColorPalletes.pillBgColorTransition3,
           darkMode ? ColorPalletes.pillBorderColorTransition4 : ColorPalletes.pillBorderColorTransition3, //border color
           '40px',
           darkMode ? null : ColorPalletes.boxBgTransition3,
-          darkMode ? theme.bodyBackgroundColor.dark : ''
+          darkMode ? theme.bodyBackgroundColor.dark : '',
+          '#1e1e1e'
         )
       }
       if (sliderValue > 9) {
@@ -121,11 +101,13 @@ export default function Home2() {
           pills,
           boxes,
           bodyBackgroundRef.current,
+          togglePillRef.current,
           pillBgColor,
           ColorPalletes.pillBorderColorTransition4, //border color
           '20px',
           null,
-          theme.bodyBackgroundColor.dark
+          theme.bodyBackgroundColor.dark,
+          '#eae0d7'
         )
       }
     }
@@ -167,7 +149,7 @@ export default function Home2() {
                 </div>
                 <div className="flex flex-row h-[80%]">
                   <OverViewBox pillsRef={pillsRef} expand={expand} setExpand={setExpand} />
-                  {!expand && <ProjectBox pillsRef={pillsRef} />}
+                  <ProjectBox pillsRef={pillsRef} expand={expand} />
                 </div>
               </div>
             ) : (
@@ -191,7 +173,7 @@ export default function Home2() {
                 {tabletScreen && (
                   <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
                 )}
-                <ModeToggleBox pillsRef={pillsRef} sliderValue={sliderValue} />
+                <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
               </div>
             </div>
           </div>

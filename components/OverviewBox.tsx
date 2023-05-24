@@ -23,10 +23,10 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
           <h1 className={`self-start text-[3vh] font-bold text-[#1e1e1e]`}>Overview.</h1>
           <div className="flex flex-col gap-[1.5vh]">
             <p className={`${SmTabletHeight ? 'text-[2vh]' : 'text-lg'} text-[#1e1e1e] font-bold`}>
-              As a frontend software engineer with a background in design and music, I approach engineering challenges
-              with a unique viewpoint on creativity, self-discipline, and teamwork. With two years of experience
-              building and delivering web applications, I have honed my skills in modern development technologies such
-              as React.js, TypeScript, and Node.js.
+              As a software engineer with a background in design and music, I approach engineering challenges with a
+              unique viewpoint on creativity, self-discipline, and teamwork. With two years of experience building and
+              delivering web applications, I have honed my skills in modern development technologies such as React.js,
+              TypeScript, and Node.js.
             </p>
             <p
               className={`${expand ? 'block' : 'hidden'} ${

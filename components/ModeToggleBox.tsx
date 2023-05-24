@@ -4,20 +4,20 @@ import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
 
-const ModeToggleBox = ({ pillsRef, sliderValue }: any) => {
+const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
   const { darkMode, toggleDarkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
-
+  console.log({ darkMode })
   return (
     <div className="flex self-center items-center justify-center for-toggle lg:m-0 lg:w-[50%] box h-full">
       <button
         disabled={sliderValue > 1}
-        ref={pillsRef}
+        ref={togglePillRef}
         className={classNames(
-          'pill h-[100px] w-[230px] lg:w-[60%] border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto ',
-          darkMode ? 'justify-end bg-[#2A2F4F]' : 'justify-start glassLight'
+          'togglePill h-[100px] w-[230px] lg:w-[60%] border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
+          darkMode ? 'justify-end' : 'justify-start'
         )}
-        style={{ borderWidth: theme.strokeWidth }}
+        style={{ borderWidth: theme.strokeWidth, background: darkMode ? '#29296b' : '#669ff2' }}
         onClick={toggleDarkMode}
       >
         <motion.div layout transition={spring}>

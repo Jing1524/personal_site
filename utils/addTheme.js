@@ -2,11 +2,13 @@ export const setColors = (
   pills,
   boxes,
   bodyBackGround,
+  togglePill,
   pillColors,
   pillBorderColors,
   pillBorderRadius,
   boxColors,
-  bodyBackgroundColor
+  bodyBackgroundColor,
+  toggleBorderColor
 ) => {
   pills.current = Array.from(pills)
   boxes.current = Array.from(boxes)
@@ -22,6 +24,7 @@ export const setColors = (
   boxes.current.forEach((box, i) => {
     box.style.backgroundColor = boxColors ? boxColors[i] : ''
   })
-
+  togglePill.style.borderColor = toggleBorderColor
+  togglePill.style.borderRadius = pillBorderRadius
   bodyBackGround.style.backgroundColor = bodyBackgroundColor
 }

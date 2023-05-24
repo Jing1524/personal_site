@@ -13,16 +13,16 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: darkMode ? '#4D4C6E' : '#9EA1D0',
-        color: darkMode ? '#fff' : '#000',
+        background: darkMode ? '#eae0d7' : '#add4bd',
+        color: darkMode ? '#1e1e1e' : '#000',
         borderRadius: '16px',
         paddingLeft: '20px',
         paddingRight: '20px',
         marginRight: '10px',
       }}
-      contentArrowStyle={{ borderRight: darkMode ? '7px solid #4D4C6E' : '7px solid #9EA1D0' }}
+      contentArrowStyle={{ borderRight: darkMode ? '7px solid #eae0d7' : '7px solid #add4bd' }}
       date={experience.date}
-      dateClassName={`elementDate ${darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'}`}
+      dateClassName={`elementDate ${darkMode ? 'text-[#eae0d7]' : 'text-[#1e1e1e]'}`}
       iconStyle={{
         background: experience.iconBg,
         display: 'flex',
@@ -41,15 +41,15 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
     >
       <div>
         <h3
-          className={`text-[2.5vw] sm:text-[2vw] lg:text-[18px] font-bold font-inter ${
-            darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
+          className={`text-[2.5vw] sm:text-[2vw] lg:text-[18px] font-bold ${
+            darkMode ? 'text-[##eae0d7]' : 'text-[#1e1e1e]'
           }`}
         >
           {experience.title}
         </h3>
         <p
-          className={`text-[2.5vw] sm:text-[2vw] lg:text-[16px] font-semibold font-inter ${
-            darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
+          className={`text-[2.5vw] sm:text-[2vw] lg:text-[16px] font-semibold ${
+            darkMode ? 'text-[##eae0d7]' : 'text-[#1e1e1e]'
           }`}
           style={{ margin: 0 }}
         >
@@ -61,9 +61,8 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
           return (
             <li
               key={`experience-point-${index}`}
-              className={`text-[2.5vw] sm:text-[2vw] lg:text-[1vw] xl:text-[14px] pl-1 tracking-wider font-inter ${
-                darkMode ? 'text-[#fff]' : 'text-[#1e1e1e]'
-              }`}
+              className={`text-[2.5vw] sm:text-[2vw] lg:text-[1vw] xl:text-[14px] pl-1 tracking-wider font-semibold text-[#1e1e1e]
+              `}
             >
               {point}
             </li>
@@ -80,25 +79,32 @@ export default function SideBarWorkExperience({ showSideBar, setShowSideBar }: a
   return (
     <motion.section
       id="experience"
-      className={` ${showSideBar ? 'block' : 'hidden'} h-[100%] lg:w-[70%] fixed z-50 top-[0] left-0 ${
+      className={` ${showSideBar ? 'block' : 'hidden'} h-[100%] lg:w-[70%] fixed z-[100] top-[0] left-0 ${
         darkMode ? 'bg-[#1e1e1e]/90' : 'bg-[#fff]/90'
-      } overflow-x-hidden transition flex flex-col items-center p-4`}
+      } overflow-hidden transition flex flex-col p-4`}
     >
       <button
-        className={`py-4 px-8 border border-4  rounded-full max-w-[200px] self-end font-bold ${
-          darkMode ? 'bg-[#4D4C6E] text-[#fff] border-[#eae0d7]' : 'bg-[#9EA1D0] text-[#1e1e1e] border-[#1e1e1e]'
-        }`}
-        onClick={() => setShowSideBar(!showSideBar)}
+        className={`mr-10 py-2 px-10 border border-4 rounded-full max-w-[200px] self-end font-bold bg-[#eae0d7] text-[#1e1e1e] border-[#d73832]
+        `}
+        onClick={() => console.log('resume')}
       >
-        Exit
+        Full Resume
       </button>
       <div className="flex flex-col justify-center h-full ">
-        <VerticalTimeline lineColor={darkMode ? '#fff' : '#000'}>
+        <VerticalTimeline lineColor={darkMode ? '#eae0d7' : '#1e1e1e'}>
           {experiences.map((experience: any, index: number) => {
             return <ExperienceCard key={index} experience={experience} darkMode={darkMode} />
           })}
         </VerticalTimeline>
       </div>
+      <button
+        className={`mr-10 py-2 px-10 border border-4 rounded-full max-w-[200px] self-end font-bold ${
+          darkMode ? 'bg-[#eae0d7] text-[#1e1e1e] border-[#add4bd]' : 'bg-[#add4bd] text-[#1e1e1e] border-[#1e1e1e]'
+        }`}
+        onClick={() => setShowSideBar(!showSideBar)}
+      >
+        Exit
+      </button>
     </motion.section>
   )
 }

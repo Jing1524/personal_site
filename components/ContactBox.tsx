@@ -78,8 +78,8 @@ const ContactBox = ({ pillsRef, sliderValue }: any) => {
                 placeholder="what's your name?"
                 className={classNames(
                   'px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
-                  darkMode
-                    ? 'bg-[#515151] placeholder:text-secondary text-white'
+                  darkMode || sliderValue > 9
+                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white'
                     : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
                 )}
               />
@@ -95,8 +95,8 @@ const ContactBox = ({ pillsRef, sliderValue }: any) => {
                 onChange={handleChange}
                 className={classNames(
                   ' px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
-                  darkMode
-                    ? 'bg-[#515151] p placeholder:text-secondary text-white'
+                  darkMode || sliderValue > 9
+                    ? 'bg-[#1e1e1e] p placeholder:text-secondary text-white'
                     : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
                 )}
               />
@@ -108,13 +108,13 @@ const ContactBox = ({ pillsRef, sliderValue }: any) => {
                 rows={tabletHeight ? (SmTabletHeight ? 3 : 5) : 7}
                 name="message"
                 value={form.message}
-                placeholder="what's your thoughts?"
+                placeholder="&#128075;"
                 onChange={handleChange}
                 className={classNames(
                   'px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
-                  darkMode
-                    ? 'bg-[#515151] placeholder:text-secondary text-white'
-                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
+                  darkMode || sliderValue > 9
+                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white placeholder:text-[24px]'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[24px]'
                 )}
               />
             </label>
@@ -122,7 +122,7 @@ const ContactBox = ({ pillsRef, sliderValue }: any) => {
               type="submit"
               className={classNames(
                 'mt-[2vh] text-black self-center px-8 py-[1vh] font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
-                darkMode && 'bg-[#515151] text-white'
+                darkMode && 'bg-[#1e1e1e] text-white'
               )}
             >
               {loading ? 'Sending...' : 'Send'}

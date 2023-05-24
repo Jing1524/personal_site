@@ -14,7 +14,6 @@ export const ColorPalletes = {
     '#d14d34',
     '#faec51',
     '#ffffff',
-    '#c5bfb8',
   ],
   pillBgColorTransition1: [
     '#408c96',
@@ -31,7 +30,6 @@ export const ColorPalletes = {
     '#bc3931',
     '#faec51',
     '#ffffff',
-    '#c5bfb8',
   ],
 
   pillBgColorTransition2: [
@@ -49,7 +47,6 @@ export const ColorPalletes = {
     '#de6a5a',
     '#fbf1b8',
     '#ffffff',
-    '#e2dedb',
   ],
   pillBgColorTransition3: [
     '#99cbce',
@@ -66,7 +63,6 @@ export const ColorPalletes = {
     '#e79c97',
     '#f6eeac',
     '#ffffff',
-    '#eae9e8',
   ],
   pillBorderColorTransition1: [
     '#1e4144',
@@ -133,8 +129,8 @@ export const ColorPalletes = {
     '#e6abbe',
     '#d73832',
     '#faec51',
-    '#c1bfc0',
     '#c4a484',
+    '#c1bfc0',
   ],
   boxBgTransition1: [
     '#58a0aa',

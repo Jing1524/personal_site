@@ -52,19 +52,13 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
       ) : (
         <div className="h-full lg:basis-1/4 box">
           <div className="flex justify-between h-full">
-            <div
-              ref={pillsRef}
-              className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#54a58a]"
-            >
+            <div className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#54a58a]">
               <a href="https://www.linkedin.com/in/jing-li-a71436ba/" target="_blank">
                 <Image src="./icons/doodle-linkedin.svg" fill alt="LinkedIn Logo" />
               </a>
             </div>
 
-            <div
-              ref={pillsRef}
-              className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#5a6191]"
-            >
+            <div className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#5a6191]">
               <a href="">
                 <Lottie options={defaultOptions} height={100} width={80} />
               </a>
