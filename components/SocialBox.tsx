@@ -10,7 +10,7 @@ const defaultOptions = {
   animationData: kittyAnimate,
 }
 
-const SocialBox = ({ tabletScreen, pillsRef }: any) => {
+const SocialBox = ({ tabletScreen }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
@@ -18,7 +18,6 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
       {tabletScreen ? (
         <div className="h-full social-fan lg:basis-1/4">
           <div
-            ref={pillsRef}
             className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social github bg-[#e6abbe]"
             style={{ borderWidth: theme.strokeWidth }}
           >
@@ -28,7 +27,6 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
           </div>
 
           <div
-            ref={pillsRef}
             className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill hidden social linkedIn bg-[#54a58a]"
             style={{ borderWidth: theme.strokeWidth }}
           >
@@ -38,7 +36,6 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
           </div>
 
           <div
-            ref={pillsRef}
             className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
             style={{ borderWidth: theme.strokeWidth }}
           >
@@ -64,10 +61,7 @@ const SocialBox = ({ tabletScreen, pillsRef }: any) => {
               </a>
             </div>
 
-            <div
-              ref={pillsRef}
-              className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#e6abbe]"
-            >
+            <div className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#e6abbe]">
               <a href="https://github.com/Jing1524" target="_blank">
                 <Image src="./icons/doodle-github.svg" fill alt="Github Logo" />
               </a>

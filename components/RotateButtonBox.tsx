@@ -4,7 +4,7 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 import Image from 'next/image'
 import { useContext } from 'react'
 
-const RotateButtonBox = ({ isReverse, setIsReverse, pillsRef }: any) => {
+const RotateButtonBox = ({ isReverse, setIsReverse }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
   const tabletScreen = useMediaQuery('(max-height:860px)')
@@ -13,7 +13,6 @@ const RotateButtonBox = ({ isReverse, setIsReverse, pillsRef }: any) => {
     //  box
     <div className="flex w-[50%] box h-full p-[0.8vh]">
       <button
-        ref={pillsRef}
         className={`relative pill m-auto ${
           tabletScreen ? 'h-full' : 'h-[125px]'
         }  w-full border-[#1e1e1e] rounded-[100px] rounded-3xl p-[6.25px] flex items-center justify-center ${

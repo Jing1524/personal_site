@@ -132,10 +132,10 @@ export default function Home2() {
         <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
           <div className="flex flex-col-reverse w-screen lg:flex-row lg:h-[20%]">
-            <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} pillsRef={pillsRef} />
+            <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
             <div className="flex items-center justify-content lg:basis-9/12">
-              <GreetingBox pillsRef={pillsRef} sliderValue={sliderValue} />
-              <ProfileBox pillsRef={pillsRef} />
+              <GreetingBox sliderValue={sliderValue} />
+              <ProfileBox />
             </div>
           </div>
 
@@ -144,35 +144,33 @@ export default function Home2() {
             {tabletScreen ? (
               <div className="flex flex-col basis-7/12">
                 <div className="flex flex-row h-[20%]">
-                  <SocialBox tabletScreen={tabletScreen} pillsRef={pillsRef} />
-                  <TechStackBox pillsRef={pillsRef} />
+                  <SocialBox tabletScreen={tabletScreen} />
+                  <TechStackBox />
                 </div>
                 <div className="flex flex-row h-[80%]">
-                  <OverViewBox pillsRef={pillsRef} expand={expand} setExpand={setExpand} />
-                  <ProjectBox pillsRef={pillsRef} expand={expand} />
+                  <OverViewBox expand={expand} setExpand={setExpand} />
+                  <ProjectBox expand={expand} />
                 </div>
               </div>
             ) : (
               <div className="flex flex-col">
-                <SocialBox tabletScreen={tabletScreen} pillsRef={pillsRef} />
+                <SocialBox tabletScreen={tabletScreen} />
                 <div className="flex">
-                  <TechStackBox pillsRef={pillsRef} />
-                  <ProjectBox pillsRef={pillsRef} />
+                  <TechStackBox />
+                  <ProjectBox />
                 </div>
-                <OverViewBoxMobile pillsRef={pillsRef} />
+                <OverViewBoxMobile />
               </div>
             )}
 
             {/* Second row right box   */}
             <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
               <div className="flex flex-col lg:flex-row h-[80%] w-full">
-                <ContactBox pillsRef={pillsRef} sliderValue={sliderValue} />
-                <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} pillsRef={pillsRef} />
+                <ContactBox sliderValue={sliderValue} />
+                <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} />
               </div>
               <div className="flex h-[20%] w-full justify-center lg:items-center">
-                {tabletScreen && (
-                  <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} pillsRef={pillsRef} />
-                )}
+                {tabletScreen && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
                 <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
               </div>
             </div>

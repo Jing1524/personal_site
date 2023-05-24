@@ -2,7 +2,7 @@ import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
 import { useContext, useState } from 'react'
 
-const OverViewBoxMobile = ({ pillsRef, setExpand, expand }: any) => {
+const OverViewBoxMobile = ({ setExpand, expand }: any) => {
   const { theme } = useContext(ThemeContext)
 
   const { darkMode } = useModeToggle()
@@ -11,7 +11,6 @@ const OverViewBoxMobile = ({ pillsRef, setExpand, expand }: any) => {
   return (
     <div className="p-[10px] box" id="takeover">
       <div
-        ref={pillsRef}
         className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border flex justify-center items-center ${
           darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'
         }`}

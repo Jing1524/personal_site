@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
-const ProjectBox = ({ pillsRef, expand }: any) => {
+const ProjectBox = ({ expand }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
   const tabletScreen = useMediaQuery('(max-height:860px)')
@@ -14,7 +14,6 @@ const ProjectBox = ({ pillsRef, expand }: any) => {
     <div className={`flex flex-col ${expand ? 'hidden' : 'block'}`}>
       <div className="w-full h-full box p-[0.8vh]">
         <div
-          ref={pillsRef}
           className={`pill w-full h-full border rounded-[100px] box-border overflow-hidden flex justify-center items-center bg-[#5a6191] `}
           style={{ borderWidth: theme.strokeWidth }}
         >
@@ -51,7 +50,6 @@ const ProjectBox = ({ pillsRef, expand }: any) => {
 
       <div className={`w-full h-full box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
         <div
-          ref={pillsRef}
           className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center bg-[#54a58a] basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
         >
@@ -60,7 +58,6 @@ const ProjectBox = ({ pillsRef, expand }: any) => {
       </div>
       <div className={`w-full h-full box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
         <div
-          ref={pillsRef}
           className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center bg-[#e6abbe] basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
         >

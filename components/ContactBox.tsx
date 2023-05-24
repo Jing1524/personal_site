@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser'
 import { ThemeContext } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
-const ContactBox = ({ pillsRef, sliderValue }: any) => {
+const ContactBox = ({ sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
   const tabletHeight = useMediaQuery('(max-height:1115px)')
   const SmTabletHeight = useMediaQuery('(max-height:990px)')
@@ -59,7 +59,6 @@ const ContactBox = ({ pillsRef, sliderValue }: any) => {
   return (
     <div className="basis-4/5 contact p-[0.8vh] box">
       <div
-        ref={pillsRef}
         className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center p-[3vh]`}
         style={{ borderWidth: theme.strokeWidth }}
       >

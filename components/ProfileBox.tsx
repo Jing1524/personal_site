@@ -12,7 +12,6 @@ const ProfileBox = ({ pillsRef }: any) => {
         <div className="flex items-center justify-center h-full box">
           <div className={`order-first h-[180px] w-[180px] lg:order-last p-[0.8vh]`}>
             <div
-              ref={pillsRef}
               style={{ borderWidth: theme.strokeWidth }}
               className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-cover"
             />
@@ -22,7 +21,6 @@ const ProfileBox = ({ pillsRef }: any) => {
         <div className="flex items-center justify-center h-full box">
           <div className={`order-first h-[120px] w-[120px] lg:h-[150px] lg:w-[150px] lg:order-last p-[0.8vh]`}>
             <div
-              ref={pillsRef}
               style={{ borderWidth: theme.strokeWidth }}
               className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-cover"
             />
