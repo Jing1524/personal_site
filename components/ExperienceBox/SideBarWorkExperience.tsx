@@ -1,11 +1,13 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { experiences } from '../../constants'
 import 'react-vertical-timeline-component/style.min.css'
 import { useModeToggle } from '@/context/ModeProvider'
 import { useState } from 'react'
 import useMediaQuery from '@/hooks/useMediaQuery'
+import Link from 'next/link'
 
 const ExperienceCard = ({ experience, darkMode }: any) => {
   const tabletScreen = useMediaQuery('(min-width:1024px)')
@@ -76,6 +78,7 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
 export default function SideBarWorkExperience({ showSideBar, setShowSideBar }: any) {
   const [isInView, setIsInView] = useState(false)
   const { darkMode } = useModeToggle()
+  const router = useRouter()
   return (
     <motion.section
       id="experience"
@@ -83,28 +86,35 @@ export default function SideBarWorkExperience({ showSideBar, setShowSideBar }: a
         darkMode ? 'bg-[#1e1e1e]/90' : 'bg-[#fff]/90'
       } overflow-hidden transition flex flex-col p-4`}
     >
-      <button
-        className={`mr-10 py-2 px-10 border border-4 rounded-full max-w-[200px] self-end font-bold bg-[#eae0d7] text-[#1e1e1e] border-[#d73832]
+      <div className="flex self-end">
+        <Link
+          className={`z-50 mr-8 py-2 px-10 border border-4 rounded-full max-w-[200px] font-bold bg-[#eae0d7] text-[#1e1e1e] border-[#1e1e1e]
         `}
-        onClick={() => console.log('resume')}
-      >
-        Full Resume
-      </button>
-      <div className="flex flex-col justify-center h-full ">
-        <VerticalTimeline lineColor={darkMode ? '#eae0d7' : '#1e1e1e'}>
+          href="https://drive.google.com/file/d/1KJBMyx_JdEsZsA3UBzDdZEV0RtN9NDqq/view?usp=sharing"
+          target="_blank"
+        >
+          Full Resume
+        </Link>
+        <button onClick={() => setShowSideBar(!showSideBar)} className="mr-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={3}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div className="flex flex-col justify-center h-[90%] ">
+        <VerticalTimeline lineColor={darkMode ? '#eae0d7' : '#1e1e1e'} className="test">
           {experiences.map((experience: any, index: number) => {
             return <ExperienceCard key={index} experience={experience} darkMode={darkMode} />
           })}
         </VerticalTimeline>
       </div>
-      <button
-        className={`mr-10 py-2 px-10 border border-4 rounded-full max-w-[200px] self-end font-bold ${
-          darkMode ? 'bg-[#eae0d7] text-[#1e1e1e] border-[#add4bd]' : 'bg-[#add4bd] text-[#1e1e1e] border-[#1e1e1e]'
-        }`}
-        onClick={() => setShowSideBar(!showSideBar)}
-      >
-        Exit
-      </button>
     </motion.section>
   )
 }

@@ -30,16 +30,16 @@ const ProjectBox = ({ expand }: any) => {
             <div className="absolute bg-[#fff]/90 w-full bottom-0 h-[20%] p-2 lg:p-4">
               <div className="flex items-center justify-center w-full gap-2">
                 <p className="text-[1.5vw] lg:text-[0.8vw] font-bold">Teck Stack:</p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] border border-2 border-[#1e1e1e] rounded-lg px-2 min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x min-h-[36px] flex justify-center items-center">
                   Next.js
                 </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] border border-2 border-[#1e1e1e] rounded-lg px-2  min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x  min-h-[36px] flex justify-center items-center">
                   Redux Toolkit
                 </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] border border-2 border-[#1e1e1e] rounded-lg px-2 min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x min-h-[36px] flex justify-center items-center">
                   Tailwind
                 </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] border border-2 border-[#1e1e1e] rounded-lg px-2 min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x min-h-[36px] flex justify-center items-center">
                   RapidAPI
                 </p>
               </div>

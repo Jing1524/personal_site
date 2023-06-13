@@ -8,7 +8,7 @@ const GreetingBox = ({ sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="flex-1 h-full long-box box p-[.8vh]">
+    <div className="basis-4/5 h-full long-box box p-[.8vh]">
       <div
         style={{ borderWidth: theme.strokeWidth }}
         className={`pill px-16 flex flex-col h-full w-full border box-border justify-center rounded-[100px]`}

@@ -16,7 +16,7 @@ import { ThemeContext, ThemeProvider } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
 import Head from 'next/head'
-import { useState, useRef, useContext, useLayoutEffect } from 'react'
+import { useState, useRef, useContext, useEffect } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
 import { setColors } from '../utils/addTheme'
@@ -34,7 +34,7 @@ export default function Home2() {
   const bodyBackgroundRef = useRef<any>()
   const togglePillRef = useRef<any>()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const pills = document.querySelectorAll('.pill')
     const boxes = document.querySelectorAll('.box')
     const pillBgColor = '#eae0d7'
