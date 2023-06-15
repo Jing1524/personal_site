@@ -28,18 +28,18 @@ const ProjectBox = ({ expand }: any) => {
             </a>
 
             <div className="absolute bg-[#fff]/90 w-full bottom-0 h-[20%] p-2 lg:p-4">
-              <div className="flex items-center justify-center w-full gap-2">
+              <div className="flex justify-center w-full gap-2 2xl:items-center">
                 <p className="text-[1.5vw] lg:text-[0.8vw] font-bold">Teck Stack:</p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x-2 min-h-[36px] flex justify-center 2xl:items-center">
                   Next.js
                 </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x  min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center 2xl:items-center">
                   Redux Toolkit
                 </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center 2xl:items-center">
                   Tailwind
                 </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x min-h-[36px] flex justify-center items-center">
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center 2xl:items-center">
                   RapidAPI
                 </p>
               </div>

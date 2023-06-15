@@ -19,7 +19,7 @@ const ProfileBox = ({ pillsRef }: any) => {
         </div>
       ) : (
         <div className="flex items-center justify-center ml-auto box lg:h-full">
-          <div className={`order-first lg:order-last p-[0.8vh] h-[120px] w-[120px] lg:h-[220px] lg:w-[220px]`}>
+          <div className={`order-first lg:order-last p-[0.8vh] h-[120px] w-[120px] lg:h-[11vw] lg:w-[11vw]`}>
             <div
               style={{ borderWidth: theme.strokeWidth }}
               className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-cover"
