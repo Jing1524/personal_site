@@ -40,25 +40,6 @@ export const navLinks = [
   },
 ]
 
-// const services = [
-//   {
-//     title: 'Web Developer',
-//     icon: '/public/icons/web.svg',
-//   },
-//   {
-//     title: 'React Native Developer',
-//     icon: mobile,
-//   },
-//   {
-//     title: 'Backend Developer',
-//     icon: backend,
-//   },
-//   {
-//     title: 'Content Creator',
-//     icon: creator,
-//   },
-// ]
-
 const technologies = [
   {
     name: 'HTML 5',
@@ -121,19 +102,18 @@ const experiences = [
     points: [
       'Led the project to develop a responsive, user-friendly website, coordinating directly with the founder/CEO and collaborating with the design team to successfully meet the needs and goals of Pineapple Workshop.',
       'Built a stand-alone utility engine web widget with componentized reusable code, allowing the client to integrate the widget into any existing website.',
-      'Participating in code reviews and providing constructive feedback to other developers.',
+      'Participated in code and reviews and provided constructive feedback to other developers.',
     ],
   },
   {
-    title: 'FullStack Engineer',
-    company_name: 'FullStack Acadamy',
+    title: 'Software Engineering Bootcamp',
+    company_name: 'Fullstack Academy',
     icon: './icons/fullstack.png',
     iconBg: '#f3f3f3',
     date: 'April 2021 - September 2021',
     points: [
-      'Developed fullstack e-commerce applications using React.js and other related technologies.',
-      'Implementing responsive design and writing tests with teammates to ensure the quality of the code',
-      'Participating in code reviews and providing constructive feedback to other developers.',
+      'Designed and developed a fully functional e-commerce store usingJavaScript, React.js, and Node.js. Implemented PostgreSQL database and utilized Sequelize ORM for data management.',
+      'Built a celebrity charades-style game utilizing JavaScript (React.js), Socket.io, Agora RTC, PostgreSQL, and Node.js. Created real-time communication between players through the use of Agora RTC and integrated PostgreSQL database for efficient data management.',
     ],
   },
   {

@@ -22,7 +22,6 @@ const ProjectCard = ({ index, name, description, tags, source_code_link, src, gi
           <video controls="controls" autoplay="true">
             <source src={src} />
           </video>
-          {/* <img src={src} alt="project_image" className="object-cover w-full h-full rounded-2xl" /> */}
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div

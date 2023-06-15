@@ -1,64 +1,172 @@
-import About from '@/components/About'
-import Contact from '@/components/Contact'
-import Experience from '@/components/Experience'
-import Feedbacks from '@/components/Feedbacks'
-import Hero from '@/components/Hero'
-import Navbar from '@/components/navBar/Navbar'
-import Projects from '@/components/Projects'
-import StarCanvas from '@/components/StarCanvas'
-import Tech from '@/components/Tech'
+import ContactBox from '@/components/ContactBox'
+import ExperienceToggle from '@/components/ExperienceBox/ExperienceToggle'
+import SideBarWorkExperience from '@/components/ExperienceBox/SideBarWorkExperience'
+import GreetingBox from '@/components/GreetingBox'
+import ModeToggleBox from '@/components/ModeToggleBox'
+import OverViewBox from '@/components/OverviewBox'
+import ProfileBox from '@/components/ProfileBox'
+import ProjectBox from '@/components/ProjectBox'
+import RotateButtonBox from '@/components/RotateButtonBox'
+import SliderBox from '@/components/SliderBox'
+import SocialBox from '@/components/SocialBox'
+import TechStackBox from '@/components/TechStack/TechStackBox'
+
 import { useModeToggle } from '@/context/ModeProvider'
-import classNames from 'classnames'
+import { ThemeContext, ThemeProvider } from '@/context/ThemeContext'
+import useMediaQuery from '@/hooks/useMediaQuery'
+
 import Head from 'next/head'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import { useEffect } from 'react'
+import { useState, useRef, useContext, useEffect } from 'react'
+import { ColorPalletes } from '../constants/colorTheme'
+import OverViewBoxMobile from '@/components/OverviewBoxMobile'
+import { setColors } from '../utils/addTheme'
 
 export default function Home() {
-  // useEffect(() => {
-  //   if (typeof window !== undefined) {
-  //     gsap.registerPlugin(ScrollTrigger)
-  //     gsap.to('.bg-gradient-to-br', {
-  //       scrollTrigger: {
-  //         trigger: 'body',
-  //         start: 'top top',
-  //         end: 'bottom bottom',
-  //         scrub: 2,
-  //       },
-  //       filter: 'hue-rotate(360deg)',
-  //       rotation: 720,
-  //     })
-  //   }
-  // }, [])
-
   const { darkMode } = useModeToggle()
+  const tabletScreen = useMediaQuery('(min-width:1024px)')
+  const [showSideBar, setShowSideBar] = useState<boolean>(false)
+  const [isReverse, setIsReverse] = useState<boolean>(false)
+  const [expand, setExpand] = useState<boolean>(false)
+  const [sliderValue, setSliederValue] = useState<any>(1)
+  const { theme, updateTheme } = useContext(ThemeContext)
+  const pillsRef = useRef<Element[]>([])
+  const boxesRef = useRef<Element[]>([])
+  const bodyBackgroundRef = useRef<any>()
+  const togglePillRef = useRef<any>()
+
+  useEffect(() => {
+    const pills = document.querySelectorAll('.pill')
+    const boxes = document.querySelectorAll('.box')
+    const pillBgColor = '#eae0d7'
+    const pillBorderColor = '#1e1e1e'
+    if (pillsRef.current && boxesRef.current && bodyBackgroundRef.current && theme) {
+      if (sliderValue === 1) {
+        setColors(
+          pills,
+          boxes,
+          bodyBackgroundRef.current,
+          togglePillRef.current,
+          darkMode ? theme.pillBackgroundColor.dark : theme.pillBackgroundColor.light,
+          darkMode ? ColorPalletes.pillBorderColorTransition4 : pillBorderColor, //border color
+          '100px',
+          null,
+          darkMode ? theme.bodyBackgroundColor.dark : theme.bodyBackgroundColor.light,
+          darkMode ? '#eae0d7' : '#1e1e1e'
+        )
+      }
+      if (sliderValue > 1 && sliderValue <= 3) {
+        setColors(
+          pills,
+          boxes,
+          bodyBackgroundRef.current,
+          togglePillRef.current,
+          darkMode ? pillBgColor : ColorPalletes.pillBgColorTransition1,
+          darkMode ? ColorPalletes.pillBorderColorTransition4 : ColorPalletes.pillBorderColorTransition1, //border color
+          '80px',
+          darkMode ? null : ColorPalletes.boxBgTransition1,
+          darkMode ? theme.bodyBackgroundColor.dark : '',
+          '#1e1e1e'
+        )
+      }
+      if (sliderValue >= 4 && sliderValue <= 6) {
+        setColors(
+          pills,
+          boxes,
+          bodyBackgroundRef.current,
+          togglePillRef.current,
+          darkMode ? pillBgColor : ColorPalletes.pillBgColorTransition2,
+          darkMode ? ColorPalletes.pillBorderColorTransition4 : ColorPalletes.pillBorderColorTransition2, //border color
+          '60px',
+          darkMode ? null : ColorPalletes.boxBgTransition2,
+          darkMode ? theme.bodyBackgroundColor.dark : '',
+          '#1e1e1e'
+        )
+      }
+      if (sliderValue >= 7 && sliderValue < 9) {
+        setColors(
+          pills,
+          boxes,
+          bodyBackgroundRef.current,
+          togglePillRef.current,
+          darkMode ? pillBgColor : ColorPalletes.pillBgColorTransition3,
+          darkMode ? ColorPalletes.pillBorderColorTransition4 : ColorPalletes.pillBorderColorTransition3, //border color
+          '40px',
+          darkMode ? null : ColorPalletes.boxBgTransition3,
+          darkMode ? theme.bodyBackgroundColor.dark : '',
+          '#1e1e1e'
+        )
+      }
+      if (sliderValue > 9) {
+        setColors(
+          pills,
+          boxes,
+          bodyBackgroundRef.current,
+          togglePillRef.current,
+          pillBgColor,
+          ColorPalletes.pillBorderColorTransition4, //border color
+          '20px',
+          null,
+          theme.bodyBackgroundColor.dark,
+          '#eae0d7'
+        )
+      }
+    }
+  }, [
+    theme.pillBackgroundColor.light,
+    theme.bodyBackgroundColor.light,
+    sliderValue,
+    theme.pillBackgroundColor.dark,
+    theme.bodyBackgroundColor.dark,
+    expand,
+    darkMode,
+    theme,
+  ])
+
   return (
-    <main
-      className={classNames(
-        'relative z-0 overflow-hidden w-[100vw]',
-        darkMode
-          ? 'dark bgTransition'
-          : 'animate-bgGround bg-gradient-to-br from-[#8caab7] via-[#e2d4cd] to-[#f6f5f3] test bgTransition' //background-image: linear-gradient(to right top, #19193f, #1b1734, #1b1629, #19151f, #151416);
-      )}
-    >
-      <Head>
-        <title>Jing&apos;s portfolio</title>
-      </Head>
-      <div className="bg-center bg-no-repeat bg-cover">
-        <Navbar />
-        <Hero />
-      </div>
-      <About />
+    <ThemeProvider>
+      <main ref={bodyBackgroundRef} className="overflow-hidden">
+        <Head>
+          <title>Jing&apos;s portfolio</title>
+        </Head>
 
-      <Experience />
+        <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
+        <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
+          <div className="flex flex-wrap items-center lg:flex-nowrap w-screen lg:flex-row h-[20%]">
+            <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
 
-      <Tech />
-      <Projects />
+            <GreetingBox sliderValue={sliderValue} />
+            <ProfileBox />
+          </div>
 
-      <div className="relative z-0">
-        <Contact />
-        <StarCanvas />
-      </div>
-    </main>
+          <div className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen h-[80%] flex-1`}>
+            {/* Second row left box */}
+
+            <div className="flex flex-col lg:basis-7/12">
+              <div className="flex flex-col lg:flex-row lg:h-[20%]">
+                <SocialBox tabletScreen={tabletScreen} />
+                <TechStackBox />
+              </div>
+              <div className="flex flex-col-reverse lg:flex-row h-[80%]">
+                {tabletScreen ? <OverViewBox expand={expand} setExpand={setExpand} /> : <OverViewBoxMobile />}
+
+                <ProjectBox expand={expand} />
+              </div>
+            </div>
+
+            {/* Second row right box   */}
+            <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
+              <div className="flex flex-col lg:flex-row lg:h-[80%] w-full">
+                <ContactBox sliderValue={sliderValue} />
+                <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} />
+              </div>
+              <div className="flex lg:h-[20%] w-full justify-center lg:items-center">
+                {tabletScreen && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
+                <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </ThemeProvider>
   )
 }
