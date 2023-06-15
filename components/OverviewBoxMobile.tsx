@@ -11,7 +11,7 @@ const OverViewBoxMobile = ({ setExpand, expand }: any) => {
   return (
     <div className="p-[10px] box" id="takeover">
       <div
-        className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border flex justify-center items-center ${
+        className={`hererere pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border flex justify-center items-center ${
           darkMode ? 'bg-[#4F6F81]' : 'bg-[#A6D0DC]'
         }`}
         style={{ borderWidth: theme.strokeWidth }}

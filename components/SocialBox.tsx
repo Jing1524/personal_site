@@ -36,7 +36,7 @@ const SocialBox = ({ tabletScreen }: any) => {
           </div>
 
           <div
-            className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
+            className="pill border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="">
@@ -47,8 +47,8 @@ const SocialBox = ({ tabletScreen }: any) => {
           </div>
         </div>
       ) : (
-        <div className="h-full lg:basis-1/4 box">
-          <div className="flex justify-between h-full">
+        <div className="h-full box">
+          <div className="flex justify-between h-full gap-5">
             <div className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#54a58a]">
               <a href="https://www.linkedin.com/in/jing-li-a71436ba/" target="_blank">
                 <Image src="./icons/doodle-linkedin.svg" fill alt="LinkedIn Logo" />

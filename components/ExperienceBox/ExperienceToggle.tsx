@@ -8,7 +8,7 @@ const ExperienceToggle = ({ setShowSideBar, showSideBar }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="small-box lg:basis-3/12 p-[0.8vh] box">
+    <div className="h-[120px] w-[70%] lg:h-full lg:small-box lg:basis-3/12 p-[0.8vh] box">
       <button
         className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[100px] flex justify-center items-center ${
           darkMode ? 'bg-[#eae0d7]' : 'bg-[#4a95a4]'

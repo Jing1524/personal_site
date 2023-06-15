@@ -131,37 +131,27 @@ export default function Home2() {
 
         <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
-          <div className="flex flex-col-reverse w-screen lg:flex-row lg:h-[20%]">
+          <div className="flex flex-wrap items-center lg:flex-nowrap w-screen lg:flex-row h-[20%]">
             <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
-            <div className="flex items-center justify-content lg:basis-9/12">
-              <GreetingBox sliderValue={sliderValue} />
-              <ProfileBox />
-            </div>
+
+            <GreetingBox sliderValue={sliderValue} />
+            <ProfileBox />
           </div>
 
           <div className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen h-[80%] flex-1`}>
             {/* Second row left box */}
-            {tabletScreen ? (
-              <div className="flex flex-col basis-7/12">
-                <div className="flex flex-row h-[20%]">
-                  <SocialBox tabletScreen={tabletScreen} />
-                  <TechStackBox />
-                </div>
-                <div className="flex flex-row h-[80%]">
-                  <OverViewBox expand={expand} setExpand={setExpand} />
-                  <ProjectBox expand={expand} />
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-col">
+
+            <div className="flex flex-col lg:basis-7/12">
+              <div className="flex flex-col lg:flex-row lg:h-[20%]">
                 <SocialBox tabletScreen={tabletScreen} />
-                <div className="flex">
-                  <TechStackBox />
-                  <ProjectBox />
-                </div>
-                <OverViewBoxMobile />
+                <TechStackBox />
               </div>
-            )}
+              <div className="flex flex-col-reverse lg:flex-row h-[80%]">
+                {tabletScreen ? <OverViewBox expand={expand} setExpand={setExpand} /> : <OverViewBoxMobile />}
+
+                <ProjectBox expand={expand} />
+              </div>
+            </div>
 
             {/* Second row right box   */}
             <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
