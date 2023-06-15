@@ -57,13 +57,13 @@ const ProjectBox = ({ expand }: any) => {
             <p className="absolute font-bold font-lg text-[#fff] z-[50] mt-4 text-center">
               Yet Another Music App <br /> Under contruction(third party API issue)
             </p>
-            <a href="https://yama-one.vercel.app" target="_blank">
-              <img
-                src="/images/music-player.png"
-                alt="music player project"
-                className={`object-cover ${darkMode ? 'opacity-70' : 'opacity-50'} `}
-              />
-            </a>
+            {/* <a href="https://github.com/Jing1524/yet-another-music-app" target="_blank"> */}
+            <img
+              src="/images/music-player.png"
+              alt="music player project"
+              className={`object-cover ${darkMode ? 'opacity-70' : 'opacity-50'} `}
+            />
+            {/* </a> */}
 
             <div className="absolute bg-[#fff]/90 w-full bottom-0 h-[20%] p-2 lg:p-4">
               <div className="flex justify-center w-full gap-2 2xl:items-center">
