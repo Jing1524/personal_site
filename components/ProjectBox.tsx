@@ -12,13 +12,51 @@ const ProjectBox = ({ expand }: any) => {
 
   return (
     <div className={`flex flex-col ${expand ? 'hidden' : 'block'}`}>
-      <div className="w-full h-full box p-[0.8vh]">
+      <div className={`w-full ${tabletScreen ? 'h-full' : 'h-[40%]'} box p-[0.8vh]`}>
+        <div
+          className={`overflow-hidden pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center basis-1/3`}
+          style={{ borderWidth: theme.strokeWidth }}
+        >
+          <div className="relative flex flex-col items-center h-full group">
+            <p className="absolute font-bold font-lg text-[#1e1e1e] z-[50] mt-4">Pineapple workshop</p>
+            <a href="https://pineappleworkshop.com" target="_blank">
+              <img
+                src="/images/pineapple-site.png"
+                alt="pineapple project"
+                className={`object-fit ${darkMode ? 'opacity-70' : 'opacity-80'} `}
+              />
+            </a>
+
+            <div className="absolute bg-[#fff]/90 w-full bottom-0 h-[20%] p-2 lg:p-4">
+              <div className="flex justify-center w-full gap-2 2xl:items-center">
+                <p className="text-[1.5vw] lg:text-[0.8vw] font-bold">Teck Stack:</p>
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x-2 min-h-[36px] flex justify-center 2xl:items-center">
+                  Next.js
+                </p>
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center 2xl:items-center">
+                  Contentful
+                </p>
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center 2xl:items-center">
+                  Tailwind
+                </p>
+                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center 2xl:items-center">
+                  Framer Motion
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={`w-full h-[40%] box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
         <div
           className={`pill w-full h-full border rounded-[100px] box-border overflow-hidden flex justify-center items-center bg-[#5a6191] `}
           style={{ borderWidth: theme.strokeWidth }}
         >
           <div className="relative flex flex-col items-center h-full group">
-            <p className="absolute font-bold font-lg text-[#fff] z-[50] mt-4">Yet Another Music App</p>
+            <p className="absolute font-bold font-lg text-[#fff] z-[50] mt-4 text-center">
+              Yet Another Music App <br /> Under contruction(third party API issue)
+            </p>
             <a href="https://yama-one.vercel.app" target="_blank">
               <img
                 src="/images/music-player.png"
@@ -47,16 +85,7 @@ const ProjectBox = ({ expand }: any) => {
           </div>
         </div>
       </div>
-
-      <div className={`w-full h-full box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
-        <div
-          className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center bg-[#54a58a] basis-1/3`}
-          style={{ borderWidth: theme.strokeWidth }}
-        >
-          <h1 className="font-bold">Coming Soon...</h1>
-        </div>
-      </div>
-      <div className={`w-full h-full box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
+      <div className={`w-full h-[20%] box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
         <div
           className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center bg-[#e6abbe] basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}

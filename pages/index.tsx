@@ -131,14 +131,16 @@ export default function Home() {
 
         <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
-          <div className="flex flex-wrap items-center lg:flex-nowrap w-screen lg:flex-row h-[20%]">
+          <div className="flex flex-wrap items-center lg:flex-nowrap w-screen lg:flex-row lg:h-[20%]">
             <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
 
             <GreetingBox sliderValue={sliderValue} />
             <ProfileBox />
           </div>
 
-          <div className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen h-[80%] flex-1`}>
+          <div
+            className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen lg:h-[80%] flex-1`}
+          >
             {/* Second row left box */}
 
             <div className="flex flex-col lg:basis-7/12">
@@ -146,7 +148,7 @@ export default function Home() {
                 <SocialBox tabletScreen={tabletScreen} />
                 <TechStackBox />
               </div>
-              <div className="flex flex-col-reverse lg:flex-row h-[80%]">
+              <div className="flex flex-col-reverse lg:flex-row lg:h-[80%]">
                 {tabletScreen ? <OverViewBox expand={expand} setExpand={setExpand} /> : <OverViewBoxMobile />}
 
                 <ProjectBox expand={expand} />
