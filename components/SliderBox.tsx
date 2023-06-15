@@ -3,7 +3,7 @@ import { ThemeContext } from '@/context/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
-
+import { Suspense } from 'react'
 const SliderBox = ({ setSliederValue, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
   const tabletScreen = useMediaQuery('(min-width:1024px)')
@@ -52,7 +52,7 @@ const SliderBox = ({ setSliederValue, sliderValue }: any) => {
                 max="10"
                 step="1"
                 value={sliderValue}
-                className="slider"
+                className="sliderMobile"
                 id="myRange"
                 onChange={(e) => setSliederValue(parseInt(e.target.value))}
               />
