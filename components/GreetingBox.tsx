@@ -22,7 +22,7 @@ const GreetingBox = ({ sliderValue }: any) => {
           animate={{ opacity: 1 }}
           transition={{ durtion: 2, delay: 5, type: 'tween' }}
         >
-          My code doesn&apos;t always work, but when it does, I call it magic.
+          a frontend software engineer with a design background.
         </motion.p>
       </div>
     </div>
@@ -58,7 +58,7 @@ function TypewriterEffect({ text, sliderValue, darkMode }: any) {
   ))
 
   return (
-    <div className="flex">
+    <div className="flex mb-4">
       <div className="flex text-2xl lg:text-4xl text-bold">{charList}</div>
       <span className="text-2xl text-gray-400 lg:text-4xl">{blink ? '|' : ''}</span>
     </div>
