@@ -10,7 +10,7 @@ const ProfileBox = ({ pillsRef }: any) => {
     <>
       {largeScreenView ? (
         <div className="flex items-center justify-center h-full box">
-          <div className={`order-first h-[220px] w-[220px] lg:order-last p-[0.8vh]`}>
+          <div className={`order-first h-[9vw] w-[9vw] lg:order-last p-[0.8vh]`}>
             <div
               style={{ borderWidth: theme.strokeWidth }}
               className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-cover"

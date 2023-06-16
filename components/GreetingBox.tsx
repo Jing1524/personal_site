@@ -15,7 +15,7 @@ const GreetingBox = ({ sliderValue }: any) => {
       >
         <TypewriterEffect text="Hi, I'm Jing" sliderValue={sliderValue} darkMode={darkMode} />
         <motion.p
-          className={`font-medium text-sm md:text-lg leading-[25px] ${
+          className={`font-medium font-black text-sm md:text-lg leading-[25px] ${
             sliderValue === 1 && !darkMode && 'text-[#03fccd]'
           }`}
           initial={{ opacity: 0 }}
