@@ -20,6 +20,7 @@ import { useState, useRef, useContext, useEffect } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
 import { setColors } from '../utils/addTheme'
+import { motion } from 'framer-motion'
 
 export default function Home() {
   const { darkMode } = useModeToggle()
@@ -130,20 +131,34 @@ export default function Home() {
         </Head>
 
         <SideBarWorkExperience showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
-        <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-stretch h-screen overflow-x-hidden`}>
-          <div className="flex flex-wrap items-center lg:flex-nowrap w-screen lg:flex-row lg:h-[20%]">
+        <div
+          className={`flex ${
+            isReverse ? 'flex-col-reverse' : 'flex-col'
+          } items-stretch h-screen overflow-x-hidden lg:overflow-y-hidden`}
+        >
+          <motion.div
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 2 }}
+            className="flex flex-wrap items-center lg:flex-nowrap w-screen lg:flex-row lg:h-[20%]"
+          >
             <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
 
             <GreetingBox sliderValue={sliderValue} />
             <ProfileBox />
-          </div>
+          </motion.div>
 
           <div
             className={`flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} w-screen lg:h-[80%] flex-1`}
           >
             {/* Second row left box */}
 
-            <div className="flex flex-col lg:basis-7/12">
+            <motion.div
+              className="flex flex-col lg:basis-7/12"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 2, delay: 0.5 }}
+            >
               <div className="flex flex-col lg:flex-row lg:h-[20%]">
                 <SocialBox tabletScreen={tabletScreen} />
                 <TechStackBox />
@@ -153,10 +168,15 @@ export default function Home() {
 
                 <ProjectBox expand={expand} />
               </div>
-            </div>
+            </motion.div>
 
             {/* Second row right box   */}
-            <div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}>
+            <motion.div
+              className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 2, delay: 1 }}
+            >
               <div className="flex flex-col lg:flex-row lg:h-[80%] w-full">
                 <ContactBox sliderValue={sliderValue} />
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} />
@@ -165,7 +185,7 @@ export default function Home() {
                 {tabletScreen && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
                 <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </main>

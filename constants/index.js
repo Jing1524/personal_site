@@ -102,7 +102,7 @@ const experiences = [
     points: [
       'Led the project to develop a responsive, user-friendly website, coordinating directly with the founder/CEO and collaborating with the design team to successfully meet the needs and goals of Pineapple Workshop.',
       'Built a stand-alone utility engine web widget with componentized reusable code, allowing the client to integrate the widget into any existing website.',
-      'Participated in code and reviews and provided constructive feedback to other developers.',
+      'Participated in code reviews and provided constructive feedback to other developers.',
     ],
   },
   {
