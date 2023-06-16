@@ -84,7 +84,7 @@ export default function SideBarWorkExperience({ showSideBar, setShowSideBar }: a
       id="experience"
       className={` ${showSideBar ? 'block' : 'hidden'} h-[100%] lg:w-[70%] fixed z-[100] top-[0] left-0 ${
         darkMode ? 'bg-[#1e1e1e]/90' : 'bg-[#fff]/90'
-      } overflow-hidden transition flex flex-col p-4`}
+      } transition flex flex-col p-4`}
     >
       <div className="flex self-end">
         <Link
@@ -101,14 +101,14 @@ export default function SideBarWorkExperience({ showSideBar, setShowSideBar }: a
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={3}
-            stroke="currentColor"
+            stroke={`${darkMode ? '#fff' : '#1e1e1e'}`}
             className="w-6 h-6"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      <div className="flex flex-col justify-center h-[90%] ">
+      <div className="h-[100%] overflow-scroll">
         <VerticalTimeline lineColor={darkMode ? '#eae0d7' : '#1e1e1e'} className="test">
           {experiences.map((experience: any, index: number) => {
             return <ExperienceCard key={index} experience={experience} darkMode={darkMode} />
