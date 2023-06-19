@@ -178,6 +178,7 @@
 
 .rotation {
   animation: rotate 10s infinite;
+  inset: unset !important;
 }
 @keyframes rotate {
   0% {
