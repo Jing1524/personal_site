@@ -10,7 +10,7 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 import Link from 'next/link'
 
 const ExperienceCard = ({ experience, darkMode }: any) => {
-  const tabletScreen = useMediaQuery('(min-width:1024px)')
+  // const tabletScreen = useMediaQuery('(min-width:1024px)')
 
   return (
     <VerticalTimelineElement
@@ -33,7 +33,7 @@ const ExperienceCard = ({ experience, darkMode }: any) => {
         justifyContent: 'center',
         width: '40px',
         height: '40px',
-        marginLeft: `${tabletScreen ? '-20px' : ''}`,
+        // marginLeft: `${tabletScreen ? '-20px' : ''}`,
       }}
       icon={
         <div className="flex items-center justify-center w-full h-full">

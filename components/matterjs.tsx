@@ -6,8 +6,9 @@ import { useModeToggle } from '@/context/ModeProvider'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
 export default function Matterjs() {
-  const tabletScreen = useMediaQuery('(min-width:1024px)')
-  const tabletHeightScreen = useMediaQuery('(max-height:937px)')
+  const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+
+  // const tabletHeightScreen = useMediaQuery('(max-height:937px)')
 
   const { darkMode } = useModeToggle()
   const boxRef = useRef<HTMLElement>(null)
@@ -62,8 +63,10 @@ export default function Matterjs() {
     const renderTextOnPill = (text: string, bgColor: string, radius: number) => {
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')
-      canvas.width = tabletScreen ? 100 : 80
-      canvas.height = tabletScreen ? 52 : 40
+      // canvas.width = tabletScreen ? 100 : 80
+      // canvas.height = tabletScreen ? 52 : 40
+      canvas.width = mobileView ? 80 : 100
+      canvas.height = mobileView ? 40 : 52
       if (context) {
         context.fillStyle = bgColor
         context.fillStyle = bgColor
@@ -108,8 +111,10 @@ export default function Matterjs() {
     for (let i = 0; i < 12; i++) {
       const x = Math.random() * constraints?.width
       const y = Math.random() * -constraints?.height
-      const pillWidth = tabletScreen ? 100 : 80
-      const pillHeight = tabletScreen ? 52 : 40
+      // const pillWidth = tabletScreen ? 100 : 80
+      // const pillHeight = tabletScreen ? 52 : 40
+      const pillWidth = mobileView ? 80 : 100
+      const pillHeight = mobileView ? 40 : 52
 
       const chamfer = { radius: 15 }
       const color = colors[i % colors.length]
@@ -180,7 +185,7 @@ export default function Matterjs() {
     setScene(render)
 
     window.addEventListener('resize', handleResize)
-  }, [constraints?.height, constraints?.width, darkMode, isInViewport, tabletScreen])
+  }, [constraints?.height, constraints?.width, darkMode, isInViewport]) //, tabletScreen
 
   useEffect(() => {
     return () => {

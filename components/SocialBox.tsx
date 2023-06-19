@@ -3,6 +3,7 @@ import Lottie from 'react-lottie'
 import kittyAnimate from '../assets/lottie/kitty.json'
 import { useContext } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'
+import useMediaQuery from '@/hooks/useMediaQuery'
 
 const defaultOptions = {
   loop: true,
@@ -10,12 +11,14 @@ const defaultOptions = {
   animationData: kittyAnimate,
 }
 
-const SocialBox = ({ tabletScreen }: any) => {
+const SocialBox = () => {
+  const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+
   const { theme } = useContext(ThemeContext)
 
   return (
     <div className="h-full lg:basis-1/4 p-[0.8vh] box">
-      {tabletScreen ? (
+      {!mobileView ? (
         <div className="h-full social-fan lg:basis-1/4">
           <div
             className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social github bg-[#e6abbe]"

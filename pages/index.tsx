@@ -24,7 +24,8 @@ import { motion } from 'framer-motion'
 
 export default function Home() {
   const { darkMode } = useModeToggle()
-  const tabletScreen = useMediaQuery('(min-width:1024px)')
+  const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+
   const [showSideBar, setShowSideBar] = useState<boolean>(false)
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
@@ -160,12 +161,12 @@ export default function Home() {
               transition={{ duration: 2, delay: 0.5 }}
             >
               <div className="flex flex-col lg:flex-row lg:h-[20%]">
-                <SocialBox tabletScreen={tabletScreen} />
+                <SocialBox />
                 <TechStackBox />
               </div>
               <div className="flex flex-col-reverse lg:flex-row lg:h-[80%]">
-                {tabletScreen ? <OverViewBox expand={expand} setExpand={setExpand} /> : <OverViewBoxMobile />}
-
+                {/* {tabletScreen ? <OverViewBox expand={expand} setExpand={setExpand} /> : <OverViewBoxMobile />} */}
+                <OverViewBox expand={expand} setExpand={setExpand} />
                 <ProjectBox expand={expand} />
               </div>
             </motion.div>
@@ -182,7 +183,7 @@ export default function Home() {
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} />
               </div>
               <div className="flex lg:h-[20%] w-full justify-center lg:items-center">
-                {tabletScreen && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
+                {!mobileView && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
                 <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
               </div>
             </motion.div>

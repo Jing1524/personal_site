@@ -8,8 +8,9 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 
 const ContactBox = ({ sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
-  const tabletHeight = useMediaQuery('(max-height:1115px)')
-  const SmTabletHeight = useMediaQuery('(max-height:990px)')
+
+  // const tabletHeight = useMediaQuery('(max-height:1115px)')
+  // const SmTabletHeight = useMediaQuery('(max-height:990px)')
   const { darkMode } = useModeToggle()
   const formRef = useRef()
   const [form, setForm] = useState({
@@ -59,10 +60,11 @@ const ContactBox = ({ sliderValue }: any) => {
   return (
     <div className="basis-4/5 contact p-[0.8vh] box">
       <div
-        className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center p-[3vh]`}
+        className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center p-8`}
         style={{ borderWidth: theme.strokeWidth }}
       >
-        <div className={`flex flex-col w-full h-full ${SmTabletHeight ? 'gap-[1vh]' : 'gap-[2vh]'}`}>
+        {/*  ${SmTabletHeight ? 'gap-[1vh]' : 'gap-[2vh]'} */}
+        <div className={`flex flex-col w-full h-full`}>
           <h3 className="text-[3vh] font-black text-[#1e1e1e]">Get in touch.</h3>
           {/* @ts-ignore */}
           <form ref={formRef} className="flex flex-col" onSubmit={HandleSubmit}>
@@ -104,7 +106,8 @@ const ContactBox = ({ sliderValue }: any) => {
               <span className="mb-[1vh] text-[1.7vh] font-medium text-[#1e1e1e]">Your Message</span>
 
               <textarea
-                rows={tabletHeight ? (SmTabletHeight ? 3 : 5) : 7}
+                // rows={tabletHeight ? (SmTabletHeight ? 3 : 5) : 7}
+                rows={7}
                 name="message"
                 value={form.message}
                 placeholder="&#128075;"

@@ -1,7 +1,5 @@
 import { useModeToggle } from '@/context/ModeProvider'
-import PacmanCanvas from '../canvas/pacmanCanvas'
-import { technologies } from '@/constants'
-import BallCanvas from '../canvas/BallCanvas'
+
 import Matterjs from '../matterjs'
 import { useContext } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'

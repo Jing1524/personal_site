@@ -8,11 +8,12 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 const ProjectBox = ({ expand }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
-  const tabletScreen = useMediaQuery('(max-height:800px)')
+  // const tabletScreen = useMediaQuery('(max-height:800px)')
 
   return (
     <div className={`flex flex-col ${expand ? 'hidden' : 'block'}`}>
-      <div className={`w-full ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} box p-[0.8vh]`}>
+      {/* ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} */}
+      <div className={`w-full  box p-[0.8vh]`}>
         <div
           className={`overflow-hidden pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
@@ -46,8 +47,8 @@ const ProjectBox = ({ expand }: any) => {
           </div>
         </div>
       </div>
-
-      <div className={`w-full ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} box p-[10px]`}>
+      {/*  ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} */}
+      <div className={`w-full box p-[10px]`}>
         <div
           className={`pill w-full h-full border rounded-[100px] box-border overflow-hidden flex justify-center items-center bg-[#5a6191] `}
           style={{ borderWidth: theme.strokeWidth }}
@@ -87,7 +88,8 @@ const ProjectBox = ({ expand }: any) => {
           </div>
         </div>
       </div>
-      <div className={`w-full h-[20%] box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
+      {/* ${tabletScreen ? 'hidden' : 'block'} */}
+      <div className={`w-full h-[20%] box p-[10px] `}>
         <div
           className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center bg-[#e6abbe] basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}

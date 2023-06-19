@@ -6,8 +6,9 @@ import { useContext } from 'react'
 const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
-  const tabletHeight = useMediaQuery('(max-height:1115px)')
-  const SmTabletHeight = useMediaQuery('(max-height:877px)')
+  const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+
+  // const SmTabletHeight = useMediaQuery('(max-height:877px)')
   return (
     <div className="p-[0.8vh] box" id="takeover">
       <div
@@ -18,19 +19,20 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
         onMouseEnter={() => setExpand(true)}
         onMouseLeave={() => setExpand(false)}
       >
-        <div className={`flex flex-col items-center gap-[2vh] px-6 py-[1vh]text-box group `}>
+        <div className={`flex flex-col items-center gap-[2vh] px-6 py-8 text-box group `}>
           <h1 className={`self-start text-[3vh] font-bold text-[#1e1e1e]`}>Overview.</h1>
           <div className="flex flex-col gap-[1.5vh]">
-            <p className={`${SmTabletHeight ? 'text-[2vh]' : 'text-lg'} text-[#1e1e1e] font-bold`}>
+            <p className={` text-[#1e1e1e] font-bold ${mobileView ? 'text-[1.5vh]' : 'text-lg'}`}>
               As a software engineer with a background in design and music, I approach engineering challenges with a
               unique viewpoint on creativity, self-discipline, and teamwork. With two years of experience building and
               delivering web applications, I have honed my skills in modern development technologies such as React.js,
               TypeScript, and Node.js.
             </p>
+
             <p
               className={`${expand ? 'block' : 'hidden'} ${
-                SmTabletHeight ? 'text-[2vh]' : 'text-lg'
-              }  text-[#1e1e1e] font-bold`}
+                mobileView ? 'text-[1.5vh]' : 'text-lg'
+              } text-[#1e1e1e] font-bold`}
             >
               Working at Pineapple Workshop, I developed my expertise in writing, testing, and documenting scalable,
               reusable code. I thrive in collaborative environments and am equally comfortable taking ownership of
@@ -38,9 +40,10 @@ const OverViewBox = ({ pillsRef, setExpand, expand }: any) => {
               coordinating directly with the founder/CEO and collaborating with the design team to successfully meet the
               needs and goals of Pineapple Workshop.
             </p>
+
             <p
               className={`${expand ? 'block' : 'hidden'} ${
-                SmTabletHeight ? 'text-[2vh]' : 'text-lg'
+                mobileView ? 'text-[1.5vh]' : 'text-lg'
               } text-[#1e1e1e] font-bold`}
             >
               In addition to my software engineering skills, I have experience working in the fashion industry as a
