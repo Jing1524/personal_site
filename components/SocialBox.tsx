@@ -42,11 +42,9 @@ const SocialBox = () => {
             className="pill border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
             style={{ borderWidth: theme.strokeWidth }}
           >
-            <a href="">
-              <div className="h-[12.8vh] w-[12vw]">
-                <Lottie options={defaultOptions} />
-              </div>
-            </a>
+            <div className="w-full h-full">
+              <Lottie options={defaultOptions} />
+            </div>
           </div>
         </div>
       ) : (

@@ -25,7 +25,7 @@ import { motion } from 'framer-motion'
 export default function Home() {
   const { darkMode } = useModeToggle()
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
-
+  const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
   const [showSideBar, setShowSideBar] = useState<boolean>(false)
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
@@ -143,7 +143,7 @@ export default function Home() {
             transition={{ duration: 2 }}
             className="flex flex-wrap items-center lg:flex-nowrap w-screen lg:flex-row lg:h-[20%]"
           >
-            <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
+            <ExperienceToggle setShowSideBar={setShowSideBar} showSideBar={showSideBar} tabletView={tabletView} />
 
             <GreetingBox sliderValue={sliderValue} />
             <ProfileBox />
@@ -164,8 +164,7 @@ export default function Home() {
                 <SocialBox />
                 <TechStackBox />
               </div>
-              <div className="flex flex-col-reverse lg:flex-row lg:h-[80%]">
-                {/* {tabletScreen ? <OverViewBox expand={expand} setExpand={setExpand} /> : <OverViewBoxMobile />} */}
+              <div className="flex flex-col-reverse lg:flex-col xl:flex-row lg:h-[80%]">
                 <OverViewBox expand={expand} setExpand={setExpand} />
                 <ProjectBox expand={expand} />
               </div>
@@ -178,11 +177,11 @@ export default function Home() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 1 }}
             >
-              <div className="flex flex-col lg:flex-row lg:h-[80%] w-full">
+              <div className="flex flex-col xl:flex-row lg:h-[80%] w-full">
                 <ContactBox sliderValue={sliderValue} />
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} />
               </div>
-              <div className="flex lg:h-[20%] w-full justify-center lg:items-center">
+              <div className="flex lg:h-[20%] w-full justify-center lg:items-center mt-4">
                 {!mobileView && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
                 <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
               </div>

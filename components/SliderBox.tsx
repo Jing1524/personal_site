@@ -7,13 +7,14 @@ import { Suspense } from 'react'
 const SliderBox = ({ setSliederValue, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+  const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
 
   // const tabletScreen = useMediaQuery('(min-width:1024px)')
   const { theme } = useContext(ThemeContext)
 
   return (
     <>
-      {!mobileView ? (
+      {!tabletView ? (
         <div className="box order-last basis-1/5 p-[0.8vh] h-full">
           <div
             className={`pill h-full w-[120px] 2xl:w-[150px] border border-[#1e1e1e] rounded-[100px] box-border flex justify-center items-center rounded-[20px] ${
@@ -41,7 +42,7 @@ const SliderBox = ({ setSliederValue, sliderValue }: any) => {
           </div>
         </div>
       ) : (
-        <div className="box order-first px-[10px] h-[120px] w-full">
+        <div className="box order-last px-[10px] h-[120px] w-full">
           <div
             className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'

@@ -8,7 +8,7 @@ const GreetingBox = ({ sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="order-last w-full lg:order-none lg:basis-4/5 h-full long-box box p-[.8vh]">
+    <div className="order-last w-full lg:order-none lg:basis-3/5 xl:basis-4/5 h-full long-box box p-[.8vh]">
       <div
         style={{ borderWidth: theme.strokeWidth }}
         className={`pill px-16 py-2 lg:py-0 flex flex-col lg:h-full w-full border box-border justify-center rounded-[100px]`}
@@ -20,6 +20,7 @@ const GreetingBox = ({ sliderValue }: any) => {
           }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          // @ts-ignore
           transition={{ durtion: 2, delay: 5, type: 'tween' }}
         >
           a frontend software engineer with a design background.

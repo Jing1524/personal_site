@@ -8,12 +8,11 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 const ProjectBox = ({ expand }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
-  // const tabletScreen = useMediaQuery('(max-height:800px)')
+  const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
 
   return (
-    <div className={`flex flex-col ${expand ? 'hidden' : 'block'}`}>
-      {/* ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} */}
-      <div className={`w-full  box p-[0.8vh]`}>
+    <div className={`flex flex-col ${expand ? 'hidden' : 'block'} ${tabletView && 'h-[70%]'}`}>
+      <div className={`w-full box p-[0.8vh] ${tabletView ? 'h-[50%]' : 'h-[40%]'}`}>
         <div
           className={`overflow-hidden pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center basis-1/3`}
           style={{ borderWidth: theme.strokeWidth }}
@@ -22,6 +21,7 @@ const ProjectBox = ({ expand }: any) => {
             <p className="absolute font-bold font-lg text-[#1e1e1e] z-[50] mt-4">Pineapple workshop</p>
 
             <a href="https://pineappleworkshop.com" target="_blank">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/pineapple-site.png"
                 alt="pineapple project"
@@ -47,8 +47,8 @@ const ProjectBox = ({ expand }: any) => {
           </div>
         </div>
       </div>
-      {/*  ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} */}
-      <div className={`w-full box p-[10px]`}>
+
+      <div className={`w-full box p-[10px] ${tabletView ? 'h-[50%]' : 'h-[40%]'}`}>
         <div
           className={`pill w-full h-full border rounded-[100px] box-border overflow-hidden flex justify-center items-center bg-[#5a6191] `}
           style={{ borderWidth: theme.strokeWidth }}
