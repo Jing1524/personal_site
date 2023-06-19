@@ -19,6 +19,7 @@ const ProjectBox = ({ expand }: any) => {
         >
           <div className="relative flex flex-col items-center h-full group">
             <p className="absolute font-bold font-lg text-[#1e1e1e] z-[50] mt-4">Pineapple workshop</p>
+
             <a href="https://pineappleworkshop.com" target="_blank">
               <img
                 src="/images/pineapple-site.png"
@@ -52,16 +53,23 @@ const ProjectBox = ({ expand }: any) => {
           style={{ borderWidth: theme.strokeWidth }}
         >
           <div className="relative flex flex-col items-center h-full group">
-            <p className="absolute font-bold font-lg text-[#fff] z-[50] mt-4 text-center">
-              Yet Another Music App <br /> Under contruction(third party API issue)
-            </p>
-            {/* <a href="https://github.com/Jing1524/yet-another-music-app" target="_blank"> */}
-            <img
-              src="/images/music-player.png"
-              alt="music player project"
-              className={`object-cover ${darkMode ? 'opacity-70' : 'opacity-50'} `}
-            />
-            {/* </a> */}
+            <div className="absolute flex items-center justify-center mt-4 z-[50] w-full">
+              <p className="font-bold font-lg text-[#fff] ">Yet Another Music App</p>
+              <p className="ml-2 bg-[#fff] rounded-full p-2 self-end">
+                <a href="https://github.com/Jing1524/yet-another-music-app" target="_blank">
+                  Github
+                </a>
+              </p>
+            </div>
+
+            <a href="https://yama-one.vercel.app" target="_blank">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/music-player.png"
+                alt="music player project"
+                className={`object-cover ${darkMode ? 'opacity-70' : 'opacity-50'} `}
+              />
+            </a>
 
             <div className="absolute bg-[#fff]/90 w-full bottom-0 h-[20%] p-2 lg:p-4">
               <div className="flex justify-center w-full gap-2">
