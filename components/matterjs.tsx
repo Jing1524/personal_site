@@ -8,6 +8,7 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 export default function Matterjs() {
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
   const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
+  const laptopView = useMediaQuery({ width: '1366px', height: '768px' })
 
   // const tabletHeightScreen = useMediaQuery('(max-height:937px)')
 
@@ -64,8 +65,8 @@ export default function Matterjs() {
     const renderTextOnPill = (text: string, bgColor: string, radius: number) => {
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')
-      canvas.width = mobileView || tabletView ? 80 : 100
-      canvas.height = mobileView || tabletView ? 40 : 52
+      canvas.width = mobileView || tabletView || laptopView ? 80 : 100
+      canvas.height = mobileView || tabletView || laptopView ? 40 : 52
       if (context) {
         context.fillStyle = bgColor
         context.fillStyle = bgColor
@@ -111,8 +112,8 @@ export default function Matterjs() {
       const x = Math.random() * constraints?.width
       const y = Math.random() * -constraints?.height
 
-      const pillWidth = mobileView || tabletView ? 80 : 100
-      const pillHeight = mobileView || tabletView ? 40 : 52
+      const pillWidth = mobileView || tabletView || laptopView ? 80 : 100
+      const pillHeight = mobileView || tabletView || laptopView ? 40 : 52
 
       const chamfer = { radius: 15 }
       const color = colors[i % colors.length]

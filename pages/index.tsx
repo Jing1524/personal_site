@@ -21,15 +21,18 @@ import { ColorPalletes } from '../constants/colorTheme'
 import OverViewBoxMobile from '@/components/OverviewBoxMobile'
 import { setColors } from '../utils/addTheme'
 import { motion } from 'framer-motion'
+import HiddenProjectBox from '@/components/HiddenProjectBox'
 
 export default function Home() {
   const { darkMode } = useModeToggle()
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
   const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
+  const laptopView = useMediaQuery({ width: '1366px', height: '1024px' })
   const [showSideBar, setShowSideBar] = useState<boolean>(false)
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
-  const [sliderValue, setSliederValue] = useState<any>(1)
+  const [sliderValue, setSliderValue] = useState<any>(1)
+  const [projectSliderValue, setProjectSliderValue] = useState<any>(1)
   const { theme, updateTheme } = useContext(ThemeContext)
   const pillsRef = useRef<Element[]>([])
   const boxesRef = useRef<Element[]>([])
@@ -166,25 +169,32 @@ export default function Home() {
               </div>
               <div className="flex flex-col-reverse lg:flex-col xl:flex-row lg:h-[80%]">
                 <OverViewBox expand={expand} setExpand={setExpand} />
-                <ProjectBox expand={expand} />
+                <ProjectBox
+                  expand={expand}
+                  projectSliderValue={projectSliderValue}
+                  setProjectSliderValue={setProjectSliderValue}
+                />
               </div>
             </motion.div>
 
             {/* Second row right box   */}
             <motion.div
-              className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center w-screen lg:basis-5/12`}
+              className="flex w-screen lg:basis-5/12"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 1 }}
             >
-              <div className="flex flex-col xl:flex-row lg:h-[80%] w-full">
-                <ContactBox sliderValue={sliderValue} />
-                <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} />
-              </div>
-              <div className="flex lg:h-[20%] w-full justify-center lg:items-center mt-4">
-                {!mobileView && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
-                <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
-              </div>
+              <HiddenProjectBox projectSliderValue={projectSliderValue} setProjectSliderValue={setProjectSliderValue} />
+              <motion.div className={`flex ${isReverse ? 'flex-col-reverse' : 'flex-col'} items-center`}>
+                <div className="flex flex-col xl:flex-row lg:h-[80%] w-full">
+                  <ContactBox sliderValue={sliderValue} />
+                  <SliderBox sliderValue={sliderValue} setSliderValue={setSliderValue} />
+                </div>
+                <div className="flex lg:h-[20%] w-full justify-center lg:items-center mt-4">
+                  {!mobileView && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
+                  <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

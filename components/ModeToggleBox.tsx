@@ -7,7 +7,7 @@ import { useContext } from 'react'
 const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
   const { darkMode, toggleDarkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
-  console.log({ darkMode })
+
   return (
     <div className="flex items-center self-center justify-center h-full for-toggle lg:m-0 lg:basis-3/5 box">
       <button

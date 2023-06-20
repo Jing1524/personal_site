@@ -13,6 +13,7 @@ const defaultOptions = {
 
 const SocialBox = () => {
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+  const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
 
   const { theme } = useContext(ThemeContext)
 
@@ -39,7 +40,7 @@ const SocialBox = () => {
           </div>
 
           <div
-            className="pill border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
+            className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
             style={{ borderWidth: theme.strokeWidth }}
           >
             <div className="w-full h-full">

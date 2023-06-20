@@ -5,6 +5,7 @@ import { useContext } from 'react'
 const ProfileBox = ({ pillsRef }: any) => {
   const { theme } = useContext(ThemeContext)
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+  const laptopView = useMediaQuery({ width: '1366px', height: '768px' })
 
   // const shortScreenView = useMediaQuery('(max-height:800px)')
   return (
@@ -20,7 +21,7 @@ const ProfileBox = ({ pillsRef }: any) => {
         </div>
       ) : (
         <div className="flex items-center justify-center ml-auto basis-1/5 box lg:h-full">
-          <div className={`order-first lg:order-last p-[0.8vh] h-[245px] w-full`}>
+          <div className={`order-first lg:order-last p-[0.8vh] h-[245px] w-full xl:h-full xl:w-[70%]`}>
             <div
               style={{ borderWidth: theme.strokeWidth }}
               className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-center bg-cover"

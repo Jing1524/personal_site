@@ -94,6 +94,15 @@
   border: 4px solid #1e1e1e;
   border-radius: 8px;
 }
+.projectSlider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  background: #f2e8d2;
+  outline: none;
+  border: 4px solid #1e1e1e;
+  border-radius: 8px;
+}
 
 @media only screen and (min-width: 1024px) {
   .slider {
@@ -138,6 +147,17 @@
   border-radius: 100%;
 }
 
+.projectSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  background: #f2e8d2;
+  cursor: pointer;
+  border: 4px solid #1e1e1e;
+  border-radius: 100%;
+}
+
 /* for firefox */
 .slider::-moz-range-thumb {
   width: 40px;
@@ -149,6 +169,15 @@
 }
 
 .sliderMobile::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  background: #f2e8d2;
+  cursor: pointer;
+  border: 4px solid #1e1e1e;
+  border-radius: 100%;
+}
+
+.projectSlider::-moz-range-thumb {
   width: 40px;
   height: 40px;
   background: #f2e8d2;
@@ -417,41 +446,4 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.blue-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
-  background: #56ccf2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #2f80ed, #56ccf2); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pink-text-gradient {
-  background: #ec008c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #ec008c, #fc6767); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* canvas- styles */
-.canvas-loader {
-  font-size: 10px;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
-  animation: mulShdSpin 1.1s infinite ease;
-  transform: translateZ(0);
 }

@@ -4,12 +4,10 @@ import useMediaQuery from '@/hooks/useMediaQuery'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { Suspense } from 'react'
-const SliderBox = ({ setSliederValue, sliderValue }: any) => {
+const SliderBox = ({ setSliderValue, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
   const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
-
-  // const tabletScreen = useMediaQuery('(min-width:1024px)')
   const { theme } = useContext(ThemeContext)
 
   return (
@@ -36,7 +34,7 @@ const SliderBox = ({ setSliederValue, sliderValue }: any) => {
                 value={sliderValue}
                 className="slider"
                 id="myRange"
-                onChange={(e) => setSliederValue(parseInt(e.target.value))}
+                onChange={(e) => setSliderValue(parseInt(e.target.value))}
               />
             </motion.div>
           </div>
@@ -57,7 +55,7 @@ const SliderBox = ({ setSliederValue, sliderValue }: any) => {
                 value={sliderValue}
                 className="sliderMobile"
                 id="myRange"
-                onChange={(e) => setSliederValue(parseInt(e.target.value))}
+                onChange={(e) => setSliderValue(parseInt(e.target.value))}
               />
             </div>
           </div>
