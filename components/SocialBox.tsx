@@ -3,7 +3,7 @@ import Lottie from 'react-lottie'
 import kittyAnimate from '../assets/lottie/kitty.json'
 import { useContext } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 
 const defaultOptions = {
   loop: true,
@@ -12,14 +12,11 @@ const defaultOptions = {
 }
 
 const SocialBox = () => {
-  const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
-  const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
-
   const { theme } = useContext(ThemeContext)
-
+  const tabletScreen = useMediaQueryWidth('(min-width:1024px)')
   return (
     <div className="h-full lg:basis-1/4 p-[0.8vh] box">
-      {!mobileView ? (
+      {tabletScreen ? (
         <div className="h-full social-fan lg:basis-1/4">
           <div
             className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social github bg-[#e6abbe]"
@@ -40,12 +37,14 @@ const SocialBox = () => {
           </div>
 
           <div
-            className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
+            className="pill border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
             style={{ borderWidth: theme.strokeWidth }}
           >
-            <div className="w-full h-full">
-              <Lottie options={defaultOptions} />
-            </div>
+            <a href="">
+              <div className="h-[12.8vh] w-[12vw]">
+                <Lottie options={defaultOptions} />
+              </div>
+            </a>
           </div>
         </div>
       ) : (

@@ -13,7 +13,7 @@ import TechStackBox from '@/components/TechStack/TechStackBox'
 
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext, ThemeProvider } from '@/context/ThemeContext'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useMediaQuery, useMediaQueryWidth } from '@/hooks/useMediaQuery'
 
 import Head from 'next/head'
 import { useState, useRef, useContext, useEffect } from 'react'
@@ -25,10 +25,10 @@ import HiddenProjectBox from '@/components/HiddenProjectBox'
 
 export default function Home() {
   const { darkMode } = useModeToggle()
-  const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
+  const tabletScreen = useMediaQueryWidth('(min-width:1024px)')
+
   const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
-  const laptopView = useMediaQuery({ width: '1366px', height: '1024px' })
-  const ipadView = useMediaQuery({ width: '768px', height: '1024px' })
+
   const [showSideBar, setShowSideBar] = useState<boolean>(false)
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
@@ -161,15 +161,15 @@ export default function Home() {
             {/* Second row left box */}
 
             <motion.div
-              className="flex flex-col h-full lg:w-[60%]"
+              className="flex flex-col lg:basis-7/12"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 0.5 }}
             >
-              <div className="flex flex-col lg:flex-row lg:h-[20%] w-full">
+              <motion.div className="flex flex-col lg:flex-row lg:h-[20%]">
                 <SocialBox />
                 <TechStackBox />
-              </div>
+              </motion.div>
 
               <div className="flex flex-col-reverse w-full flex-col lg:flex-row lg:h-[80%]">
                 <OverViewBox expand={expand} setExpand={setExpand} />
@@ -183,7 +183,7 @@ export default function Home() {
 
             {/* Second row right box   */}
             <motion.div
-              className="flex h-full lg:w-[40%]" // lg:basis-5/12
+              className="flex h-full lg:basis-5/12" //
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 1 }}
@@ -198,18 +198,16 @@ export default function Home() {
                 className={`flex w-full ${
                   isReverse ? 'flex-col-reverse' : 'flex-col'
                 } hidden-project-wrapper  items-center`}
-                style={{
-                  transform: `${projectSliderValue >= 2 ? `translateX(calc(100% + ${hiddenProjectBoxWidth}))` : ''}`,
-                  transition: 'transform 300ms linear',
-                }}
+                initial={{ x: 0 }}
+                animate={{ x: projectSliderValue >= 2 ? '100%' : 0 }}
+                transition={{ duration: 0.8 }}
               >
-                {/* flex flex-col-reverse xl:flex-row lg:h-[80%] w-full */}
-                <div className="h-[80%] w-full">
+                <div className="h-[80%] w-full flex flex-col xl:flex-row">
                   <ContactBox sliderValue={sliderValue} />
                   <SliderBox sliderValue={sliderValue} setSliderValue={setSliderValue} />
                 </div>
                 <div className="flex lg:h-[20%] w-full justify-center lg:items-center mt-4 lg:gap-2">
-                  {!mobileView && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
+                  {tabletScreen && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
                   <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
                 </div>
               </motion.div>

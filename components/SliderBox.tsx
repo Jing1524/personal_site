@@ -12,7 +12,7 @@ const SliderBox = ({ setSliderValue, sliderValue }: any) => {
   return (
     <>
       {tabletScreen ? (
-        <div className="box h-[180px] p-[0.8vh] h-full">
+        <div className="box h-full p-[0.8vh] xl:basis-1/5">
           <div
             className={`pill h-full w-[120px] 2xl:w-[150px] border border-[#1e1e1e] rounded-[100px] box-border flex justify-center items-center rounded-[20px] ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'
@@ -39,7 +39,7 @@ const SliderBox = ({ setSliderValue, sliderValue }: any) => {
           </div>
         </div>
       ) : (
-        <div className="box order-first px-[10px] h-[180px] w-full">
+        <div className="box order-first px-[10px] h-[180px] lg:h-[15%] w-full">
           <div
             className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'

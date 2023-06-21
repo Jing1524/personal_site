@@ -10,8 +10,6 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Link from 'next/link'
 
 const ExperienceCard = ({ experience, darkMode }: any) => {
-  // const tabletScreen = useMediaQuery('(min-width:1024px)')
-
   return (
     <VerticalTimelineElement
       contentStyle={{

@@ -9,7 +9,7 @@ const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="flex items-center self-center justify-center h-[70%] for-toggle lg:m-0 basis-1/2 box p-[0.8vh]">
+    <div className="flex items-center self-center justify-center mt-5 lg:mt-0 lg:h-[70%] for-toggle basis-1/2 box p-[0.8vh]">
       <button
         disabled={sliderValue > 1}
         ref={togglePillRef}

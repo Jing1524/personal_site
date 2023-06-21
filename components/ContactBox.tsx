@@ -58,7 +58,7 @@ const ContactBox = ({ sliderValue }: any) => {
       )
   }
   return (
-    <div className="h-[90%] contact p-[0.8vh] box">
+    <div className="lg:h-[90%] contact p-[0.8vh] box xl:basis-4/5 xl:h-full">
       <div
         className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center p-[3vh]`}
         style={{ borderWidth: theme.strokeWidth }}
