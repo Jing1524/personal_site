@@ -177,7 +177,7 @@ export default function Home() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 1 }}
             >
-              <div className="flex flex-col lg:flex-row lg:h-[80%] w-full">
+              <div className="flex flex-col xl:flex-row lg:h-[80%] w-full">
                 <ContactBox sliderValue={sliderValue} />
                 <SliderBox sliderValue={sliderValue} setSliederValue={setSliederValue} />
               </div>

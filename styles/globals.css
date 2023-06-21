@@ -95,7 +95,7 @@
   border-radius: 8px;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1280px) {
   .slider {
     width: 500px;
     -webkit-transform: rotate(-90deg); /* For Safari */
