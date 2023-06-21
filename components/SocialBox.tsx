@@ -3,7 +3,7 @@ import Lottie from 'react-lottie'
 import kittyAnimate from '../assets/lottie/kitty.json'
 import { useContext } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const defaultOptions = {
   loop: true,

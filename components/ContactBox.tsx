@@ -4,13 +4,13 @@ import { motion } from 'framer-motion'
 import { useContext, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { ThemeContext } from '@/context/ThemeContext'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const ContactBox = ({ sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
+  const laptopView = useMediaQuery({ width: '1366px', height: '768px' })
+  const anotherScreenView = useMediaQuery({ width: '1536px', height: '864px' })
 
-  // const tabletHeight = useMediaQuery('(max-height:1115px)')
-  // const SmTabletHeight = useMediaQuery('(max-height:990px)')
   const { darkMode } = useModeToggle()
   const formRef = useRef()
   const [form, setForm] = useState({
@@ -58,14 +58,14 @@ const ContactBox = ({ sliderValue }: any) => {
       )
   }
   return (
-    <div className="basis-4/5 contact p-[0.8vh] box">
+    <div className="h-[90%] contact p-[0.8vh] box">
       <div
-        className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center p-8`}
+        className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center p-[3vh]`}
         style={{ borderWidth: theme.strokeWidth }}
       >
         {/*  ${SmTabletHeight ? 'gap-[1vh]' : 'gap-[2vh]'} */}
         <div className={`flex flex-col w-full h-full`}>
-          <h3 className="text-[3vh] font-black text-[#1e1e1e]">Get in touch.</h3>
+          <h3 className="text-[3vh] font-bold text-[#1e1e1e]">Get in touch.</h3>
           {/* @ts-ignore */}
           <form ref={formRef} className="flex flex-col" onSubmit={HandleSubmit}>
             <label className="flex flex-col mb-[2vh]">
@@ -107,7 +107,7 @@ const ContactBox = ({ sliderValue }: any) => {
 
               <textarea
                 // rows={tabletHeight ? (SmTabletHeight ? 3 : 5) : 7}
-                rows={7}
+                rows={anotherScreenView ? (laptopView ? 3 : 5) : 7}
                 name="message"
                 value={form.message}
                 placeholder="&#128075;"
@@ -123,7 +123,7 @@ const ContactBox = ({ sliderValue }: any) => {
             <button
               type="submit"
               className={classNames(
-                'mt-[2vh] text-black self-center px-8 py-[1vh] font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
+                'mt-[1vh] text-black self-center px-8 py-[1vh] font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
                 darkMode && 'bg-[#1e1e1e] text-white'
               )}
             >

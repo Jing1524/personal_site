@@ -9,12 +9,12 @@ const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="flex items-center self-center justify-center h-full for-toggle lg:m-0 lg:basis-3/5 box">
+    <div className="flex items-center self-center justify-center h-[70%] for-toggle lg:m-0 basis-1/2 box p-[0.8vh]">
       <button
         disabled={sliderValue > 1}
         ref={togglePillRef}
         className={classNames(
-          'togglePill h-[100px] w-[230px] lg:w-[80%] border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
+          'togglePill h-full w-full border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
           darkMode ? 'justify-end' : 'justify-start'
         )}
         style={{ borderWidth: theme.strokeWidth, background: darkMode ? '#29296b' : '#669ff2' }}

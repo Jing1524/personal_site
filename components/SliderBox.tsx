@@ -1,19 +1,18 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { Suspense } from 'react'
 const SliderBox = ({ setSliderValue, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
-  const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
-  const tabletView = useMediaQuery({ width: '1024px', height: '1366px' })
+  const tabletScreen = useMediaQueryWidth('(min-width:1280px)')
   const { theme } = useContext(ThemeContext)
 
   return (
     <>
-      {!tabletView ? (
-        <div className="box order-last basis-1/5 p-[0.8vh] h-full">
+      {tabletScreen ? (
+        <div className="box h-[180px] p-[0.8vh] h-full">
           <div
             className={`pill h-full w-[120px] 2xl:w-[150px] border border-[#1e1e1e] rounded-[100px] box-border flex justify-center items-center rounded-[20px] ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'
@@ -40,7 +39,7 @@ const SliderBox = ({ setSliderValue, sliderValue }: any) => {
           </div>
         </div>
       ) : (
-        <div className="box order-last px-[10px] h-[120px] w-full">
+        <div className="box order-first px-[10px] h-[180px] w-full">
           <div
             className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'

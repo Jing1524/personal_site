@@ -1,6 +1,6 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Image from 'next/image'
 import { useContext } from 'react'
 
@@ -12,9 +12,9 @@ const RotateButtonBox = ({ isReverse, setIsReverse }: any) => {
 
   return (
     //  box
-    <div className="flex basis-2/5 box h-full p-[0.8vh]">
+    <div className="flex h-[70%] basis-1/2 box p-[0.8vh]">
       <button
-        className={`relative pill m-auto w-full h-[80%] border-[#1e1e1e] rounded-[100px] rounded-3xl p-[6.25px] flex items-center justify-center ${
+        className={`relative pill m-auto w-full h-[100px] border-[#1e1e1e] rounded-[100px] rounded-3xl p-[6.25px] flex items-center justify-center ${
           darkMode ? 'bg-[#D8D8D8]' : 'bg-[#fff]'
         }`}
         style={{ borderWidth: theme.strokeWidth }}

@@ -3,7 +3,7 @@ import Matter from 'matter-js'
 
 import useIsInViewport from '@/hooks/useIsInViewport'
 import { useModeToggle } from '@/context/ModeProvider'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export default function Matterjs() {
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })

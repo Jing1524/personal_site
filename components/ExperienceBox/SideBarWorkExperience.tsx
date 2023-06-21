@@ -6,7 +6,7 @@ import { experiences } from '../../constants'
 import 'react-vertical-timeline-component/style.min.css'
 import { useModeToggle } from '@/context/ModeProvider'
 import { useState } from 'react'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Link from 'next/link'
 
 const ExperienceCard = ({ experience, darkMode }: any) => {
