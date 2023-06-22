@@ -1,5 +1,6 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
+import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
@@ -7,6 +8,7 @@ import { useContext } from 'react'
 const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
   const { darkMode, toggleDarkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
+  const tabletScreen = useMediaQueryWidth('(min-height:812px)')
 
   return (
     <div className="flex items-center self-center justify-center mt-5 lg:mt-0 lg:h-[70%] for-toggle basis-1/2 box p-[0.8vh]">
@@ -45,10 +47,12 @@ const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
                 className="absolute top-[55%] left-[45%] h-[10px] w-[10px] starOne bg-white"
                 variants={childVariants}
               />
-              <motion.div className="moon mr-[20px] mt-1" />
+              <motion.div className={`moon mr-[20px] ${tabletScreen && 'mt-[0.6vmin]'}`} />
             </motion.div>
           ) : (
-            <div className="w-14 h-14 bg-[#FFA500] rounded-full sun ml-[5px] mt-1" />
+            <div
+              className={`w-[5vmin] h-[5vmin] bg-[#FFA500] rounded-full sun ml-[5px] ${tabletScreen && 'mt-[0.6vmin]'}`}
+            />
           )}
         </motion.div>
       </button>

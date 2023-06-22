@@ -332,8 +332,8 @@
 }
 
 .moon {
-  width: 48px;
-  height: 48px;
+  width: 5vmin;
+  height: 5vmin;
   border-radius: 50%;
   box-shadow: 0.5rem 0.2rem 0 0 #fff77e;
 }

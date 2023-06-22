@@ -33,7 +33,7 @@ const HiddenProjectBox = ({ projectSliderValue, setHiddenProjectBoxWidth, hidden
           target="_blank"
           className="mt-3 text-[#1e1e1e] hover:underline font-medium text-[0.8rem]"
         >
-          https://pineappleworkshop.com
+          pineappleworkshop.com
         </a>
 
         <div className="flex w-full mt-2">

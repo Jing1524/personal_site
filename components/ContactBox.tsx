@@ -65,11 +65,11 @@ const ContactBox = ({ sliderValue }: any) => {
       >
         {/*  ${SmTabletHeight ? 'gap-[1vh]' : 'gap-[2vh]'} */}
         <div className={`flex flex-col w-full h-full`}>
-          <h3 className="text-[3vh] font-bold text-[#1e1e1e]">Get in touch.</h3>
+          <h3 className="text-[2vmin] font-bold text-[#1e1e1e]">Get in touch.</h3>
           {/* @ts-ignore */}
           <form ref={formRef} className="flex flex-col" onSubmit={HandleSubmit}>
-            <label className="flex flex-col mb-[2vh]">
-              <span className="mb-[1vh] text-[1.7vh] font-medium text-[#1e1e1e]">Your Name</span>
+            <label className="flex flex-col mb-[2vmin]">
+              <span className="mb-[1vmin] text-[1.5vmin] font-medium text-[#1e1e1e]">Your Name</span>
 
               <input
                 type="text"
@@ -78,15 +78,15 @@ const ContactBox = ({ sliderValue }: any) => {
                 onChange={handleChange}
                 placeholder="what's your name?"
                 className={classNames(
-                  'px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
+                  'px-[2vmin] py-[1vmin] font-medium border-none rounded-lg outlined-none',
                   darkMode || sliderValue > 9
-                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white'
-                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
+                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white placeholder:text-[2vmin]'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[2vmin]'
                 )}
               />
             </label>
-            <label className="flex flex-col mb-[2vh]">
-              <span className="mb-[1vh] text-[1.7vh] font-medium text-[#1e1e1e]">Your email</span>
+            <label className="flex flex-col mb-[2vmin]">
+              <span className="mb-[1vmin] text-[1.5vmin] font-medium text-[#1e1e1e]">Your email</span>
 
               <input
                 type="email"
@@ -95,35 +95,34 @@ const ContactBox = ({ sliderValue }: any) => {
                 placeholder="what's your email?"
                 onChange={handleChange}
                 className={classNames(
-                  ' px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
+                  'px-[2vmin] py-[1vmin] font-medium border-none rounded-lg outlined-none',
                   darkMode || sliderValue > 9
-                    ? 'bg-[#1e1e1e] p placeholder:text-secondary text-white'
-                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
+                    ? 'bg-[#1e1e1e] p placeholder:text-secondary text-white placeholder:text-[2vmin]'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[2vmin]'
                 )}
               />
             </label>
-            <label className="flex flex-col mb-[2vh]">
-              <span className="mb-[1vh] text-[1.7vh] font-medium text-[#1e1e1e]">Your Message</span>
+            <label className="flex flex-col mb-[2vmin]">
+              <span className="mb-[1vmin] text-[1.5vmin] font-medium text-[#1e1e1e]">Your Message</span>
 
               <textarea
-                // rows={tabletHeight ? (SmTabletHeight ? 3 : 5) : 7}
-                rows={anotherScreenView ? (laptopView ? 3 : 5) : 7}
+                rows={anotherScreenView ? (laptopView ? 2 : 4) : 6}
                 name="message"
                 value={form.message}
                 placeholder="&#128075;"
                 onChange={handleChange}
                 className={classNames(
-                  'px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
+                  'px-[2vmin] py-[1vmin] font-medium border-none rounded-lg outlined-none',
                   darkMode || sliderValue > 9
-                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white placeholder:text-[24px]'
-                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[24px]'
+                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white placeholder:text-[2vmin]'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[2vmin]'
                 )}
               />
             </label>
             <button
               type="submit"
               className={classNames(
-                'mt-[1vh] text-black self-center px-8 py-[1vh] font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
+                'mt-[1vmin] text-black self-center px-[2vmin] py-[1vmin] font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
                 darkMode && 'bg-[#1e1e1e] text-white'
               )}
             >

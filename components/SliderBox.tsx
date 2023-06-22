@@ -39,7 +39,7 @@ const SliderBox = ({ setSliderValue, sliderValue }: any) => {
           </div>
         </div>
       ) : (
-        <div className="box order-first px-[10px] h-[180px] lg:h-[15%] w-full">
+        <div className="box px-[10px] h-[180px] lg:h-[15%] w-full">
           <div
             className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'

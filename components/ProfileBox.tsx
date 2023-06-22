@@ -7,37 +7,10 @@ const ProfileBox = ({ pillsRef }: any) => {
   const mobileView = useMediaQuery({ width: '912px', height: '1368px' })
   const laptopView = useMediaQuery({ width: '1366px', height: '768px' })
   const anotherFkView = useMediaQuery({ width: '1024px', height: '768px' })
-  // const shortScreenView = useMediaQuery('(max-height:800px)')
-
-  if (mobileView) {
-    return (
-      <div className="flex items-center justify-center ml-auto box">
-        <div className={`order-first  lg:order-last p-[0.8vh] h-[125px] w-[125px]`}>
-          <div
-            style={{ borderWidth: theme.strokeWidth }}
-            className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-cover"
-          />
-        </div>
-      </div>
-    )
-  }
-
-  if (anotherFkView) {
-    return (
-      <div className="flex items-center justify-center ml-auto box">
-        <div className={`order-first  lg:order-last p-[0.8vh] h-[150px] w-[150px]`}>
-          <div
-            style={{ borderWidth: theme.strokeWidth }}
-            className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-cover"
-          />
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className="flex items-center justify-center ml-auto basis-1/5 box lg:h-full">
-      <div className={`order-first lg:order-last p-[0.8vh] h-[245px] w-full xl:h-full xl:w-[70%]`}>
+      <div className={`order-first lg:order-last p-[0.8vmin] h-[20vmin] w-full xl:h-full xl:w-[70%]`}>
         <div
           style={{ borderWidth: theme.strokeWidth }}
           className="pill box-border flex items-center justify-center w-full h-full rounded-full circle bg-[url('/images/me.png')] bg-center bg-cover"
