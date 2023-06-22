@@ -14,7 +14,7 @@ const RotateButtonBox = ({ isReverse, setIsReverse }: any) => {
     //  box
     <div className="flex h-[70%] basis-1/2 box p-[0.8vh]">
       <button
-        className={`relative pill m-auto w-full h-[100px] border-[#1e1e1e] rounded-[100px] rounded-3xl p-[6.25px] flex items-center justify-center ${
+        className={`relative pill m-auto w-full h-full border-[#1e1e1e] rounded-[100px] rounded-3xl p-[6.25px] flex items-center justify-center ${
           darkMode ? 'bg-[#D8D8D8]' : 'bg-[#fff]'
         }`}
         style={{ borderWidth: theme.strokeWidth }}

@@ -7,6 +7,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --translate-x: 0;
+}
+
 .dark {
   @apply bg-[#000000] text-[#FFFFFF];
 }
@@ -342,6 +346,6 @@
   clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0 38%, 37% 38%);
 }
 
-/* .hidden-project-wrapper {
-  transform: translateX(100%);
-} */
+.translate-x-custom {
+  transform: translateX(var(--translate-x));
+}

@@ -130,6 +130,13 @@ export default function Home() {
     theme,
   ])
 
+  useEffect(() => {
+    // Set the initial value on component mount
+    if (typeof document !== 'undefined') {
+      document.documentElement.style.setProperty('--translate-x', `${projectSliderValue / 5}px`)
+    }
+  }, [projectSliderValue])
+
   return (
     <ThemeProvider>
       <main ref={bodyBackgroundRef} className="overflow-hidden">
@@ -161,17 +168,18 @@ export default function Home() {
             {/* Second row left box */}
 
             <motion.div
-              className="flex flex-col lg:basis-7/12"
+              className="flex flex-col lg:basis-7/12 min-w-[60vw]"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 0.5 }}
             >
-              <motion.div className="flex flex-col lg:flex-row lg:h-[20%]">
+              <div className={`flex flex-col lg:flex-row lg:h-[20%]`}>
                 <SocialBox />
-                <TechStackBox />
-              </motion.div>
 
-              <div className="flex flex-col-reverse w-full flex-col lg:flex-row lg:h-[80%]">
+                <TechStackBox />
+              </div>
+
+              <div className={`flex flex-col-reverse w-full flex-col lg:flex-row lg:h-[80%]`}>
                 <OverViewBox expand={expand} setExpand={setExpand} />
                 <ProjectBox
                   expand={expand}
@@ -183,7 +191,7 @@ export default function Home() {
 
             {/* Second row right box   */}
             <motion.div
-              className="flex h-full lg:basis-5/12" //
+              className="flex h-full lg:basis-5/12"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 1 }}
@@ -193,20 +201,14 @@ export default function Home() {
                 hiddenProjectBoxWidth={hiddenProjectBoxWidth}
                 setHiddenProjectBoxWidth={setHiddenProjectBoxWidth}
               />
-
               <motion.div
-                className={`flex w-full ${
-                  isReverse ? 'flex-col-reverse' : 'flex-col'
-                } hidden-project-wrapper  items-center`}
-                initial={{ x: 0 }}
-                animate={{ x: projectSliderValue >= 2 ? '100%' : 0 }}
-                transition={{ duration: 0.8 }}
+                className={`flex w-full ${isReverse ? 'flex-col-reverse' : 'flex-col'} hidden-project-wrapper`}
               >
-                <div className="h-[80%] w-full flex flex-col xl:flex-row">
+                <div className="h-[80%] w-full flex flex-col xl:flex-row translate-x-custom">
                   <ContactBox sliderValue={sliderValue} />
                   <SliderBox sliderValue={sliderValue} setSliderValue={setSliderValue} />
                 </div>
-                <div className="flex lg:h-[20%] w-full justify-center lg:items-center mt-4 lg:gap-2">
+                <div className="flex lg:h-[20%] w-full justify-center lg:items-center mt-4 lg:gap-2 translate-x-custom">
                   {tabletScreen && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
                   <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
                 </div>

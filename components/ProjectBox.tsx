@@ -92,7 +92,7 @@ const ProjectBox = ({ expand, projectSliderValue, setProjectSliderValue }: any) 
             <input
               type="range"
               min="1"
-              max="800"
+              max="700"
               value={projectSliderValue}
               className="projectSlider"
               id="myRange"
