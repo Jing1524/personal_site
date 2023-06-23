@@ -136,7 +136,7 @@ export default function Home() {
     if (typeof document !== 'undefined') {
       document.documentElement.style.setProperty('--translate-x', `${projectSliderValue / 5}px`)
       document.documentElement.style.setProperty('--translate-y', `${-projectSliderValue * 1.5}px`)
-      document.documentElement.style.setProperty('--another-translate-x', `${projectSliderValue / 1.2}px`)
+      document.documentElement.style.setProperty('--another-translate-x', `${projectSliderValue / 1.1}px`)
     }
   }, [projectSliderValue])
 
