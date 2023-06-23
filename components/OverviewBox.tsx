@@ -1,6 +1,6 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
-import { useMediaQuery, useMediaQueryExact } from '@/hooks/useMediaQuery'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useContext, useState } from 'react'
 
 const OverViewBox = ({ pillsRef, expand, setExpand }: any) => {
