@@ -10,7 +10,7 @@ const ContactBox = ({ sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
   const laptopView = useMediaQueryWidth('(max-height:800px)')
   const anotherScreenView = useMediaQueryWidth('(max-height:1000px)')
-
+  const tallScreenView = useMediaQueryWidth('(max-height:1108px)')
   const { darkMode } = useModeToggle()
   const formRef = useRef()
   const [form, setForm] = useState({
@@ -108,7 +108,7 @@ const ContactBox = ({ sliderValue }: any) => {
               </span>
 
               <textarea
-                rows={laptopView ? 2 : anotherScreenView ? 4 : 8}
+                rows={laptopView ? 2 : anotherScreenView ? 4 : tallScreenView ? 5 : 7}
                 name="message"
                 value={form.message}
                 placeholder="&#128075;"
