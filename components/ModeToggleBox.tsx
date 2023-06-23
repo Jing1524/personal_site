@@ -11,12 +11,12 @@ const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
   const tabletScreen = useMediaQueryWidth('(min-height:812px)')
 
   return (
-    <div className="flex items-center self-center justify-center mt-5 lg:mt-0 lg:h-[70%] for-toggle basis-1/3 lg:basis-1/2 2xl:basis-1/3 box p-[0.8vh]">
+    <div className="flex items-center self-center justify-center mt-5 lg:mt-0 lg:h-full for-toggle basis-1/3 lg:basis-1/2 2xl:basis-1/3 box p-[0.8vh]">
       <button
         disabled={sliderValue > 1}
         ref={togglePillRef}
         className={classNames(
-          'togglePill h-full w-full border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
+          'togglePill h-[70%] w-full border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
           darkMode ? 'justify-end' : 'justify-start'
         )}
         style={{ borderWidth: theme.strokeWidth, background: darkMode ? '#29296b' : '#669ff2' }}

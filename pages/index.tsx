@@ -33,14 +33,14 @@ export default function Home() {
   const [isReverse, setIsReverse] = useState<boolean>(false)
   const [expand, setExpand] = useState<boolean>(false)
   const [sliderValue, setSliderValue] = useState<any>(1)
-  const [projectSliderValue, setProjectSliderValue] = useState<any>(1)
-  const [containerwidth, setContainerWidth] = useState<string>('')
+  const [projectSliderValue, setProjectSliderValue] = useState<any>(0)
+  const [browser, setBrowser] = useState<string>('')
   const { theme, updateTheme } = useContext(ThemeContext)
   const pillsRef = useRef<Element[]>([])
   const boxesRef = useRef<Element[]>([])
   const bodyBackgroundRef = useRef<any>()
   const togglePillRef = useRef<any>()
-
+  console.log({ sliderValue })
   const [hiddenProjectBoxWidth, setHiddenProjectBoxWidth] = useState(0)
 
   useEffect(() => {
@@ -141,25 +141,28 @@ export default function Home() {
   }, [projectSliderValue])
 
   useEffect(() => {
-    const userAgent = window.navigator.userAgent
-    console.log(userAgent)
-    // Check for browser information
-    if (userAgent.includes('Chrome')) {
-      setContainerWidth('60vw')
-    } else if (userAgent.includes('Safari')) {
-      setContainerWidth('57vw')
-    } else if (userAgent.includes('Firefox')) {
-      // Firefox browser
-      console.log('Firefox')
-    } else {
-      // Other browser
-      console.log('Other')
+    if (typeof window !== 'undefined') {
+      const userAgent = window.navigator.userAgent
+      console.log(userAgent)
+      // Check for browser information
+      if (userAgent.includes('Chrome')) {
+        setBrowser('Chrome')
+      }
+      // else if (userAgent.includes('Safari')) {
+      //   setBrowser('Safari')
+      // } else if (userAgent.includes('Firefox')) {
+      //   // Firefox browser
+      //   console.log('Firefox')
+      // } else {
+      //   // Other browser
+      //   console.log('Other')
+      // }
     }
   }, [])
 
   return (
     <ThemeProvider>
-      <main ref={bodyBackgroundRef} className="overflow-hidden">
+      <main ref={bodyBackgroundRef} className="w-screen overflow-hidden">
         <Head>
           <title>Jing&apos;s portfolio</title>
         </Head>
@@ -188,12 +191,12 @@ export default function Home() {
             {/* Second row left box */}
 
             <motion.div
-              className={`flex flex-col min-w-[${containerwidth}] lg:basis-7/12`}
+              className={`flex flex-col ${browser === 'Chrome' ? 'min-w-[60vw]' : 'min-w-[50vh]'}  lg:basis-7/12`}
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 0.5 }}
             >
-              <div className={`flex flex-col lg:flex-row lg:h-[20%]`}>
+              <div className={`flex flex-col w-full lg:flex-row lg:h-[20%]`}>
                 <SocialBox />
 
                 <TechStackBox />
@@ -205,6 +208,7 @@ export default function Home() {
                   expand={expand}
                   projectSliderValue={projectSliderValue}
                   setProjectSliderValue={setProjectSliderValue}
+                  sliderValue={sliderValue}
                 />
               </div>
             </motion.div>
@@ -221,6 +225,7 @@ export default function Home() {
                 hiddenProjectBoxWidth={hiddenProjectBoxWidth}
                 setHiddenProjectBoxWidth={setHiddenProjectBoxWidth}
                 isReverse={isReverse}
+                sliderValue={sliderValue}
               />
               <motion.div
                 className={`flex w-full ${isReverse ? 'flex-col-reverse' : 'flex-col'} hidden-project-wrapper`}
@@ -234,7 +239,7 @@ export default function Home() {
                   <SliderBox sliderValue={sliderValue} setSliderValue={setSliderValue} />
                 </div>
                 <div
-                  className={`flex lg:h-[20%] w-full justify-center lg:items-center mt-4 lg:gap-2 ${
+                  className={`flex lg:h-[20%] w-full justify-center lg:items-center  ${
                     isReverse ? 'translate-y-custom' : 'translate-x-custom'
                   }`}
                 >

@@ -41,7 +41,7 @@ const SocialBox = () => {
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="">
-              <div className="h-[12.4vh] w-[12vw]">
+              <div className="h-[12.6vh] w-[12vw]">
                 <Lottie options={defaultOptions} />
               </div>
             </a>
