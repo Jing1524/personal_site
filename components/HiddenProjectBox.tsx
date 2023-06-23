@@ -1,6 +1,6 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useMediaQuery, useMediaQueryWidth } from '@/hooks/useMediaQuery'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useContext, useEffect, useRef, useLayoutEffect } from 'react'
@@ -8,7 +8,9 @@ import { useContext, useEffect, useRef, useLayoutEffect } from 'react'
 const HiddenProjectBox = ({ projectSliderValue, setHiddenProjectBoxWidth, sliderValue, isReverse }: any) => {
   const { theme } = useContext(ThemeContext)
   const { darkMode } = useModeToggle()
-
+  const laptopView = useMediaQueryWidth('(max-height:800px)')
+  const anotherScreenView = useMediaQueryWidth('(max-height:1000px)')
+  const tallScreenView = useMediaQueryWidth('(max-height:1108px)')
   const hiddenBoxRef = useRef<any>()
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const HiddenProjectBox = ({ projectSliderValue, setHiddenProjectBoxWidth, slider
         className={`pill ${
           projectSliderValue >= 10 ? 'block' : 'hidden'
         }  border rounded-[100px] border-[#1e1e1e] h-2/3 p-[2rem] rotate-12 ml-[4vmin] mt-[4vmin] ${
-          isReverse && 'another-translate-x-custom -mt-[10vmin]'
+          isReverse && 'another-translate-x-custom first-Hidden-Box-Margin'
         }`}
       >
         <div
@@ -107,7 +109,7 @@ const HiddenProjectBox = ({ projectSliderValue, setHiddenProjectBoxWidth, slider
       <div
         style={{ borderWidth: theme.strokeWidth }}
         className={`pill ${projectSliderValue >= 10 ? 'block' : 'hidden'} ${
-          isReverse && 'bottom-translate-x-custom mt-[25vmin]'
+          isReverse && 'bottom-translate-x-custom second-Hidden-Box-Margin'
         }  border border-[#1e1e1e] h-[20%] p-[2rem] -rotate-12 ml-[4vmin] -mt-[.5vmin]`}
       >
         <h3
