@@ -18,7 +18,7 @@ import { useMediaQuery, useMediaQueryWidth } from '@/hooks/useMediaQuery'
 import Head from 'next/head'
 import { useState, useRef, useContext, useEffect } from 'react'
 import { ColorPalletes } from '../constants/colorTheme'
-import OverViewBoxMobile from '@/components/OverviewBoxMobile'
+
 import { setColors } from '../utils/addTheme'
 import { motion } from 'framer-motion'
 import HiddenProjectBox from '@/components/HiddenProjectBox'
@@ -34,6 +34,7 @@ export default function Home() {
   const [expand, setExpand] = useState<boolean>(false)
   const [sliderValue, setSliderValue] = useState<any>(1)
   const [projectSliderValue, setProjectSliderValue] = useState<any>(1)
+  const [containerwidth, setContainerWidth] = useState<string>('')
   const { theme, updateTheme } = useContext(ThemeContext)
   const pillsRef = useRef<Element[]>([])
   const boxesRef = useRef<Element[]>([])
@@ -135,8 +136,26 @@ export default function Home() {
     if (typeof document !== 'undefined') {
       document.documentElement.style.setProperty('--translate-x', `${projectSliderValue / 5}px`)
       document.documentElement.style.setProperty('--translate-y', `${-projectSliderValue * 1.5}px`)
+      document.documentElement.style.setProperty('--another-translate-x', `${projectSliderValue / 1.2}px`)
     }
   }, [projectSliderValue])
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent
+    console.log(userAgent)
+    // Check for browser information
+    if (userAgent.includes('Chrome')) {
+      setContainerWidth('60vw')
+    } else if (userAgent.includes('Safari')) {
+      setContainerWidth('57vw')
+    } else if (userAgent.includes('Firefox')) {
+      // Firefox browser
+      console.log('Firefox')
+    } else {
+      // Other browser
+      console.log('Other')
+    }
+  }, [])
 
   return (
     <ThemeProvider>
@@ -169,7 +188,7 @@ export default function Home() {
             {/* Second row left box */}
 
             <motion.div
-              className="flex flex-col lg:basis-7/12 min-w-[60vw]"
+              className={`flex flex-col min-w-[${containerwidth}] lg:basis-7/12`}
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 0.5 }}
