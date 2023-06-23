@@ -12,7 +12,7 @@ export const setColors = (
 ) => {
   pills.current = Array.from(pills)
   boxes.current = Array.from(boxes)
-  console.log(pills)
+
   pills.current.forEach((pill, i) => {
     return (
       (pill.style.backgroundColor = Array.isArray(pillColors) ? pillColors[i] : pillColors),

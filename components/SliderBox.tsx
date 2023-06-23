@@ -3,7 +3,7 @@ import { ThemeContext } from '@/context/ThemeContext'
 import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
-import { Suspense } from 'react'
+
 const SliderBox = ({ setSliderValue, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
   const tabletScreen = useMediaQueryWidth('(min-width:1280px)')

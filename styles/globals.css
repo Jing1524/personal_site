@@ -9,6 +9,7 @@
 
 :root {
   --translate-x: 0;
+  --translate-y: 0;
 }
 
 .dark {
@@ -348,4 +349,8 @@
 
 .translate-x-custom {
   transform: translateX(var(--translate-x));
+}
+
+.translate-y-custom {
+  transform: translateY(var(--translate-y));
 }

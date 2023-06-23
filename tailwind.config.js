@@ -25,7 +25,15 @@ module.exports = {
         button: '0 0 20px #fff, -10px 0 30px #f0f, 10px 0 30px #0ff;',
       },
       screens: {
-        xs: '450px',
+        '3xl': '1792px',
+        '4xl': '2048px',
+        '5xl': '2304px',
+        '6xl': '2560px',
+        '7xl': '2816px',
+        '8xl': '3072px',
+        '9xl': '3328px',
+        '10xl': '3584px',
+        '11xl': '3840px',
       },
 
       animation: { text: 'text 3s ease infinite', bgGround: 'text 8s ease infinite' },

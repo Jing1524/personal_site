@@ -134,6 +134,7 @@ export default function Home() {
     // Set the initial value on component mount
     if (typeof document !== 'undefined') {
       document.documentElement.style.setProperty('--translate-x', `${projectSliderValue / 5}px`)
+      document.documentElement.style.setProperty('--translate-y', `${-projectSliderValue * 1.5}px`)
     }
   }, [projectSliderValue])
 
@@ -200,15 +201,24 @@ export default function Home() {
                 projectSliderValue={projectSliderValue}
                 hiddenProjectBoxWidth={hiddenProjectBoxWidth}
                 setHiddenProjectBoxWidth={setHiddenProjectBoxWidth}
+                isReverse={isReverse}
               />
               <motion.div
                 className={`flex w-full ${isReverse ? 'flex-col-reverse' : 'flex-col'} hidden-project-wrapper`}
               >
-                <div className="h-[80%] w-full flex flex-col xl:flex-row translate-x-custom">
+                <div
+                  className={`h-[80%] w-full flex flex-col xl:flex-row ${
+                    isReverse ? 'translate-y-custom' : 'translate-x-custom'
+                  }`}
+                >
                   <ContactBox sliderValue={sliderValue} />
                   <SliderBox sliderValue={sliderValue} setSliderValue={setSliderValue} />
                 </div>
-                <div className="flex lg:h-[20%] w-full justify-center lg:items-center mt-4 lg:gap-2 translate-x-custom">
+                <div
+                  className={`flex lg:h-[20%] w-full justify-center lg:items-center mt-4 lg:gap-2 ${
+                    isReverse ? 'translate-y-custom' : 'translate-x-custom'
+                  }`}
+                >
                   {tabletScreen && <RotateButtonBox isReverse={isReverse} setIsReverse={setIsReverse} />}
                   <ModeToggleBox togglePillRef={togglePillRef} sliderValue={sliderValue} />
                 </div>
