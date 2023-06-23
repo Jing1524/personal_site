@@ -191,7 +191,7 @@ export default function Home() {
             {/* Second row left box */}
 
             <motion.div
-              className={`flex flex-col ${browser === 'Chrome' ? 'min-w-[60vw]' : 'min-w-[50vh]'}  lg:basis-7/12`}
+              className={`flex flex-col ${browser === 'Chrome' ? 'min-w-[60vw]' : 'min-w-[50vw]'}  lg:basis-7/12`}
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 2, delay: 0.5 }}

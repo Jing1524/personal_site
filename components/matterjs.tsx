@@ -65,8 +65,8 @@ export default function Matterjs() {
     const renderTextOnPill = (text: string, bgColor: string, radius: number) => {
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')
-      canvas.width = mobileView || tabletView || laptopView ? 80 : 100
-      canvas.height = mobileView || tabletView || laptopView ? 40 : 52
+      canvas.width = mobileView || tabletView || laptopView ? 80 : 90
+      canvas.height = mobileView || tabletView || laptopView ? 40 : 48
       if (context) {
         context.fillStyle = bgColor
         context.fillStyle = bgColor
@@ -112,8 +112,8 @@ export default function Matterjs() {
       const x = Math.random() * constraints?.width
       const y = Math.random() * -constraints?.height
 
-      const pillWidth = mobileView || tabletView || laptopView ? 80 : 100
-      const pillHeight = mobileView || tabletView || laptopView ? 40 : 52
+      const pillWidth = mobileView || tabletView || laptopView ? 80 : 90
+      const pillHeight = mobileView || tabletView || laptopView ? 40 : 48
 
       const chamfer = { radius: 15 }
       const color = colors[i % colors.length]
