@@ -17,7 +17,8 @@ const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
         ref={togglePillRef}
         className={classNames(
           'togglePill h-[70%] w-full border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
-          darkMode ? 'justify-end' : 'justify-start'
+          darkMode ? 'justify-end' : 'justify-start',
+          sliderValue > 1 && 'cursor-not-allowed'
         )}
         style={{ borderWidth: theme.strokeWidth, background: darkMode ? '#29296b' : '#669ff2' }}
         onClick={toggleDarkMode}

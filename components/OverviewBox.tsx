@@ -21,7 +21,6 @@ const OverViewBox = ({ pillsRef, expand, setExpand }: any) => {
         <div className="flex flex-col items-center px-[6vmin] py-[8vmin]">
           <h1 className={`text-[3vmin] font-bold text-[#1e1e1e] mb-[2vmin]`}>Overview.</h1>
           <div className={`${expand ? 'block' : 'hidden'} flex flex-col gap-2`}>
-            {/* ${mobileView ? 'text-[1.5vmin]' : 'text-[1.8vmin]'} */}
             <p className={`text-[#1e1e1e] font-medium text-[2vmin] lg:text-[1.4vmin]`}>
               As a software engineer with a background in design and music, I approach engineering challenges with a
               unique viewpoint on creativity, self-discipline, and teamwork. With two years of experience building and
