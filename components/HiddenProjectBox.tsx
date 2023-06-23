@@ -26,7 +26,7 @@ const HiddenProjectBox = ({ projectSliderValue, setHiddenProjectBoxWidth, slider
         className={`pill ${
           projectSliderValue >= 10 ? 'block' : 'hidden'
         }  border rounded-[100px] border-[#1e1e1e] h-2/3 p-[2rem] rotate-12 ml-[4vmin] mt-[4vmin] ${
-          isReverse && 'another-translate-x-custom'
+          isReverse && 'another-translate-x-custom -mt-[10vmin]'
         }`}
       >
         <div
@@ -107,7 +107,7 @@ const HiddenProjectBox = ({ projectSliderValue, setHiddenProjectBoxWidth, slider
       <div
         style={{ borderWidth: theme.strokeWidth }}
         className={`pill ${projectSliderValue >= 10 ? 'block' : 'hidden'} ${
-          isReverse && 'another-translate-x-custom'
+          isReverse && 'bottom-translate-x-custom mt-[25vmin]'
         }  border border-[#1e1e1e] h-[20%] p-[2rem] -rotate-12 ml-[4vmin] -mt-[.5vmin]`}
       >
         <h3

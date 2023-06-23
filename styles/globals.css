@@ -357,5 +357,9 @@
 }
 
 .another-translate-x-custom {
-  transform: translateX(var(--another-translate-x));
+  transform: rotate(12deg) translateX(var(--another-translate-x));
+}
+
+.bottom-translate-x-custom {
+  transform: rotate(-12deg) translateX(var(--another-translate-x));
 }
