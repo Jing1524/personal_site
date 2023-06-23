@@ -3,7 +3,7 @@ import { ThemeContext } from '@/context/ThemeContext'
 import { motion } from 'framer-motion'
 import { useContext, useRef } from 'react'
 
-const ExperienceToggle = ({ setShowSideBar, showSideBar }: any) => {
+const ExperienceToggle = ({ setShowSideBar, showSideBar, tabletView }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
 
@@ -28,7 +28,7 @@ const ExperienceToggle = ({ setShowSideBar, showSideBar }: any) => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
           </svg>
 
-          <h1 className="text-xl font-bold">See My Experience</h1>
+          <h1 className={`font-bold`}>See My Experience</h1>
         </div>
       </button>
     </div>

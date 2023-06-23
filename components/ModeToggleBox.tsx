@@ -1,5 +1,6 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
+import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
@@ -7,14 +8,15 @@ import { useContext } from 'react'
 const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
   const { darkMode, toggleDarkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
-  console.log({ darkMode })
+  const tabletScreen = useMediaQueryWidth('(min-height:812px)')
+
   return (
-    <div className="flex self-center items-center justify-center for-toggle lg:m-0 lg:w-[50%] box h-full">
+    <div className="flex items-center self-center justify-center mt-5 lg:mt-0 lg:h-full for-toggle basis-1/3 lg:basis-1/2 2xl:basis-1/3 box p-[0.8vh]">
       <button
         disabled={sliderValue > 1}
         ref={togglePillRef}
         className={classNames(
-          'togglePill h-[100px] w-[230px] lg:w-[60%] border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
+          'togglePill h-[70%] w-full border-[#1e1e1e] rounded-full p-[6.25px] flex overflow-hidden relative lg:m-auto',
           darkMode ? 'justify-end' : 'justify-start'
         )}
         style={{ borderWidth: theme.strokeWidth, background: darkMode ? '#29296b' : '#669ff2' }}
@@ -45,10 +47,12 @@ const ModeToggleBox = ({ togglePillRef, sliderValue }: any) => {
                 className="absolute top-[55%] left-[45%] h-[10px] w-[10px] starOne bg-white"
                 variants={childVariants}
               />
-              <motion.div className="moon mr-[20px] mt-1" />
+              <motion.div className={`moon mr-[20px] ${tabletScreen && 'mt-[0.6vmin]'}`} />
             </motion.div>
           ) : (
-            <div className="w-14 h-14 bg-[#FFA500] rounded-full sun ml-[5px] mt-1" />
+            <div
+              className={`w-[5vmin] h-[5vmin] bg-[#FFA500] rounded-full sun ml-[5px] ${tabletScreen && 'mt-[0.6vmin]'}`}
+            />
           )}
         </motion.div>
       </button>

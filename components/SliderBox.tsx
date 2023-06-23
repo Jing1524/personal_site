@@ -1,18 +1,18 @@
 import { useModeToggle } from '@/context/ModeProvider'
 import { ThemeContext } from '@/context/ThemeContext'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
-import { Suspense } from 'react'
-const SliderBox = ({ setSliederValue, sliderValue }: any) => {
+
+const SliderBox = ({ setSliderValue, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
-  const tabletScreen = useMediaQuery('(min-width:1024px)')
+  const tabletScreen = useMediaQueryWidth('(min-width:1280px)')
   const { theme } = useContext(ThemeContext)
 
   return (
     <>
       {tabletScreen ? (
-        <div className="box order-last basis-1/5 p-[0.8vh] h-full">
+        <div className="box h-full p-[0.8vmin] xl:basis-1/5">
           <div
             className={`pill h-full w-[120px] 2xl:w-[150px] border border-[#1e1e1e] rounded-[100px] box-border flex justify-center items-center rounded-[20px] ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'
@@ -33,13 +33,13 @@ const SliderBox = ({ setSliederValue, sliderValue }: any) => {
                 value={sliderValue}
                 className="slider"
                 id="myRange"
-                onChange={(e) => setSliederValue(parseInt(e.target.value))}
+                onChange={(e) => setSliderValue(parseInt(e.target.value))}
               />
             </motion.div>
           </div>
         </div>
       ) : (
-        <div className="box order-first px-[10px] h-[180px] w-full">
+        <div className="box px-[10px] h-[180px] lg:h-[15%] w-full">
           <div
             className={`pill h-full w-full border border-8 lg:border-[12px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
               darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'
@@ -54,7 +54,7 @@ const SliderBox = ({ setSliederValue, sliderValue }: any) => {
                 value={sliderValue}
                 className="sliderMobile"
                 id="myRange"
-                onChange={(e) => setSliederValue(parseInt(e.target.value))}
+                onChange={(e) => setSliderValue(parseInt(e.target.value))}
               />
             </div>
           </div>

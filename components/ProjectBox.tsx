@@ -1,98 +1,205 @@
 import Image from 'next/image'
 import { useModeToggle } from '@/context/ModeProvider'
 import { motion } from 'framer-motion'
-import { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'
-import useMediaQuery from '@/hooks/useMediaQuery'
-
-const ProjectBox = ({ expand }: any) => {
+import { useMediaQuery, useMediaQueryWidth } from '@/hooks/useMediaQuery'
+import HiddenProjectBox from '@/components/HiddenProjectBox'
+const ProjectBox = ({ expand, projectSliderValue, setProjectSliderValue, sliderValue }: any) => {
   const { darkMode } = useModeToggle()
   const { theme } = useContext(ThemeContext)
-  const tabletScreen = useMediaQuery('(max-height:800px)')
+  const tabletView = useMediaQueryWidth('(min-width:1024px)')
 
   return (
-    <div className={`flex flex-col ${expand ? 'hidden' : 'block'}`}>
-      <div className={`w-full ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} box p-[0.8vh]`}>
+    <div className={`flex flex-col md:flex-row lg:flex-col basis-1/2 ${expand ? 'block lg:hidden' : 'block'} `}>
+      <div className="w-full box p-[10px] h-1/2 md:h-full lg:h-1/2 xl:h-full">
         <div
-          className={`overflow-hidden pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center basis-1/3`}
+          className={`pill w-full h-full border rounded-[100px] box-border flex flex-row md:flex-col lg:flex-col gap-[1vmin] bg-[#5a6191] p-[2rem] justify-center`}
           style={{ borderWidth: theme.strokeWidth }}
         >
-          <div className="relative flex flex-col items-center h-full group">
-            <p className="absolute font-bold font-lg text-[#1e1e1e] z-[50] mt-4">Pineapple workshop</p>
+          <div className="flex flex-col w-full ml-3">
+            <p
+              className={`font-bold text-[2.2vmin] lg:text-[1.2vmin] xl:text-[2vmin] ${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              } `}
+            >
+              Recent Project:
+            </p>
+            <p
+              className={`font-medium text-[2vmin] lg:text-[1vmin] xl:text-[2vmin] ${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              }`}
+            >
+              Yet Another Music App
+            </p>
 
-            <a href="https://pineappleworkshop.com" target="_blank">
-              <img
-                src="/images/pineapple-site.png"
-                alt="pineapple project"
-                className={`object-fit ${darkMode ? 'opacity-70' : 'opacity-80'} `}
-              />
+            <a
+              href="https://yama-one.vercel.app"
+              target="_blank"
+              className={`mt-[.6vmin] ${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              } hover:underline font-medium text-[2vmin] lg:text-[1vmin] xl:text-[2vmin]`}
+            >
+              yama-one.vercel.app
             </a>
-
-            <div className="absolute bg-[#fff]/90 w-full bottom-0 h-[20%] p-2 lg:p-4">
-              <div className="flex justify-center w-full gap-2">
-                <p className="text-[1.5vw] lg:text-[0.8vw] font-bold">Teck Stack:</p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x-2 min-h-[36px] flex justify-center">
-                  Next.js
-                </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center">
-                  Contentful
-                </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center">Tailwind</p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center">
-                  Framer Motion
-                </p>
-              </div>
-            </div>
+            <button
+              className={`w-[30%] lg:w-[50%] py-[.4vmin] mt-[1vmin] border rounded-lg border-1 ${
+                darkMode || sliderValue > 5 ? 'border-[#1e1e1e]' : 'border-[#CDDAFD]'
+              }  hover:bg-[#1e1e1e]/20`}
+            >
+              <a
+                href="https://github.com/Jing1524/yet-another-music-app"
+                target="_blank"
+                className={`${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                } font-bold text-[2.2vmin] lg:text-[2vmin]`}
+              >
+                Github
+              </a>
+            </button>
           </div>
-        </div>
-      </div>
 
-      <div className={`w-full ${tabletScreen ? 'h-[50%]' : 'h-[40%]'} box p-[10px]`}>
-        <div
-          className={`pill w-full h-full border rounded-[100px] box-border overflow-hidden flex justify-center items-center bg-[#5a6191] `}
-          style={{ borderWidth: theme.strokeWidth }}
-        >
-          <div className="relative flex flex-col items-center h-full group">
-            <div className="absolute flex items-center justify-center mt-4 z-[50] w-full">
-              <p className="font-bold font-lg text-[#fff] ">Yet Another Music App</p>
-              <p className="ml-2 bg-[#fff] rounded-full p-2 self-end">
-                <a href="https://github.com/Jing1524/yet-another-music-app" target="_blank">
-                  Github
-                </a>
+          <div className="flex flex-col lg:flex-row w-full xl:mt-[2vw] ml-3">
+            <p
+              className={`${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              } text-[2vmin] lg:text-[1vmin] xl:text-[2vmin] font-bold basis-1/2 2xl:basis-1/3`}
+            >
+              Teck stack:
+            </p>
+            <div className="flex flex-col gap-2 mt-[3px]">
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                Next.js
+              </p>
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                Redux Toolkit for state management
+              </p>
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                Tailwind for styling
+              </p>
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                RapidAPI for data
               </p>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <a href="https://yama-one.vercel.app" target="_blank">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/music-player.png"
-                alt="music player project"
-                className={`object-cover ${darkMode ? 'opacity-70' : 'opacity-50'} `}
-              />
+      <div className="w-full box p-[10px] h-1/2 md:h-full lg:h-1/2 xl:hidden">
+        <div
+          className={`pill w-full h-full border rounded-[100px] box-border flex flex-row md:flex-col lg:flex-col gap-[1vmin] p-[2rem] justify-center`}
+          style={{ borderWidth: theme.strokeWidth }}
+        >
+          <div className="flex flex-col w-full ml-3">
+            <p
+              className={`font-bold text-[2.2vmin] lg:text-[1.2vmin] xl:text-[2vmin] ${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              } `}
+            >
+              Previous work:
+            </p>
+            <p
+              className={`font-medium text-[2vmin] lg:text-[1vmin] xl:text-[2vmin] ${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              }`}
+            >
+              Pineapple Workshop
+            </p>
+            <a
+              href="https://pineappleworkshop.com"
+              target="_blank"
+              className={`mt-[.6vmin] ${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              } hover:underline font-medium text-[2vmin] lg:text-[1vmin] xl:text-[2vmin]`}
+            >
+              pineappleworkshop.com
             </a>
+          </div>
 
-            <div className="absolute bg-[#fff]/90 w-full bottom-0 h-[20%] p-2 lg:p-4">
-              <div className="flex justify-center w-full gap-2">
-                <p className="text-[1.5vw] lg:text-[0.8vw] font-bold">Teck Stack:</p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] divide-x-2 min-h-[36px] flex justify-center">
-                  Next.js
-                </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center ">
-                  Redux Toolkit
-                </p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center">Tailwind</p>
-                <p className="font-semibold text-[1.5vw] lg:text-[0.8vw] min-h-[36px] flex justify-center">RapidAPI</p>
-              </div>
+          <div className="flex flex-col lg:flex-row w-full xl:mt-[2vw] ml-3">
+            <p
+              className={`${
+                darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+              } text-[2vmin] lg:text-[1vmin] xl:text-[2vmin] font-bold basis-1/2 2xl:basis-1/3`}
+            >
+              Teck stack:
+            </p>
+            <div className="flex flex-col gap-2">
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                Next.js
+              </p>
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                React context hook for state management
+              </p>
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                Tailwind for styling
+              </p>
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                Framer motion for animation
+              </p>
+              <p
+                className={`text-[2vmin] lg:text-[1vmin] xl:text-[1.8vmin] font-medium ${
+                  darkMode || sliderValue > 5 ? 'text-[#1e1e1e]' : 'text-[#CDDAFD]'
+                }`}
+              >
+                Contentful for data hosting
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <div className={`w-full h-[20%] box p-[10px] ${tabletScreen ? 'hidden' : 'block'}`}>
+
+      {/* slider  */}
+      <div className="box order-last p-[10px] h-[20%] w-full hidden xl:block">
         <div
-          className={`pill w-full h-full border rounded-[100px] border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center bg-[#e6abbe] basis-1/3`}
+          className={`pill h-full w-full border border-[#1e1e1e] box-border rounded-[20px] flex justify-center items-center ${
+            darkMode ? 'bg-[#E59394]' : 'bg-[#EAC7C7]'
+          }`}
           style={{ borderWidth: theme.strokeWidth }}
         >
-          <h1 className="font-bold">Coming Soon...</h1>
+          <div className="flex items-center w-full px-6">
+            <input
+              type="range"
+              min="0"
+              max="900"
+              value={projectSliderValue}
+              className="projectSlider"
+              id="myRange"
+              onChange={(e) => setProjectSliderValue(parseInt(e.target.value))}
+            />
+          </div>
         </div>
       </div>
     </div>

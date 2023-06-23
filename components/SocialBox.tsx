@@ -3,6 +3,7 @@ import Lottie from 'react-lottie'
 import kittyAnimate from '../assets/lottie/kitty.json'
 import { useContext } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'
+import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 
 const defaultOptions = {
   loop: true,
@@ -10,9 +11,9 @@ const defaultOptions = {
   animationData: kittyAnimate,
 }
 
-const SocialBox = ({ tabletScreen }: any) => {
+const SocialBox = () => {
   const { theme } = useContext(ThemeContext)
-
+  const tabletScreen = useMediaQueryWidth('(min-width:1024px)')
   return (
     <div className="h-full lg:basis-1/4 p-[0.8vh] box">
       {tabletScreen ? (
@@ -36,11 +37,11 @@ const SocialBox = ({ tabletScreen }: any) => {
           </div>
 
           <div
-            className="pill border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
+            className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
             style={{ borderWidth: theme.strokeWidth }}
           >
             <a href="">
-              <div className="h-[12.8vh] w-[12vw]">
+              <div className="h-[12.6vh] w-[12vw]">
                 <Lottie options={defaultOptions} />
               </div>
             </a>

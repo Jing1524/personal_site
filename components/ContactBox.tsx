@@ -4,12 +4,13 @@ import { motion } from 'framer-motion'
 import { useContext, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { ThemeContext } from '@/context/ThemeContext'
-import useMediaQuery from '@/hooks/useMediaQuery'
+import { useMediaQuery, useMediaQueryWidth } from '@/hooks/useMediaQuery'
 
 const ContactBox = ({ sliderValue }: any) => {
   const { theme } = useContext(ThemeContext)
-  const tabletHeight = useMediaQuery('(max-height:1115px)')
-  const SmTabletHeight = useMediaQuery('(max-height:990px)')
+  const laptopView = useMediaQueryWidth('(max-height:800px)')
+  const anotherScreenView = useMediaQueryWidth('(max-height:1000px)')
+
   const { darkMode } = useModeToggle()
   const formRef = useRef()
   const [form, setForm] = useState({
@@ -57,17 +58,18 @@ const ContactBox = ({ sliderValue }: any) => {
       )
   }
   return (
-    <div className="basis-4/5 contact p-[0.8vh] box">
+    <div className="lg:h-[90%] contact p-[0.8vh] box xl:basis-4/5 xl:h-full">
       <div
         className={`pill h-full w-full border border-[#1e1e1e] rounded-[100px] box-border rounded-[20px] flex justify-center items-center p-[3vh]`}
         style={{ borderWidth: theme.strokeWidth }}
       >
-        <div className={`flex flex-col w-full h-full ${SmTabletHeight ? 'gap-[1vh]' : 'gap-[2vh]'}`}>
-          <h3 className="text-[3vh] font-black text-[#1e1e1e]">Get in touch.</h3>
+        {/*  ${SmTabletHeight ? 'gap-[1vh]' : 'gap-[2vh]'} */}
+        <div className={`flex flex-col w-full h-full`}>
+          <h3 className="text-[2vmin] font-bold text-[#1e1e1e] self-center mb-[2vmin]">Get in touch.</h3>
           {/* @ts-ignore */}
           <form ref={formRef} className="flex flex-col" onSubmit={HandleSubmit}>
-            <label className="flex flex-col mb-[2vh]">
-              <span className="mb-[1vh] text-[1.7vh] font-medium text-[#1e1e1e]">Your Name</span>
+            <label className="flex flex-col mb-[2vmin]">
+              <span className="mb-[1vmin] text-[1.5vmin] xl:text-[1.8vmin] font-medium text-[#1e1e1e]">Your Name</span>
 
               <input
                 type="text"
@@ -76,15 +78,15 @@ const ContactBox = ({ sliderValue }: any) => {
                 onChange={handleChange}
                 placeholder="what's your name?"
                 className={classNames(
-                  'px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
+                  'px-[2vmin] py-[1vmin] font-medium border-none rounded-lg outlined-none',
                   darkMode || sliderValue > 9
-                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white'
-                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
+                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white placeholder:text-[2vmin] lg:placeholder:text-[1.8vmin]'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[2vmin] lg:placeholder:text-[1.8vmin]'
                 )}
               />
             </label>
-            <label className="flex flex-col mb-[2vh]">
-              <span className="mb-[1vh] text-[1.7vh] font-medium text-[#1e1e1e]">Your email</span>
+            <label className="flex flex-col mb-[2vmin]">
+              <span className="mb-[1vmin] text-[1.5vmin] xl:text-[1.8vmin] font-medium text-[#1e1e1e]">Your email</span>
 
               <input
                 type="email"
@@ -93,34 +95,36 @@ const ContactBox = ({ sliderValue }: any) => {
                 placeholder="what's your email?"
                 onChange={handleChange}
                 className={classNames(
-                  ' px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
+                  'px-[2vmin] py-[1vmin] font-medium border-none rounded-lg outlined-none',
                   darkMode || sliderValue > 9
-                    ? 'bg-[#1e1e1e] p placeholder:text-secondary text-white'
-                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black'
+                    ? 'bg-[#1e1e1e] p placeholder:text-secondary text-white placeholder:text-[2vmin] lg:placeholder:text-[1.8vmin]'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[2vmin] lg:placeholder:text-[1.8vmin]'
                 )}
               />
             </label>
-            <label className="flex flex-col mb-[2vh]">
-              <span className="mb-[1vh] text-[1.7vh] font-medium text-[#1e1e1e]">Your Message</span>
+            <label className="flex flex-col mb-[2vmin]">
+              <span className="mb-[1vmin] text-[1.5vmin] xl:text-[1.8vmin] font-medium text-[#1e1e1e]">
+                Your Message
+              </span>
 
               <textarea
-                rows={tabletHeight ? (SmTabletHeight ? 3 : 5) : 7}
+                rows={laptopView ? 2 : anotherScreenView ? 4 : 8}
                 name="message"
                 value={form.message}
                 placeholder="&#128075;"
                 onChange={handleChange}
                 className={classNames(
-                  'px-4 py-[1vh] font-medium border-none rounded-lg outlined-none',
+                  'px-[2vmin] py-[1vmin] font-medium border-none rounded-lg outlined-none',
                   darkMode || sliderValue > 9
-                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white placeholder:text-[24px]'
-                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[24px]'
+                    ? 'bg-[#1e1e1e] placeholder:text-secondary text-white placeholder:text-[2vmin]'
+                    : 'bg-[#f6f5f3] placeholder:text-secondary text-black placeholder:text-[2vmin]'
                 )}
               />
             </label>
             <button
               type="submit"
               className={classNames(
-                'mt-[2vh] text-black self-center px-8 py-[1vh] font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
+                'mt-[1vmin] text-black self-center px-[2vmin] py-[1vmin] font-bold outline-none w-fit shadow-2xl rounded-xl hover:shadow-button hover:scale-[1.05] transition hover:duration-300 hover:ease-in-out',
                 darkMode && 'bg-[#1e1e1e] text-white'
               )}
             >
