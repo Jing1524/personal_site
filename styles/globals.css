@@ -364,7 +364,7 @@
   transform: rotate(-12deg) translateX(var(--another-translate-x));
 }
 
-/* .first-Hidden-Box-Margin {
+.first-Hidden-Box-Margin {
   @media only screen and (min-height: 640px) {
     margin-top: -19vmin;
   }
@@ -375,7 +375,7 @@
     margin-top: -5vmin;
   }
 }
-
+/* 
 .second-Hidden-Box-Margin {
   @media only screen and (min-height: 640px) {
     margin-top: 55vmin;
