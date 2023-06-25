@@ -46,7 +46,7 @@ const OverViewBox = ({ pillsRef, expand, setExpand }: any) => {
               className="flex flex-col items-center mt-4 mt-auto lg:flex-row intro"
               onClick={() => setExpand(!expand)}
             >
-              <p className="text-[#1e1e1e] font-bold">Hover To See More</p>
+              <p className="text-[#1e1e1e] font-bold">See More</p>
 
               <div className="mt-4 -rotate-90 lg:mt-0 lg:ml-4 lg:rotate-180 arrow right-expand-arrow ">
                 <svg
