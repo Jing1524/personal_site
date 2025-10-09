@@ -1,15 +1,10 @@
 import Image from 'next/image'
-import Lottie from 'react-lottie'
+import Lottie from 'lottie-react'
 import kittyAnimate from '../assets/lottie/kitty.json'
 import { useContext } from 'react'
 import { ThemeContext } from '@/context/ThemeContext'
 import { useMediaQueryWidth } from '@/hooks/useMediaQuery'
 
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: kittyAnimate,
-}
 
 const SocialBox = () => {
   const { theme } = useContext(ThemeContext)
@@ -40,11 +35,7 @@ const SocialBox = () => {
             className="pill h-full w-full border box-border border-[#1e1e1e] rounded-[100px] hidden-pill social kitty bg-[#5a6191]"
             style={{ borderWidth: theme.strokeWidth }}
           >
-            <a href="">
-              <div className="h-[12.6vh] w-[12vw]">
-                <Lottie options={defaultOptions} />
-              </div>
-            </a>
+                <Lottie animationData={kittyAnimate} loop autoplay className="h-32 mb-2"/>
           </div>
         </div>
       ) : (
@@ -58,7 +49,7 @@ const SocialBox = () => {
 
             <div className="pill relative w-28 h-28 circle hidden-pill social instagram LinkedIn bg-[#5a6191]">
               <a href="">
-                <Lottie options={defaultOptions} height={100} width={80} />
+                <Lottie animationData={kittyAnimate} loop autoplay className="h-28 mb-2"/>
               </a>
             </div>
 
