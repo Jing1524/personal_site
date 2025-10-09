@@ -87,7 +87,7 @@ export default function SideBarWorkExperience({ showSideBar, setShowSideBar }: a
         <Link
           className={`z-50 mr-8 py-2 px-10 border border-4 rounded-full max-w-[200px] font-bold bg-[#eae0d7] text-[#1e1e1e] border-[#1e1e1e]
         `}
-          href="https://drive.google.com/file/d/1EjuoUpqehKWLfxlwkn4-qF1teaRYh0gx/view?usp=sharing"
+          href="https://drive.google.com/file/d/1e_Wt-vtULzQwurG4GWeR1ioPA-w7F_0Z/view?usp=sharing"
           target="_blank"
         >
           Full Resume
